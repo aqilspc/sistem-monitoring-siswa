@@ -22,3 +22,6 @@ Route::get('/master', function () {
 Route::get('/home', function () {
     return view('admin.home');
 });
+Route::get('/login', function () {
+    return view('admin.DataKebijakan.index');
+});

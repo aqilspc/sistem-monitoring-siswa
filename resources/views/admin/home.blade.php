@@ -8,47 +8,36 @@
 
         <!-- Widgets -->
         <div class="row clearfix">
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                 <div class="info-box bg-pink hover-expand-effect">
                     <div class="icon">
                         <i class="material-icons">playlist_add_check</i>
                     </div>
                     <div class="content">
-                        <div class="text">NEW TASKS</div>
+                        <div class="text">KEGIATAN BARU</div>
                         <div class="number count-to" data-from="0" data-to="125" data-speed="15" data-fresh-interval="20"></div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                 <div class="info-box bg-cyan hover-expand-effect">
                     <div class="icon">
-                        <i class="material-icons">help</i>
+                        <i class="material-icons">attach_money</i>
                     </div>
                     <div class="content">
-                        <div class="text">NEW TICKETS</div>
+                        <div class="text">TAGIHAN BARU</div>
                         <div class="number count-to" data-from="0" data-to="257" data-speed="1000" data-fresh-interval="20"></div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                 <div class="info-box bg-light-green hover-expand-effect">
                     <div class="icon">
-                        <i class="material-icons">forum</i>
+                        <i class="material-icons">library_books</i>
                     </div>
                     <div class="content">
-                        <div class="text">NEW COMMENTS</div>
+                        <div class="text">ABSENSI BARU</div>
                         <div class="number count-to" data-from="0" data-to="243" data-speed="1000" data-fresh-interval="20"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box bg-orange hover-expand-effect">
-                    <div class="icon">
-                        <i class="material-icons">person_add</i>
-                    </div>
-                    <div class="content">
-                        <div class="text">NEW VISITORS</div>
-                        <div class="number count-to" data-from="0" data-to="1225" data-speed="1000" data-fresh-interval="20"></div>
                     </div>
                 </div>
             </div>
@@ -58,7 +47,24 @@
         <div class="row clearfix">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="card">
-                   @yield('content')
+                    <div class="header bg-cyan">
+                        <h3>
+                           VISI MISI SMK N 1 Pasuruan
+                        </h3>
+                        
+                    </div>
+                    <div class="body">
+                        Visi SMK Negeri 1 Pasuruan<br>
+                        Terwujudnya insan yang berakhlak mulia, kreatif, inovatif, mandiri, dan peduli lingkungan.<br><br>
+                        Misi SMK Negeri 1 Pasuruan <br>
+                        1. Meningkatkan Nilai Keimanan dan Ketaqwaan kepada Tuhan Yang Maha Esa<br>
+                        2. Menumbuhkembangkan Jiwa Nasionalisme<br>
+                        3. Meningkatkan Prestasi dalam Ilmu Pengetahuan, Teknologi, Seni Budaya dan Olahraga<br>
+                        4. Menumbuhkembangkan Kreatifitas, Inovatif dan Produktifitas dalam Peningkatan Mutu Pendidikan<br>
+                        5. Menumbuhkembangkan Kemandirian<br>
+                        6. Menanamkan sikap pelestarian Lingkungan, Pencegahan Terjadinya  Pencemaran dan  Kerusakan Lingkungan
+                    </div>
+                </div>
                 </div>
             </div>
         </div>

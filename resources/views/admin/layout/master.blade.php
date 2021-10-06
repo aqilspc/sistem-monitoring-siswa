@@ -53,30 +53,17 @@
     <!-- Overlay For Sidebars -->
     <div class="overlay"></div>
     <!-- #END# Overlay For Sidebars -->
-    <!-- Search Bar -->
-    <div class="search-bar">
-        <div class="search-icon">
-            <i class="material-icons">search</i>
-        </div>
-        <input type="text" placeholder="START TYPING...">
-        <div class="close-search">
-            <i class="material-icons">close</i>
-        </div>
-    </div>
-    <!-- #END# Search Bar -->
+    
     <!-- Top Bar -->
     <nav class="navbar">
         <div class="container-fluid">
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
                 <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" href="index.html">SISTEM MONITORING - SMK Negeri 1 Pasuruan</a>
+                <a class="navbar-brand" href="index.html">SMK NEGERI 1 MALANG</a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <!-- Call Search -->
-                    <li><a href="javascript:void(0);" class="js-search" data-close="true"><i class="material-icons">search</i></a></li>
-                    <!-- #END# Call Search -->
                     <!-- Notifications -->
                     <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
@@ -108,7 +95,6 @@
                         </ul>
                     </li>
                     <!-- #END# Notifications -->
-                    <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">more_vert</i></a></li>
                 </ul>
             </div>
         </div>
@@ -153,7 +139,7 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="pages/tables/normal-tables.html">Siswa</a>
+                                <a href="admin/DataSiswa/index.blade.php">Siswa</a>
                             </li>
                             <li>
                                 <a href="pages/tables/jquery-datatable.html">Kehadiran</a>
@@ -174,7 +160,7 @@
                     </li>
                     <li>
                         <a href="javascript:void(0);">
-                            <i class="material-icons">perm_media</i>
+                            <i class="material-icons">gavel</i>
                             <span>Kebijakan</span>
                         </a>
                     </li>                  
@@ -193,19 +179,7 @@
             <!-- #Footer -->
         </aside>
         <!-- #END# Left Sidebar -->
-        <!-- Right Sidebar -->
-        <aside id="rightsidebar" class="right-sidebar">
-            <div class="tab-content">
-                <div role="tabpanel" class="tab-pane fade in active in active" id="skins">
-                    <ul class="demo-choose-skin">
-                        <li data-theme="red" >
-                            <span>Logout</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </aside>
-        <!-- #END# Right Sidebar -->
+        
     </section>
     @yield('content')
     
