@@ -22,6 +22,9 @@ Route::get('/master', function () {
 Route::get('/home', function () {
     return view('admin.home');
 });
-Route::get('/login', function () {
-    return view('admin.DataKebijakan.index');
+Route::get('/user', function () {
+    return view('user.page.AfterLogin');
+});
+Route::get('/coba', function () {
+    return view('user.page.login');
 });

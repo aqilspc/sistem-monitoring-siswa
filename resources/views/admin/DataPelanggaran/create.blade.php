@@ -25,6 +25,12 @@
                                     <input type="text" id="nis" class="form-control" placeholder="Nama">
                                 </div>
                             </div>
+                            <label for="tanggal">TANGGAL</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="date" id="nama_siswa" class="form-control" placeholder="tanggal">
+                                </div>
+                            </div>
                             <label for="status">STATUS</label>
                             <div class="form-group">
                                 <div class="demo-radio-button">

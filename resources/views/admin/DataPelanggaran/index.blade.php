@@ -27,6 +27,7 @@
                                     <tr role="row">
                                     <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 10.333px;" aria-sort="ascending" aria-label="No: activate to sort column descending">No</th>
                                     <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 90.333px;" aria-label="Nama: activate to sort column ascending">Nama</th>
+                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 90.333px;" aria-label="Nama: activate to sort column ascending">Tanggal</th>
                                     <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 90.3333px;" aria-label="NIS: activate to sort column ascending">Jenis</th>
                                     <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 90.3333px;" aria-label="Nama Wali: activate to sort column ascending">Pelanggaran</th>
                                     <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 83.3333px;" aria-label="Action: activate to sort column ascending">Action</th></tr>
@@ -36,6 +37,7 @@
                                 <tr role="row" class="odd">
                                         <td class="sorting_1">1</td>
                                         <td>Airi Satou</td>
+                                        <td>09-09-2021</td>
                                         <td>Ringan</td>
                                         <td>Tidak Memakai Dasi</td>
                                         <td>
@@ -47,6 +49,7 @@
                                 </tr><tr role="row" class="even">
                                         <td class="sorting_1">2</td>
                                         <td>Angelica Ramos</td>
+                                        <td>09-09-2021</td>
                                         <td>Ringan</td>
                                         <td>Tidak Memakai Dasi</td>
                                         <td><div class="icon">

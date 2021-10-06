@@ -41,6 +41,17 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4">
+                                    <b>Tanggal</b>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="material-icons">date_range</i>
+                                        </span>
+                                        <div class="form-line">
+                                            <input type="date" class="form-control time12" value="tanggal">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
                                     <b>Pelanggaran</b>
                                     <div class="input-group">
                                         <span class="input-group-addon">
