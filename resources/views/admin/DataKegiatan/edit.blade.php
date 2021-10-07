@@ -15,71 +15,42 @@
                         </h2>
                     </div>
                     <div class="body">
-                        <form enctype="multipart/form-data">
-                        <div class="demo-masked-input">
-                            <div class="row clearfix">
-                                <div class="col-md-4">
-                                    <b>ID</b>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="material-icons">vpn_key</i>
-                                        </span>
-                                        <div class="form-line">
-                                            <input type="text" class="form-control date" value="id">
-                                        </div>
-                                    </div>
+                          <form enctype="multipart/form-data" method="POST" action="{{url('admin/kegiatan/update/'.$data->id_kegiatan)}}">
+                            @csrf
+                            
+                            <label for="nama_kegiatan">NAMA KEGIATAN</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" name="nama_kegiatan" class="form-control" placeholder="nama kegiatan" value="{{$data->nama_kegiatan}}">
                                 </div>
-                                <div class="col-md-4">
-                                    <b>Nama Kegiatan</b>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="material-icons">account_box</i>
-                                        </span>
-                                        <div class="form-line">
-                                            <input type="text" class="form-control time24" value="Nama Kegiatan">
-                                        </div>
-                                    </div>
+                            </div>
+                            <label for="gambar">GAMBAR</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="file" name="gambar" class="form-control" placeholder="gambar">
+                                    <input type="hidden" value="{{$data->gambar}}" name="old_gambar">
                                 </div>
-                                <div class="col-md-4">
-                                    <b>Tanggal</b>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="material-icons">date_range</i>
-                                        </span>
-                                        <div class="form-line">
-                                            <input type="date" class="form-control time12" value="tanggal">
-                                        </div>
-                                    </div>
+                                 <small>Upload ulang bila ada perubahan gambar</small>
+                            </div>
+                            <label for="keterangan">ISI</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <textarea id="alamat" class="form-control summernote" name="keterangan" >
+                                        {{$data->keterangan}}
+                                   </textarea>
                                 </div>
-                                <div class="col-md-4">
-                                    <b>Keterangan</b>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="material-icons">dvr</i>
-                                        </span>
-                                        <div class="form-line">
-                                            <input type="text" class="form-control datetime" value="Keterangan">
-                                        </div>
-                                    </div>
+
+                            </div>
+                            <label for="tanggal">TANGGAL</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="date" name="tanggal"  class="form-control" placeholder="tanggal"
+                                    value="{{$data->tanggal}}">
                                 </div>
-                                <div class="col-md-4">
-                                    <b>Gambar</b>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="material-icons">insert_photo</i>
-                                        </span>
-                                        <div class="form-line">
-                                            <input type="file" class="form-control mobile-phone-number" value="wali murid">
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                
                             </div>
                             <div>
-                                <button type="button" class="btn btn-primary .p-r-30 .margin-15 center-block" style="width: 100px"  >EDIT</button>
+                            <button type="submit" class="btn btn-primary center-block" >UPDATE</button>
                             </div>
-                        </div>
                         </form>
                     </div>
                 </div>
@@ -87,4 +58,15 @@
         </div>
     </div>
 </section>
+    <script src="{{url('plugins/jquery/jquery.min.js')}}"></script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('.summernote').summernote({
+        tabsize: 2,
+        height: 200
+    });
+});
+    </script>
 @endsection

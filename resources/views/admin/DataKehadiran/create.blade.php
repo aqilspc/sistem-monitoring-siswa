@@ -17,7 +17,8 @@
                         
                     </div>
                     <div class="body">
-                        <form>
+                         <form enctype="multipart/form-data" method="POST" action="{{url('admin/kehadiran/create')}}">
+                            @csrf
                             
                             <label for="nis">NAMA</label>
                             <div class="form-group">
@@ -53,7 +54,7 @@
                             </div>
                             
                             <div>
-                            <button type="button" class="btn btn-primary center-block" >SUBMIT</button>
+                            <button type="submit" class="btn btn-primary center-block" >SUBMIT</button>
                             </div>
                         </form>
                     </div>

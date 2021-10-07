@@ -14,7 +14,7 @@
                         <i class="material-icons">playlist_add_check</i>
                     </div>
                     <div class="content">
-                        <div class="text">KEGIATAN BARU</div>
+                        <div class="text">TOTAL KEGIATAN</div>
                         <div class="number count-to" data-from="0" data-to="125" data-speed="15" data-fresh-interval="20"></div>
                     </div>
                 </div>
@@ -25,7 +25,7 @@
                         <i class="material-icons">attach_money</i>
                     </div>
                     <div class="content">
-                        <div class="text">TAGIHAN BARU</div>
+                        <div class="text">TOTAL TAGIHAN</div>
                         <div class="number count-to" data-from="0" data-to="257" data-speed="1000" data-fresh-interval="20"></div>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
                         <i class="material-icons">library_books</i>
                     </div>
                     <div class="content">
-                        <div class="text">ABSENSI BARU</div>
+                        <div class="text">DATA KEHADIRAN</div>
                         <div class="number count-to" data-from="0" data-to="243" data-speed="1000" data-fresh-interval="20"></div>
                     </div>
                 </div>

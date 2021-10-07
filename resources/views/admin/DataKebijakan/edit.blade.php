@@ -15,46 +15,40 @@
                         </h2>
                     </div>
                     <div class="body">
-                        <form enctype="multipart/form-data">
+                        <form enctype="multipart/form-data" method="POST" action="{{url('admin/kebijakan/update/'.$data->id_kebijakan)}}">
+                            @csrf
                         <div class="demo-masked-input">
                             <div class="row clearfix">
                                 <div class="col-md-4">
-                                    <b>ID</b>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="material-icons">vpn_key</i>
-                                        </span>
-                                        <div class="form-line">
-                                            <input type="text" class="form-control date" value="id">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <b>Nama</b>
+                                    <b>NAMA KEBIJAKAN</b>
                                     <div class="input-group">
                                         <span class="input-group-addon">
                                             <i class="material-icons">account_box</i>
                                         </span>
                                         <div class="form-line">
-                                            <input type="text" class="form-control time24" value="nama Kebijakan">
+                                            <input type="text" class="form-control time24" value="{{$data->nama_kebijakan}}" required name="nama_kebijakan">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <b>Keterangan</b>
+                                    <b>FILE KEBIJAKAN</b>
                                     <div class="input-group">
                                         <span class="input-group-addon">
                                             <i class="material-icons">dvr</i>
                                         </span>
                                         <div class="form-line">
-                                            <input type="file" class="form-control time12" value="nama">
+                                            <input type="file" class="form-control time12" >
+                                             <input type="hidden" class="form-control time12" name="old_file_kebijakan" value="{{$data->file_kebijakan}}">
+                                            
                                         </div>
+                                        <small>Upload file jika ada perubahan</small>
                                     </div>
+
                                 </div>
                                
                             </div>
                             <div>
-                                <button type="button" class="btn btn-primary .p-r-30 .margin-15 center-block" style="width: 100px"  >EDIT</button>
+                                <button type="submit" class="btn btn-primary .p-r-30 .margin-15 center-block" style="width: 100px"  >Update</button>
                             </div>
                         </div>
                         </form>

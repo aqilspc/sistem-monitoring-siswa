@@ -17,7 +17,8 @@
                         
                     </div>
                     <div class="body">
-                        <form>
+                         <form enctype="multipart/form-data" method="POST" action="{{url('admin/siswa/create')}}">
+                            @csrf
                             
                             <label for="nis">NIS</label>
                             <div class="form-group">
@@ -50,7 +51,7 @@
                                 </div>
                             </div>
                             <div>
-                            <button type="button" class="btn btn-primary center-block" >SUBMIT</button>
+                            <button type="submit" class="btn btn-primary center-block" >SUBMIT</button>
                             </div>
                         </form>
                     </div>

@@ -17,22 +17,22 @@
                         
                     </div>
                     <div class="body">
-                        <form enctype="multipart/form-data">
-                            
+                        <form enctype="multipart/form-data" method="POST" action="{{url('admin/kebijakan/create')}}">
+                            @csrf
                             <label for="nama_kebijakan">NAMA KEBIJAKAN</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" id="nama_kegiatan" class="form-control" placeholder="nama kebijakan">
+                                    <input type="text" id="nama_kegiatan" class="form-control" placeholder="nama kebijakan" name="nama_kebijakan">
                                 </div>
                             </div>
                             <label for="file_kebijakan">FILE KEBIJAKAN</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="file" id="nis" class="form-control" placeholder="file kebijakan">
+                                    <input type="file" name="file_kebijakan" id="nis" class="form-control" placeholder="file kebijakan">
                                 </div>
                             </div>
                             <div>
-                            <button type="button" class="btn btn-primary center-block" >SUBMIT</button>
+                            <button type="submit" class="btn btn-primary center-block" >SUBMIT</button>
                             </div>
                         </form>
                     </div>

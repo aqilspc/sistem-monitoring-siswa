@@ -17,34 +17,36 @@
                         
                     </div>
                     <div class="body">
-                        <form enctype="multipart/form-data">
+                        <form enctype="multipart/form-data" method="POST" action="{{url('admin/kegiatan/create')}}">
+                            @csrf
                             
                             <label for="nama_kegiatan">NAMA KEGIATAN</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" id="nama_kegiatan" class="form-control" placeholder="nama kegiatan">
+                                    <input type="text" name="nama_kegiatan" class="form-control" placeholder="nama kegiatan">
                                 </div>
                             </div>
                             <label for="gambar">GAMBAR</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="file" id="nis" class="form-control" placeholder="gambar">
+                                    <input type="file" name="gambar" class="form-control" placeholder="gambar">
                                 </div>
                             </div>
-                            <label for="keterangan">KETERANGAN</label>
+                            <label for="keterangan">ISI</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="double" id="nis" class="form-control" placeholder="keterangan">
+                                    <textarea id="alamat" class="form-control summernote" name="keterangan" >
+                                   </textarea>
                                 </div>
                             </div>
                             <label for="tanggal">TANGGAL</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="date" id="nis" class="form-control" placeholder="tanggal">
+                                    <input type="date" name="tanggal"  class="form-control" placeholder="tanggal">
                                 </div>
                             </div>
                             <div>
-                            <button type="button" class="btn btn-primary center-block" >SUBMIT</button>
+                            <button type="submit" class="btn btn-primary center-block" >SUBMIT</button>
                             </div>
                         </form>
                     </div>
@@ -55,4 +57,15 @@
         
     </div>
 </section>
+    <script src="{{url('plugins/jquery/jquery.min.js')}}"></script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('.summernote').summernote({
+        tabsize: 2,
+        height: 200
+    });
+});
+    </script>
 @endsection
