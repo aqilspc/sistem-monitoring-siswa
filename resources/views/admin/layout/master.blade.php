@@ -66,11 +66,13 @@
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Notifications -->
                     <li class="dropdown">
-                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
-                            <i class="material-icons">notifications</i>
-                            <span class="label-count">1</span>
+                        <a onclick="event.preventDefault();
+                                                   document.getElementById('logout-form').submit();" style="cursor: pointer;">
+                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf </form>
+                            <i class="material-icons">logout</i>
+                           <!--  <span class="label-count">1</span> -->
                         </a>
-                        <ul class="dropdown-menu">
+                       <!--  <ul class="dropdown-menu">
                             <li class="header">NOTIFICATIONS</li>
                             <li class="body">
                                 <ul class="menu">
@@ -92,7 +94,7 @@
                             <li class="footer">
                                 <a href="javascript:void(0);">View All Notifications</a>
                             </li>
-                        </ul>
+                        </ul> -->
                     </li>
                     <!-- #END# Notifications -->
                 </ul>

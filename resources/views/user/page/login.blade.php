@@ -6,23 +6,23 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <title>ADMIN | SMK Negeri 1 Pasuruan</title>
     <!-- Favicon-->
-    <link rel="icon" href="../../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="{{url('favicon.ico')}}" type="image/x-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
 
     <!-- Bootstrap Core Css -->
-    <link href="../../plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="{{url('plugins/bootstrap/css/bootstrap.css')}}"  rel="stylesheet">
 
     <!-- Waves Effect Css -->
-    <link href="../../plugins/node-waves/waves.css" rel="stylesheet" />
+    <link href="{{url('plugins/node-waves/waves.css')}}"  rel="stylesheet" />
 
     <!-- Animation Css -->
-    <link href="../../plugins/animate-css/animate.css" rel="stylesheet" />
+    <link href="{{url('plugins/animate-css/animate.css')}}"  rel="stylesheet" />
 
     <!-- Custom Css -->
-    <link href="../../css/style.css" rel="stylesheet">
+    <link href="{{url('css/style.css')}}"  rel="stylesheet">
 </head>
 
 <body class="login-page bg-indigo">
@@ -62,8 +62,8 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-8 p-t-5">
-                            <input type="checkbox" name="rememberme" id="rememberme" class="filled-in chk-col-pink">
-                            <label for="rememberme">Remember Me</label>
+                          <!--   <input type="checkbox" name="rememberme" id="rememberme" class="filled-in chk-col-pink">
+                            <label for="rememberme">Remember Me</label> -->
                         </div>
                         <div class="col-xs-4">
                             <button class="btn btn-block bg-orange waves-effect" type="submit">MASUK</button>
@@ -76,20 +76,20 @@
     </div>
 
     <!-- Jquery Core Js -->
-    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <script src="{{url('plugins/jquery/jquery.min.js')}}" ></script>
 
     <!-- Bootstrap Core Js -->
-    <script src="../../plugins/bootstrap/js/bootstrap.js"></script>
+    <script src="{{url('plugins/bootstrap/js/bootstrap.js')}}" ></script>
 
     <!-- Waves Effect Plugin Js -->
-    <script src="../../plugins/node-waves/waves.js"></script>
+    <script src="{{url('plugins/node-waves/waves.js')}}" ></script>
 
     <!-- Validation Plugin Js -->
-    <script src="../../plugins/jquery-validation/jquery.validate.js"></script>
+    <script src="{{url('plugins/jquery-validation/jquery.validate.js')}}" ></script>
 
     <!-- Custom Js -->
-    <script src="../../js/admin.js"></script>
-    <script src="../../js/pages/examples/sign-in.js"></script>
+    <script src="{{url('js/admin.js')}}" ></script>
+    <script src="{{url('js/pages/examples/sign-in.js')}}" ></script>
 </body>
 
 </html>
