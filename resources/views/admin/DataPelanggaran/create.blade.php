@@ -20,33 +20,45 @@
                         <form enctype="multipart/form-data" method="POST" action="{{url('admin/pelanggaran/create')}}">
                             @csrf
                             
-                            <label for="nis">NAMA</label>
-                            <div class="form-group">
-                                <div class="form-line">
-                                    <input type="text" id="nis" class="form-control" placeholder="Nama">
-                                </div>
+                            <label for="nis">Pilih Siswa</label>
+
+                           <div class="form-group">
+                               <select class="form-control show-tick" data-live-search="true" multiple 
+                               name="id_siswa[]" >
+                                @foreach($siswa as $sw)
+                                    <option value="{{$sw->id_siswa}}">
+                                        Nis : {{$sw->nis}} - Nama : {{$sw->nama_siswa}}
+                                    </option>
+                                @endforeach
+                            </select>
                             </div>
+
                             <label for="tanggal">TANGGAL</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="date" id="nama_siswa" class="form-control" placeholder="tanggal">
+                                    <input type="date" name="tanggal" class="form-control" placeholder="tanggal">
                                 </div>
                             </div>
                             <label for="status">STATUS</label>
                             <div class="form-group">
-                                <div class="demo-radio-button">
-                                    <input name="group1" value= "Berat" type="radio" id="Berat" class="with-gap">
-                                    <label for="Berat">Berat</label>
-                                    <input name="group1" value= "Izin" type="radio" id="Ringan" class="with-gap">
-                                    <label for="Ringan">Ringan</label>
-                                </div>
+                               <select class="form-control show-tick"
+                               name="status">
+                                <option value="Berat">
+                                       Berat
+                                </option>
+                                <option value="Ringan">
+                                       Ringan
+                                </option>
+                            </select>
                             </div>
                             <label for="nama_wali">PELANGGARAN</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" id="nama_wali" class="form-control" placeholder="Pelanggaran">
+                                     <textarea id="alamat" class="form-control summernote" name="pelanggaran" >
+                                    </textarea>
                                 </div>
                             </div>
+                            
                             <div>
                             <button type="submit" class="btn btn-primary center-block" >SUBMIT</button>
                             </div>
@@ -59,4 +71,15 @@
         
     </div>
 </section>
+    <script src="{{url('plugins/jquery/jquery.min.js')}}"></script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('.summernote').summernote({
+        tabsize: 2,
+        height: 200
+    });
+});
+    </script>
 @endsection

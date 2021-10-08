@@ -16,6 +16,12 @@
     <!-- Bootstrap Core Css -->
     <link href="{{url('plugins/bootstrap/css/bootstrap.css')}}" rel="stylesheet">
 
+    <!-- Bootstrap Select Css -->
+    <link href="{{url('plugins/bootstrap-select/css/bootstrap-select.css')}}" rel="stylesheet" />
+
+    <!-- Multi Select Css -->
+    <link href="{{url('plugins/multi-select/css/multi-select.css')}}" rel="stylesheet">
+    
     <!-- Waves Effect Css -->
     <link href="{{url('plugins/node-waves/waves.css')}}" rel="stylesheet" />
 
@@ -193,13 +199,14 @@
 
 
      <!-- Ckeditor -->
-    <script src="{{url('plugins/ckeditor/ckeditor.js')}}"></script>
+   <!--  <script src="{{url('plugins/ckeditor/ckeditor.js')}}"></script> -->
     
     <!-- Custom Js -->
     <script src="{{url('js/admin.js')}}"></script>
     <script src="{{url('js/pages/tables/jquery-datatable.js')}}"></script>
     <script src="{{url('js/pages/index.js')}}"></script>
-    <script src="{{url('js/pages/forms/editors.js')}}"></script>
+   <!--  <script src="{{url('js/pages/forms/editors.js')}}"></script> -->
+    <script src="{{url('js/pages/forms/advanced-form-elements.js')}}"></script>
     <!-- Demo Js -->
     <script src="{{url('js/demo.js')}}"></script>
 

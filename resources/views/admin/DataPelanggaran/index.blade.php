@@ -37,14 +37,16 @@
                                             <td>{{$key+1}}</td>
                                             <td>{{$d->nama_siswa}}</td>
                                             <td>{{$d->tanggal}}</td>
-                                            <td>{{$d->pelanggaran}}</td>
+                                            <td>
+                                                <?php echo mb_strimwidth($d->pelanggaran, 0, 25, "..")?>
+                                            </td>
                                             <td>{{$d->status}}</td>
                                             <td>
                                                  <a href="{{url('admin/pelanggaran/edit/'.$d->id_pelanggaran)}}"><i class="material-icons">create</i> </a>
                                                 &nbsp;
                                                  <a
                                                  onclick="return confirm('Apakah anda yakin untuk menghapus data?')"
-                                                 href="{{url('admin/pelanggaran/delete/'.$d->id_pelanggarann)}}"><i class="material-icons">delete</i> </a>
+                                                 href="{{url('admin/pelanggaran/delete/'.$d->id_pelanggaran)}}"><i class="material-icons">delete</i> </a>
                                             </td>
                                         </tr>
                                         @endforeach

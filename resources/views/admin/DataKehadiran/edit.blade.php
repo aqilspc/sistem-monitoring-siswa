@@ -15,77 +15,55 @@
                         </h2>
                     </div>
                     <div class="body">
-                        <form>
-                        <div class="demo-masked-input">
-                            <div class="row clearfix">
-                                <div class="col-md-4">
-                                    <b>ID</b>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="material-icons">vpn_key</i>
-                                        </span>
-                                        <div class="form-line">
-                                            <input type="text" class="form-control date" value="id">
-                                        </div>
-                                    </div>
+                       <form enctype="multipart/form-data" method="POST" action="{{url('admin/kehadiran/update/'.$data->id_kehadiran)}}">
+                            @csrf
+                            
+                            <label for="nis">Siswa</label>
+                            <div class="form-group">
+                            <div class="form-line">
+                                    <input type="text" disabled value="{{$data->nama_siswa}}" class="form-control" placeholder="tanggal">
+                                    <input type="hidden" name="id_siswa" value="{{$data->id_siswa}}" class="form-control" placeholder="tanggal">
                                 </div>
-                                <div class="col-md-4">
-                                    <b>ID Siswa</b>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="material-icons">account_box</i>
-                                        </span>
-                                        <div class="form-line">
-                                            <input type="text" class="form-control time24" value="ID Siswa">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <b>Tanggal</b>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="material-icons">date_range</i>
-                                        </span>
-                                        <div class="form-line">
-                                            <input type="date" class="form-control time12" value="tanggal">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <b>Status</b>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="material-icons">assignment_turned_in</i>
-                                        </span>
-                                        <div class="form">
-                                            <input name="group1" value= "Hadir" type="radio" id="Hadir" class="with-gap">
-                                            <label for="Hadir">Hadir</label>
-                                            <input name="group1" value= "Izin" type="radio" id="Izin" class="with-gap">
-                                            <label for="Izin">Izin</label>
-                                            <input name="group1" name="Sakit"type="radio" id="Sakit" class="with-gap">
-                                            <label for="Sakit">Sakit</label>
-                                            <input name="group1" name="Alpha" type="radio" id="Alpha" class="with-gap">
-                                            <label for="Alpha">Alpha</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <b>Jam</b>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="material-icons">access_time</i>
-                                        </span>
-                                        <div class="form-line">
-                                            <input type="text" class="form-control mobile-phone-number" value="jam">
-                                        </div>
-                                    </div>
-                                </div>
-                                
                             </div>
+                            <label for="nama_siswa">TANGGAL</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="date" name="tanggal" class="form-control" placeholder="tanggal"
+                                    value="{{$data->tanggal}}">
+                                </div>
+                            </div>
+                            
+                            <label for="status">STATUS</label>
+                            <div class="form-group">
+
+                               <select class="form-control show-tick"
+                               name="status">
+                                <option value="Hadir" {{$data->status=='Hadir'?'selected':''}}>
+                                       Hadir
+                                </option>
+                                <option value="Izin" {{$data->status=='Izin'?'selected':''}}>
+                                       Izin
+                                </option>
+                                <option value="Sakit" {{$data->status=='Sakit'?'selected':''}}>
+                                       Sakit
+                                </option>
+                                <option value="Alpha" {{$data->status=='Alpha'?'selected':''}}>
+                                       Alpha
+                                </option>
+                            </select>
+                            </div>
+                            <label for="nama_wali">JAM</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="time" name="jam" class="form-control" placeholder="Jam"
+                                    value="{{$data->jam}}"
+                                    >
+                                </div>
+                            </div>
+                            
                             <div>
-                                <button type="button" class="btn btn-primary .p-r-30 .margin-15 center-block" style="width: 100px"  >EDIT</button>
+                            <button type="submit" class="btn btn-primary center-block" >UPDATE</button>
                             </div>
-                        </div>
                         </form>
                     </div>
                 </div>

@@ -23,33 +23,33 @@
                             <label for="nis">NIS</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" id="nis" class="form-control" placeholder="NIS">
+                                    <input type="text" name="nis" class="form-control" placeholder="NIS">
                                 </div>
                             </div>
                             <label for="nama_siswa">NAMA SISWA</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" id="nama_siswa" class="form-control" placeholder="Nama Siswa">
+                                    <input type="text" name="nama_siswa" class="form-control" placeholder="Nama Siswa">
                                 </div>
                             </div>
                             <label for="no_telepon">NO TELP.</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" id="no_telepon" class="form-control" placeholder="No Telepon Wali">
+                                    <input type="text" name="no_telepon" class="form-control" placeholder="No Telepon Wali">
                                 </div>
                             </div>
                             <label for="nama_wali">NAMA WALI</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" id="nama_wali" class="form-control" placeholder="Nama Wali">
+                                    <input type="text" name="nama_wali" class="form-control" placeholder="Nama Wali">
                                 </div>
                             </div>
-                            <label for="kode_unik">KODE UNIK</label>
+                   <!--          <label for="kode_unik">KODE UNIK</label>
                             <div class="form-group">
                                 <div class="form-line">
                                     <input type="text" id="kode_unik" class="form-control" placeholder="Kode Unik">
                                 </div>
-                            </div>
+                            </div> -->
                             <div>
                             <button type="submit" class="btn btn-primary center-block" >SUBMIT</button>
                             </div>

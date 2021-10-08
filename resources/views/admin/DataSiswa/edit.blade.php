@@ -15,20 +15,10 @@
                         </h2>
                     </div>
                     <div class="body">
-                        <form>
+                        <form enctype="multipart/form-data" method="POST" action="{{url('admin/siswa/update/'.$data->id_siswa)}}">
+                            @csrf
                         <div class="demo-masked-input">
                             <div class="row clearfix">
-                                <div class="col-md-4">
-                                    <b>ID</b>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="material-icons">vpn_key</i>
-                                        </span>
-                                        <div class="form-line">
-                                            <input type="text" class="form-control date" value="id">
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="col-md-4">
                                     <b>NIS</b>
                                     <div class="input-group">
@@ -36,7 +26,7 @@
                                             <i class="material-icons">account_box</i>
                                         </span>
                                         <div class="form-line">
-                                            <input type="text" class="form-control time24" value="NIS">
+                                            <input type="text" name="nis" class="form-control time24" value="{{$data->nis}}">
                                         </div>
                                     </div>
                                 </div>
@@ -47,7 +37,7 @@
                                             <i class="material-icons">person</i>
                                         </span>
                                         <div class="form-line">
-                                            <input type="text" class="form-control time12" value="nama">
+                                            <input type="text" class="form-control time12" value="{{$data->nama_siswa}}" name="nama_siswa">
                                         </div>
                                     </div>
                                 </div>
@@ -58,7 +48,7 @@
                                             <i class="material-icons">phone</i>
                                         </span>
                                         <div class="form-line">
-                                            <input type="text" class="form-control datetime" value="No Telepon">
+                                            <input type="text" class="form-control datetime" value="{{$data->no_telepon}}" name="no_telepon">
                                         </div>
                                     </div>
                                 </div>
@@ -69,26 +59,15 @@
                                             <i class="material-icons">people</i>
                                         </span>
                                         <div class="form-line">
-                                            <input type="text" class="form-control mobile-phone-number" value="wali murid">
+                                            <input type="text" class="form-control mobile-phone-number" value="{{$data->name}}" name="nama_wali">
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <b>Kode Unik</b>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="material-icons">code</i>
-                                        </span>
-                                        <div class="form-line">
-                                            <input type="text" class="form-control mobile-phone-number" value="kode unik">
-                                        </div>
-                                    </div>
-                                
-                                </div>
+
                                 
                             </div>
                             <div>
-                                <button type="button" class="btn btn-primary .p-r-30 .margin-15 center-block" style="width: 100px"  >EDIT</button>
+                                <button type="submit" class="btn btn-primary .p-r-30 .margin-15 center-block" style="width: 100px"  >UPDATE</button>
                             </div>
                         </div>
                         </form>

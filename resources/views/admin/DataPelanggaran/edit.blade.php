@@ -15,73 +15,50 @@
                         </h2>
                     </div>
                     <div class="body">
-                        <form>
-                        <div class="demo-masked-input">
-                            <div class="row clearfix">
-                                <div class="col-md-4">
-                                    <b>ID</b>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="material-icons">vpn_key</i>
-                                        </span>
-                                        <div class="form-line">
-                                            <input type="text" class="form-control date" value="id">
-                                        </div>
-                                    </div>
+                         <form enctype="multipart/form-data" method="POST" action="{{url('admin/pelanggaran/update/'.$data->id_pelanggaran)}}">
+                            @csrf
+                            
+                            <label for="nis">Siswa</label>
+                           <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" disabled value="{{$data->nama_siswa}}" class="form-control" placeholder="tanggal">
+                                    <input type="hidden" name="id_siswa" value="{{$data->id_siswa}}" class="form-control" placeholder="tanggal">
                                 </div>
-                                <div class="col-md-4">
-                                    <b>ID Siswa</b>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="material-icons">account_box</i>
-                                        </span>
-                                        <div class="form-line">
-                                            <input type="text" class="form-control time24" value="ID Siswa">
-                                        </div>
-                                    </div>
+                            </div>
+
+                            <label for="tanggal">TANGGAL</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="date" value="{{$data->tanggal}}" name="tanggal" class="form-control" placeholder="tanggal">
                                 </div>
-                                <div class="col-md-4">
-                                    <b>Tanggal</b>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="material-icons">date_range</i>
-                                        </span>
-                                        <div class="form-line">
-                                            <input type="date" class="form-control time12" value="tanggal">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <b>Pelanggaran</b>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="material-icons">assignment</i>
-                                        </span>
-                                        <div class="form-line">
-                                            <input type="text" class="form-control time12" value="nama pelanggaran">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <b>Status</b>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="material-icons">assignment_turned_in</i>
-                                        </span>
-                                        <div class="form ">
-                                                <input name="group1" value= "Berat" type="radio" id="Berat" class="with-gap radio-col-black " value="checked">
-                                                <label for="Berat">Berat</label>
-                                                <input name="group1" value= "Izin" type="radio" id="Ringan" class="with-gap radio-col-black">
-                                                <label for="Ringan">Ringan</label>
-                                            
-                                        </div>
-                                    </div>
+                            </div>
+                            <label for="status">STATUS</label>
+                            
+                            <div class="form-group">
+                               <select class="form-control show-tick"
+                               name="status">
+
+                                <option value="Berat" {{$data->status=='Berat'?'selected':''}}>
+                                       Berat
+                                </option>
+
+                                <option value="Ringan" {{$data->status=='Ringan'?'selected':''}}>
+                                       Ringan
+                                </option>
+
+                            </select>
+                            </div>
+                            <label for="nama_wali">PELANGGARAN</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                     <textarea class="form-control summernote" name="pelanggaran" >
+                                        {{$data->pelanggaran}}
+                                    </textarea>
                                 </div>
                             </div>
                             <div>
-                                <button type="button" class="btn btn-primary .p-r-30 .margin-15 center-block" style="width: 100px"  >EDIT</button>
+                            <button type="submit" class="btn btn-primary center-block" >UPDATE</button>
                             </div>
-                        </div>
                         </form>
                     </div>
                 </div>
@@ -89,4 +66,15 @@
         </div>
     </div>
 </section>
+    <script src="{{url('plugins/jquery/jquery.min.js')}}"></script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('.summernote').summernote({
+        tabsize: 2,
+        height: 200
+    });
+});
+</script>
 @endsection

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use Carbon\Carbon;
+use Illuminate\Support\Str;
 class SiswaController extends Controller
 {
     /**
@@ -49,12 +50,13 @@ class SiswaController extends Controller
     {
         //Create user for wali
         $nama_wali = str_replace(' ', '_', $request->nama_wali);
+        $str = strtoupper(Str::random(5));
         $wali = DB::table('users')->insertGetId(
             [
                 'role'=>'wali',
                 'name'=>$request->nama_wali,
                 'email'=>$nama_wali.'@smss.my.id',
-                'password'=>bcrypt($request->kode_unik),
+                'password'=>bcrypt($str),
                 'created_at'=>Carbon::now()->toDateTimeString()
             ]);
         DB::table('bd_siswa')->insert(
@@ -63,7 +65,7 @@ class SiswaController extends Controller
                 'nama_siswa'=>$request->nama_siswa,
                 'no_telepon'=>$request->no_telepon,
                 'id_user_wali'=>$wali,
-                'kode_unik'=>$request->kode_unik,
+                'kode_unik'=>$str,
                 'created_at'=>Carbon::now()->toDateTimeString()
             ]);
         return redirect('admin/siswa');

@@ -20,36 +20,46 @@
                          <form enctype="multipart/form-data" method="POST" action="{{url('admin/kehadiran/create')}}">
                             @csrf
                             
-                            <label for="nis">NAMA</label>
+                            <label for="nis">Pilih Ssiswa</label>
                             <div class="form-group">
-                                <div class="form-line">
-                                    <input type="text" id="nis" class="form-control" placeholder="Nama">
-                                </div>
+                               <select class="form-control show-tick" data-live-search="true" multiple 
+                               name="id_siswa[]" >
+                                @foreach($siswa as $sw)
+                                    <option value="{{$sw->id_siswa}}">
+                                        Nis : {{$sw->nis}} - Nama : {{$sw->nama_siswa}}
+                                    </option>
+                                @endforeach
+                            </select>
                             </div>
                             <label for="nama_siswa">TANGGAL</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="date" id="nama_siswa" class="form-control" placeholder="tanggal">
+                                    <input type="date" name="tanggal" class="form-control" placeholder="tanggal">
                                 </div>
                             </div>
                             
                             <label for="status">STATUS</label>
                             <div class="form-group">
-                                <div class="demo-radio-button">
-                                    <input name="group1" value= "Hadir" type="radio" id="Hadir" class="with-gap">
-                                    <label for="Hadir">Hadir</label>
-                                    <input name="group1" value= "Izin" type="radio" id="Izin" class="with-gap">
-                                    <label for="Izin">Izin</label>
-                                    <input name="group1" name="Sakit"type="radio" id="Sakit" class="with-gap">
-                                    <label for="Sakit">Sakit</label>
-                                    <input name="group1" name="Alpha" type="radio" id="Alpha" class="with-gap">
-                                    <label for="Alpha">Alpha</label>
-                                </div>
+                            <select class="form-control show-tick"
+                               name="status">
+                                <option value="Hadir">
+                                       Hadir
+                                </option>
+                                <option value="Izin">
+                                       Izin
+                                </option>
+                                <option value="Sakit">
+                                       Sakit
+                                </option>
+                                <option value="Alpha">
+                                       Alpha
+                                </option>
+                            </select>
                             </div>
                             <label for="nama_wali">JAM</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" id="nama_wali" class="form-control" placeholder="Jam">
+                                    <input type="time" name="jam" class="form-control" placeholder="Jam">
                                 </div>
                             </div>
                             

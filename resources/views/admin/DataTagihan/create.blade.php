@@ -20,33 +20,52 @@
                         <form enctype="multipart/form-data" method="POST" action="{{url('admin/tagihan/create')}}">
                             @csrf
                             
-                            <label for="nis">NAMA</label>
+                            <label for="nis">Pilih Siswa</label>
+
                             <div class="form-group">
-                                <div class="form-line">
-                                    <input type="text" id="nis" class="form-control" placeholder="Nama">
-                                </div>
+                               <select class="form-control show-tick" data-live-search="true" multiple 
+                                   name="id_siswa[]" >
+
+                                    @foreach($siswa as $sw)
+                                        <option value="{{$sw->id_siswa}}">
+                                            Nis : {{$sw->nis}} - Nama : {{$sw->nama_siswa}}
+                                        </option>
+                                    @endforeach
+                                    
+                                </select>
+
                             </div>
+
                             <label for="nis">JENIS TAGIHAN</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" id="nis" class="form-control" placeholder="Jenis Tagihan">
+                                    <input type="text" name="jenis" class="form-control" placeholder="Jenis Tagihan">
                                 </div>
                             </div>
                             <label for="nis">JUMLAH TAGIHAN</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="double" id="nis" class="form-control" placeholder="Jumlah Tagihan">
+                                    <input type="double" name="jumlah" class="form-control" placeholder="Jumlah Tagihan">
                                 </div>
                             </div>
                             <label for="status">STATUS</label>
                             <div class="form-group">
-                                <div class="demo-radio-button">
-                                    <input name="group1" value= "Hadir" type="radio" id="Lunas" class="with-gap">
-                                    <label for="Lunas">Lunas</label>
-                                    <input name="group1" value= "Belum_Lunas" type="radio" id="Belum_Lunas" class="with-gap">
-                                    <label for="Belum_Lunas">Belum Lunas</label>
-                                </div>
+
+                                <select class="form-control show-tick"
+                               name="status">
+
+                                <option value="Lunas" >
+                                       Lunas
+                                </option>
+
+                                <option value="Belum_Lunas">
+                                       Belum Lunas
+                                </option>
+
+                            </select>
+
                             </div>
+
                             <div>
                             <button type="submit" class="btn btn-primary center-block" >SUBMIT</button>
                             </div>

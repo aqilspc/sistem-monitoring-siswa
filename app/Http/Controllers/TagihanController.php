@@ -38,21 +38,28 @@ class TagihanController extends Controller
 
     public function editPage($id)
     {
-        $data = DB::table('bd_tagihan_siswa')->where('id_tagihan',$id)->first();
-        $siswa = DB::table('bd_siswa')->select('nama_siswa','id_siswa','nis')->get();
-        return view('admin.DataTagihan.edit',compact('data','siswa'));
+        $data = DB::table('bd_tagihan_siswa as bks')
+        ->join('bd_siswa as bs','bs.id_siswa','=','bks.id_siswa')
+        ->where('bks.id_tagihan',$id)
+        ->first();
+        return view('admin.DataTagihan.edit',compact('data'));
     }
 
     public function create(Request $request)
     {
-        DB::table('bd_tagihan_siswa')->insert(
-            [
-                'id_siswa'=>$request->id_siswa,
-                'jenis'=>$request->jenis,
-                'jumlah'=>$request->jumlah,
-                'status'=>$request->status,
-                'created_at'=>Carbon::now()->toDateTimeString()
-            ]);
+        $siswa = $request->id_siswa;
+        foreach($siswa as $sw)
+        {
+            DB::table('bd_tagihan_siswa')->insert(
+                [
+                    'id_siswa'=>$sw,
+                    'jenis'=>$request->jenis,
+                    'jumlah'=>$request->jumlah,
+                    'status'=>$request->status,
+                    'created_at'=>Carbon::now()->toDateTimeString()
+                ]);
+        }
+
         return redirect('admin/tagihan');
     }
 

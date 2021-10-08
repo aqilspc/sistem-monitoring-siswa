@@ -15,81 +15,57 @@
                         </h2>
                     </div>
                     <div class="body">
-                        <form>
-                        <div class="demo-masked-input">
-                            <div class="row clearfix">
-                                <div class="col-md-4">
-                                    <b>ID</b>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="material-icons">vpn_key</i>
-                                        </span>
-                                        <div class="form-line">
-                                            <input type="text" class="form-control date" value="id">
-                                        </div>
-                                    </div>
+                         <form enctype="multipart/form-data" method="POST" action="{{url('admin/tagihan/update/'.$data->id_tagihan)}}">
+                            @csrf
+
+                        <label for="nis">Siswa</label>
+                           <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" disabled value="{{$data->nama_siswa}}" class="form-control" placeholder="tanggal">
+                                    <input type="hidden" name="id_siswa" value="{{$data->id_siswa}}" class="form-control" placeholder="tanggal">
                                 </div>
-                                <div class="col-md-4">
-                                    <b>ID Siswa</b>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="material-icons">account_box</i>
-                                        </span>
-                                        <div class="form-line">
-                                            <input type="text" class="form-control time24" value="ID Siswa">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <b>Tanggal Tagihan</b>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="material-icons">date_range</i>
-                                        </span>
-                                        <div class="form-line">
-                                            <input type="date" class="form-control time12" value="tanggal">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <b>Jenis Tagihan</b>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="material-icons">assignment_turned_in</i>
-                                        </span>
-                                        <div class="form-line">
-                                            <input type="text" class="form-control datetime" value="No Telepon">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <b>Status</b>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="material-icons">check_box</i>
-                                        </span>
-                                        
-                                            <div class="form">
-                                                <input name="group1" value= "Hadir" type="radio" id="Lunas" class="with-gap">
-                                                <label for="Lunas">Lunas</label>
-                                                <input name="group1" value= "Belum_Lunas" type="radio" id="Belum_Lunas" class="with-gap">
-                                                <label for="Belum_Lunas">Belum Lunas</label>
-                                            </div>
-                                        
-                                    </div>
-                                </div>
-                                
-                                
                             </div>
-                            <div>
-                                <button type="button" class="btn btn-primary .p-r-30 .margin-15 center-block" style="width: 100px"  >EDIT</button>
+
+                                
+                            <label for="nis">JENIS TAGIHAN</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" name="jenis" class="form-control" placeholder="Jenis Tagihan"
+                                    value="{{$data->jenis}}">
+                                </div>
                             </div>
+                            <label for="nis">JUMLAH TAGIHAN</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="double" name="jumlah" class="form-control" placeholder="Jumlah Tagihan"  value="{{$data->jumlah}}">
+                                </div>
+                            </div>
+                            <label for="status">STATUS</label>
+                            <div class="form-group">
+
+                                <select class="form-control show-tick"
+                               name="status">
+
+                              <option value="Lunas" {{$data->status=='Lunas'?'selected':''}}>
+                                                       Lunas
+                                                </option>
+                                                <option value="Belum_Lunas" 
+                                                {{$data->status=='Belum_Lunas'?'selected':''}}>
+                                                       Belum Lunas
+                                                </option>
+
+                            </select>
+
+                            </div>            
+                                 <div>
+                                <button type="submit" class="btn btn-primary .p-r-30 .margin-15 center-block" style="width: 100px"  >UPDATE</button>
+                            </div>
+                            </div>
+                           
                         </div>
                         </form>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
 </section>
 @endsection

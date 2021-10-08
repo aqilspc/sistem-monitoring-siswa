@@ -24,7 +24,7 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama</th>
+                                            <th>Nama Siswa</th>
                                             <th>Tanggal</th>
                                             <th>Status</th>
                                             <th>Jam</th>

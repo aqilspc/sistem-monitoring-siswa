@@ -38,7 +38,9 @@
                                             <td>{{$d->nama_siswa}}</td>
                                             <td>{{$d->jumlah}}</td>
                                             <td>{{$d->jenis}}</td>
-                                            <td>{{$d->status}}</td>
+                                            <td>
+                                                <?php echo str_replace('_', ' ', $d->status)?>
+                                            </td>
                                             <td>
                                                 <a href="{{url('admin/tagihan/edit/'.$d->id_tagihan)}}"><i class="material-icons">create</i> </a>
                                                 &nbsp;
