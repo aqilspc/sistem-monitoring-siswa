@@ -56,7 +56,7 @@ https://templatemo.com/tm-563-seo-dream
           <nav class="main-nav">
             <!-- ***** Logo Start ***** -->
             <a href="{{url('homewali')}}" class="logo">
-              <h4>Sistem Monitoring <img src="{{url('assets/images/logo-icon.png')}}" alt=""></h4>
+              <h5>Area Wali Murid <img src="{{url('assets/images/logo-icon.png')}}" alt=""></h5>
             </a>
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->

@@ -59,7 +59,7 @@ https://templatemo.com/tm-563-seo-dream
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
-              <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+              <li class="scroll-to-section"><a href="#" class="active">Home</a></li>
               <li class="scroll-to-section"><div class="main-blue-button">
                 <a href="{{url('walihomepage')}}">Masuk</a>
               </div>
