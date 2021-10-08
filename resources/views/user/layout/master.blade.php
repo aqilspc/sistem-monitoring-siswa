@@ -55,13 +55,13 @@ https://templatemo.com/tm-563-seo-dream
         <div class="col-12">
           <nav class="main-nav">
             <!-- ***** Logo Start ***** -->
-            <a href="{{url('homewali')}}" class="logo">
-              <h5>Area Wali Murid <img src="{{url('assets/images/logo-icon.png')}}" alt=""></h5>
-            </a>
+           <!--  <a href="" class="logo"> -->
+             <!--  <h5>Area Wali Murid <img src="{{url('assets/images/logo-icon.png')}}" alt=""></h5> -->
+           <!--  </a> -->
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
-              <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+              <li class="scroll-to-section"><a href="{{url('homewali')}}" class="active">Home</a></li>
               <li class="scroll-to-section"><a href="#features">Layanan</a></li>
               
               <li class="scroll-to-section"><a>Halo, {{Auth::user()->name}}</a></li> 
