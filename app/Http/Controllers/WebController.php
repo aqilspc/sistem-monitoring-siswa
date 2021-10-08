@@ -26,4 +26,9 @@ class WebController extends Controller
         // return view('user.page.login');
         return view('user.page.HomeBeforeLogin');
     }
+
+    public function loginWali()
+    {
+         return view('user.page.login');
+    }
 }

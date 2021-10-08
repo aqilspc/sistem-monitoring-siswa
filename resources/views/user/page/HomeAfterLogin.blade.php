@@ -8,22 +8,16 @@
           <div class="col-lg-6 align-self-center">
             <div class="left-content header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
               <div class="row">
-                <div class="col-lg-4 col-sm-4">
+                <div class="col-lg-6 col-sm-6">
                   <div class="info-stat">
                     <h6>Nama Siswa</h6>
-                    <h4>Nama Siswa</h4>
+                    <h4>{{$siswa->nama_siswa}}</h4>
                   </div>
                 </div>
-                <div class="col-lg-4 col-sm-4">
-                  <div class="info-stat">
-                    <h6>Nama Wali</h6>
-                    <h4>Nama Wali</h4>
-                  </div>
-                </div>
-                <div class="col-lg-4 col-sm-4">
+                <div class="col-lg-6 col-sm-6">
                   <div class="info-stat">
                     <h6>NIS</h6>
-                    <h4>12345678</h4>
+                    <h4>{{$siswa->nis}}</h4>
                   </div>
                 </div>
                 <div class="col-lg-12">
@@ -51,6 +45,7 @@
         <div class="features-content">
           <div class="row">
             <div class="col-lg">
+              <a href="{{url('info/kehadiran')}}">
               <div class="features-item first-feature wow fadeInUp" data-wow-duration="1s" data-wow-delay="0s">
                 <div class="first-number number">
                   <h6>01</h6>
@@ -64,8 +59,10 @@
                   mulai dari izin, sakit hingga 
                   alpha.</p>
               </div>
+            </a>
             </div>
             <div class="col-lg">
+              <a href="{{url('info/pelanggaran')}}">
               <div class="features-item second-feature wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
                 <div class="second-number number">
                   <h6>02</h6>
@@ -78,8 +75,10 @@
                   pelanggaran yang dilakukan
                   oleh siswa selama di sekolah.</p>
               </div>
+            </a>
             </div>
             <div class="col-lg">
+              <a href="{{url('info/tagihan')}}">
               <div class="features-item first-feature wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.4s">
                 <div class="third-number number">
                   <h6>03</h6>
@@ -92,8 +91,10 @@
                   yang dimiliki oleh siswa
                   dan belum dibayar.</p>
               </div>
+            </a>
             </div>
             <div class="col-lg">
+              <a href="{{url('info/kegiatan')}}">
               <div class="features-item second-feature last-features-item wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s">
                 <div class="fourth-number number">
                   <h6>04</h6>
@@ -107,8 +108,10 @@
                   sekolah untuk siswa yang
                   bersangkutan.</p>
               </div>
+            </a>
             </div>
             <div class="col-lg">
+              <a href="{{url('info/kebijakan')}}">
               <div class="features-item first-feature wow fadeInUp" data-wow-duration="1s" data-wow-delay="0s">
                 <div class="first-number number">
                   <h6>05</h6>
@@ -123,6 +126,7 @@
                   untuk beberapa
                   aturan.</p>
               </div>
+            </a>
             </div>
           </div>
         </div>
@@ -133,7 +137,7 @@
 </div>
 
 
-<div id="contact" class="contact-us section">
+<!-- <div id="contact" class="contact-us section">
   <div class="container">
     <div class="row">
       <div class="col-lg-12 wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.25s">
@@ -211,7 +215,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
 
 @endsection

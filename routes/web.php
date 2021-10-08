@@ -9,6 +9,7 @@ use App\Http\Controllers\PelanggaranController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\TagihanController;
 use App\Http\Controllers\KegiatanController;
+use App\Http\Controllers\Auth\LoginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -80,4 +81,14 @@ Route::post('/admin/kehadiran/update/{id}', [KehadiranController::class, 'update
 Route::get('/admin/kehadiran/delete/{id}', [KehadiranController::class, 'delete']);
 
 //user wali
+Route::post('login_wali',[LoginController::class,'customLoginWali']);
+Route::get('/homewali', [HomeController::class, 'indexWali']);
 Route::get('/homepage', [WebController::class, 'index']);
+Route::get('/walihomepage', [WebController::class, 'loginWali']);
+
+Route::get('info/kebijakan',[HomeController::class, 'indexKebijakan']);
+Route::get('info/kegiatan',[HomeController::class, 'indexKegiatan']);
+Route::get('info/kegiatan/detail/{id}',[HomeController::class, 'indexDetailKegiatan']);
+Route::get('info/kehadiran',[HomeController::class, 'indexKehadiran']);
+Route::get('info/pelanggaran',[HomeController::class, 'indexPelanggaran']);
+Route::get('info/tagihan',[HomeController::class, 'indexTagihan']);

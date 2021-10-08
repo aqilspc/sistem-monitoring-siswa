@@ -13,14 +13,14 @@
     <title>SMK NEGERI 1 PASURUAN - Sistem Monitoring</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{url('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/templatemo-seo-dream.css">
-    <link rel="stylesheet" href="assets/css/animated.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="stylesheet" href="{{url('assets/css/fontawesome.css')}}">
+    <link rel="stylesheet" href="{{url('assets/css/templatemo-seo-dream.css')}}">
+    <link rel="stylesheet" href="{{url('assets/css/animated.css')}}">
+    <link rel="stylesheet" href="{{url('assets/css/owl.css')}}">
 <!--
 
 TemplateMo 563 SEO Dream
@@ -28,6 +28,8 @@ TemplateMo 563 SEO Dream
 https://templatemo.com/tm-563-seo-dream
 
 -->
+
+<script src="https://use.fontawesome.com/f2fc9ac3b2.js"></script>
 
 </head>
 
@@ -53,17 +55,25 @@ https://templatemo.com/tm-563-seo-dream
         <div class="col-12">
           <nav class="main-nav">
             <!-- ***** Logo Start ***** -->
-            <a href="index.html" class="logo">
-              <h4>Sistem Monitoring <img src="assets/images/logo-icon.png" alt=""></h4>
+            <a href="{{url('homewali')}}" class="logo">
+              <h4>Sistem Monitoring <img src="{{url('assets/images/logo-icon.png')}}" alt=""></h4>
             </a>
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
               <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-              <li class="scroll-to-section"><a href="#features">Data</a></li>
+              <li class="scroll-to-section"><a href="#features">Layanan</a></li>
               
-              <li class="scroll-to-section"><a href="#contact">Contact Us</a></li> 
-              <li class="scroll-to-section"><div class="main-blue-button"><a href="#contact">Keluar</a></div></li> 
+              <li class="scroll-to-section"><a>Halo, {{Auth::user()->name}}</a></li> 
+              <li class="scroll-to-section">
+                <div class="main-blue-button">
+                  <a onclick="event.preventDefault();
+                                                   document.getElementById('logout-form').submit();" style="cursor: pointer;">
+                    Keluar
+                  </a>
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf </form>
+                </div>
+              </li> 
             </ul>        
             <a class='menu-trigger'>
                 <span>Menu</span>
@@ -90,12 +100,14 @@ https://templatemo.com/tm-563-seo-dream
   </footer>
 
   <!-- Scripts -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/js/owl-carousel.js"></script>
-  <script src="assets/js/animation.js"></script>
-  <script src="assets/js/imagesloaded.js"></script>
-  <script src="assets/js/custom.js"></script>
+  <script src="{{url('vendor/jquery/jquery.min.js')}}"></script>
+  <script src="{{url('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js "></script>
+  <script src="{{url('assets/js/owl-carousel.js')}}"></script>
+  <script src="{{url('assets/js/animation.js')}}"></script>
+  <script src="{{url('assets/js/imagesloaded.js')}}"></script>
+  <script src="{{url('assets/js/custom.js')}}"></script>
 
 </body>
 </html>

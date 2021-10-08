@@ -32,8 +32,15 @@
             <small>SMK NEGERI 1 PASURUAN</small>
         </div>
         <div class="card">
+             @if($message=Session::get('success'))
+                        <div class="alert bg-teal" role="alert">
+                           
+                           <p align="center" style="color: white;"> {{$message}}</p>
+                        </div>
+                        @endif
             <div class="body">
-                <form id="sign_in" method="POST">
+                <form id="sign_in" method="POST" action="{{url('login_wali')}}">
+                    @csrf
                     <div class="msg">Akses Masuk Wali Murid</div>
                     <div class="input-group">
                         <span class="input-group-addon">
@@ -41,7 +48,7 @@
                         </span>
                         <div class="form-line">
                             
-                            <input type="text" class="form-control" name="username" placeholder="NIS" required autofocus>
+                            <input type="text" class="form-control" name="nis" placeholder="NIS" required autofocus>
                         </div>
                     </div>
                     <div class="input-group">
@@ -49,7 +56,7 @@
                             <i class="material-icons">lock</i>
                         </span>
                         <div class="form-line">
-                            <input type="password" class="form-control" name="password" placeholder="Kode unik" required>
+                            <input type="text" class="form-control" name="kode_unik" placeholder="Kode unik" required>
                         </div>
                     </div>
                     <div class="input-group">
@@ -57,7 +64,7 @@
                             <i class="material-icons">call</i>
                         </span>
                         <div class="form-line">
-                            <input type="password" class="form-control" name="password" placeholder="Nomor Telepon" required>
+                            <input type="text" class="form-control" name="no_telepon" placeholder="Nomor Telepon" required>
                         </div>
                     </div>
                     <div class="row">

@@ -61,7 +61,7 @@ https://templatemo.com/tm-563-seo-dream
             <ul class="nav">
               <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
               <li class="scroll-to-section"><div class="main-blue-button">
-                <a href="{{url('')}}">Masuk</a>
+                <a href="{{url('walihomepage')}}">Masuk</a>
               </div>
             </li> 
             </ul>        
