@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use Carbon\Carbon;
+use Auth;
 class HomeController extends Controller
 {
     /**
@@ -25,5 +26,10 @@ class HomeController extends Controller
     public function index()
     {
         return view('admin.home');
+    }
+
+    public function indexWali()
+    {
+        return view('user.page.HomeAfterLogin');
     }
 }

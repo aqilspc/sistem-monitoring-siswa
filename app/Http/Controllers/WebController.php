@@ -23,6 +23,7 @@ class WebController extends Controller
      */
     public function index()
     {
-        return view('user.page.login');
+        // return view('user.page.login');
+        return view('user.page.HomeBeforeLogin');
     }
 }

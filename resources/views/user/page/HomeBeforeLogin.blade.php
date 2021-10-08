@@ -60,7 +60,10 @@ https://templatemo.com/tm-563-seo-dream
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
               <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-              <li class="scroll-to-section"><div class="main-blue-button"><a href="#contact">Masuk</a></div></li> 
+              <li class="scroll-to-section"><div class="main-blue-button">
+                <a href="{{url('')}}">Masuk</a>
+              </div>
+            </li> 
             </ul>        
             <a class='menu-trigger'>
                 <span>Menu</span>
@@ -78,24 +81,12 @@ https://templatemo.com/tm-563-seo-dream
         <div class="col-lg-12">
           <div class="row">
             <div class="col-lg-6 align-self-center">
+
               <div class="left-content header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
                 <div class="row">
-                  <div class="col-lg-4 col-sm-4">
+                  <div class="col-lg-12 col-sm-12">
                     <div class="info-stat">
-                      <h6>Nama Siswa</h6>
-                      <h4>Nama Siswa</h4>
-                    </div>
-                  </div>
-                  <div class="col-lg-4 col-sm-4">
-                    <div class="info-stat">
-                      <h6>Nama Wali</h6>
-                      <h4>Nama Wali</h4>
-                    </div>
-                  </div>
-                  <div class="col-lg-4 col-sm-4">
-                    <div class="info-stat">
-                      <h6>NIS</h6>
-                      <h4>12345678</h4>
+                     <h4>Selamat Datang</h4>
                     </div>
                   </div>
                   <div class="col-lg-12">
@@ -104,6 +95,7 @@ https://templatemo.com/tm-563-seo-dream
                   
                 </div>
               </div>
+
             </div>
             <div class="col-lg-6">
               <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
