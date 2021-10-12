@@ -72,7 +72,7 @@ class LoginController extends Controller
 
     public function customLoginUser(Request $request)
     {
-        $email = DB::table('users')->where('nis',$request->email)->first();
+        $email = DB::table('users')->where('email',$request->email)->first();
         if(!$email)
         {
             return response()->json([
