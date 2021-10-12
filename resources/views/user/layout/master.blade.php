@@ -67,8 +67,7 @@ https://templatemo.com/tm-563-seo-dream
               <li class="scroll-to-section"><a>Halo, {{Auth::user()->name}}</a></li> 
               <li class="scroll-to-section">
                 <div class="main-blue-button">
-                  <a onclick="event.preventDefault();
-                                                   document.getElementById('logout-form').submit();" style="cursor: pointer;">
+                  <a onclick="event.preventDefault();document.getElementById('logout-form').submit();" style="cursor: pointer;">
                     Keluar
                   </a>
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf </form>

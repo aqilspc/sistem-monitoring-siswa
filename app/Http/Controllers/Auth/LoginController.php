@@ -69,4 +69,31 @@ class LoginController extends Controller
             }
         }
     }
+
+    public function customLoginUser(Request $request)
+    {
+        $email = DB::table('users')->where('nis',$request->email)->first();
+        if(!$email)
+        {
+            return response()->json([
+                'status'=>'error',
+                'result'=>'Email Tidak Ditemukan!'
+            ],200);
+        }else
+        {
+                    if(!Hash::check($request->password, $email->password))
+                    {
+                       return response()->json([
+                            'status'=>'error',
+                            'result'=>'Password salah!'
+                        ],200);
+                    }else
+                    {
+                        return response()->json([
+                            'status'=>'success',
+                            'result'=>$email
+                        ],200);
+                    }
+        }
+    }
 }
