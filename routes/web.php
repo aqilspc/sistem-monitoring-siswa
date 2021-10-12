@@ -82,6 +82,7 @@ Route::get('/admin/kehadiran/delete/{id}', [KehadiranController::class, 'delete'
 
 //user wali
 Route::post('login_wali',[LoginController::class,'customLoginWali']);
+Route::post('login_user',[LoginController::class,'customLoginUser']);
 Route::get('/homewali', [HomeController::class, 'indexWali']);
 Route::get('/homepage', [WebController::class, 'index']);
 Route::get('/walihomepage', [WebController::class, 'loginWali']);
