@@ -62,16 +62,9 @@ https://templatemo.com/tm-563-seo-dream
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
               <li class="scroll-to-section"><a href="{{url('homewali')}}" class="active">Home</a></li>
-              <li class="scroll-to-section"><a href="#features">Layanan</a></li>
-              
-              <li class="scroll-to-section"><a>Halo, {{Auth::user()->name}}</a></li> 
-              <li class="scroll-to-section">
-                <div class="main-blue-button">
-                  <a onclick="event.preventDefault();document.getElementById('logout-form').submit();" style="cursor: pointer;">
-                    Keluar
-                  </a>
-                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf </form>
-                </div>
+              <li class="scroll-to-section"><a href="{{url('homewali')}}#features">Layanan</a></li>
+              <li class="scroll-to-section"><a onclick="event.preventDefault();document.getElementById('logout-form').submit();" style="cursor: pointer;">Halo, {{Auth::user()->name}} , Logout</a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf </form>
               </li> 
             </ul>        
             <a class='menu-trigger'>
