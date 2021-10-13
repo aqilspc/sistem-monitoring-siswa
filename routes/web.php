@@ -32,6 +32,7 @@ Route::get('/admin', function () {
 
 //admin area
 Route::get('/home', [HomeController::class, 'index']);
+Route::post('/admin/update/profile', [HomeController::class, 'changePhoto']);
 //admin siswa
 Route::get('/admin/siswa', [SiswaController::class, 'index']);
 Route::get('/admin/siswa/create_page', [SiswaController::class, 'createPage']);
@@ -93,3 +94,4 @@ Route::get('info/kegiatan/detail/{id}',[HomeController::class, 'indexDetailKegia
 Route::get('info/kehadiran',[HomeController::class, 'indexKehadiran']);
 Route::get('info/pelanggaran',[HomeController::class, 'indexPelanggaran']);
 Route::get('info/tagihan',[HomeController::class, 'indexTagihan']);
+

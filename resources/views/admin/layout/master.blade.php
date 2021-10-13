@@ -93,9 +93,11 @@
         <aside id="leftsidebar" class="sidebar">
             <!-- User Info -->
             <div class="user-info">
-              <!--   <div class="image">
-                    <img src="images/user.png" width="48" height="48" alt="User" />
-                </div> -->
+                <div class="image">
+                    <a style="cursor: pointer;" data-toggle="modal" data-target="#gantiFoto">
+                        <img src="{{Auth::user()->remember_token}}" width="48" height="48" alt="User" />
+                    </a>
+                </div>
                 <div class="info-container">
                     <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Selamat Datang </div>
                     <div class="email">{{Auth::user()->name}}</div>
@@ -163,6 +165,60 @@
     </section>
     @yield('content')
     
+
+     <!-- Modal -->
+  <div class="modal fade" id="gantiFoto" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Change profile</h4>
+        </div>
+        <div class="modal-body">
+        <form enctype="multipart/form-data" method="POST" action="{{url('admin/update/profile')}}">
+                            @csrf
+                            
+                            <label for="nama_kegiatan">NAMA</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" name="name" value="{{Auth::user()->name}}" class="form-control" placeholder="nama kegiatan">
+                                </div>
+                            </div>
+                            <label for="gambar">FOTO</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="file" name="foto" class="form-control" placeholder="gambar">
+                                    <input type="hidden" name="old_foto" value="{{Auth::user()->remember_token}}">
+                                </div>
+                            </div>
+                            <label for="keterangan">EMAIL</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" value="{{Auth::user()->email}}" name="email" class="form-control" placeholder="nama kegiatan">
+                                </div>
+                            </div>
+                            <label for="tanggal">Password</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" name="password"  class="form-control" placeholder="Password">
+                                    <input type="hidden" name="old_password" value="{{Auth::user()->password}}">
+                                </div>
+                                <small>Isi bila ada perubahan</small>
+                            </div>
+                            <div>
+                            <button type="submit" class="btn btn-primary center-block" >SUBMIT</button>
+                            </div>
+                        </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
 
     <!-- Jquery Core Js -->
     <script src="{{url('plugins/jquery/jquery.min.js')}}"></script>
