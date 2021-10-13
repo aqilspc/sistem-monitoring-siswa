@@ -29,6 +29,7 @@
                                             <th>Nama</th>
                                             <th>Wali</th>
                                             <th>Kode Unik</th>
+                                            <th>No Telepon</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -40,6 +41,7 @@
                                             <td>{{$d->nama_siswa}}</td>
                                             <td>{{$d->name}}</td>
                                             <td>{{$d->kode_unik}}</td>
+                                             <td>{{$d->no_telepon}}</td>
                                             <td>
                                                  <a href="{{url('admin/siswa/edit/'.$d->id_siswa)}}"><i class="material-icons">create</i> </a>
                                                 &nbsp;
