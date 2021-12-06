@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>ADMIN | SMK Negeri 1 Pasuruan</title>
+    <title>ADMIN | MIS NU SABILUN NAJAH 26</title>
     <!-- Favicon-->
     <link rel="icon" href="../../favicon.ico" type="image/x-icon">
 
@@ -29,7 +29,7 @@
     <div class="login-box">
         <div class="logo">
             <a href="javascript:void(0);"><b>ADMIN</b></a>
-            <small>SMK NEGERI 1 PASURUAN</small>
+            <small>MIS NU SABILUN NAJAH 26</small>
         </div>
         <div class="card">
             <div class="body">

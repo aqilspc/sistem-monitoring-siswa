@@ -55,14 +55,14 @@
                 <div class="card">
                     <div class="header bg-cyan">
                         <h3>
-                           VISI MISI SMK N 1 Pasuruan
+                           VISI MISI MIS NU SABILUN NAJAH 26
                         </h3>
                         
                     </div>
                     <div class="body">
-                        Visi SMK Negeri 1 Pasuruan<br>
+                        Visi MIS NU SABILUN NAJAH 26<br>
                         Terwujudnya insan yang berakhlak mulia, kreatif, inovatif, mandiri, dan peduli lingkungan.<br><br>
-                        Misi SMK Negeri 1 Pasuruan <br>
+                        Misi MIS NU SABILUN NAJAH 26<br>
                         1. Meningkatkan Nilai Keimanan dan Ketaqwaan kepada Tuhan Yang Maha Esa<br>
                         2. Menumbuhkembangkan Jiwa Nasionalisme<br>
                         3. Meningkatkan Prestasi dalam Ilmu Pengetahuan, Teknologi, Seni Budaya dan Olahraga<br>

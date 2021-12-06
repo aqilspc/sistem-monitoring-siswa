@@ -15,6 +15,8 @@
                     <div class="header">
                         <h2>
                             <a href="{{url('admin/kebijakan/create_page')}}" class="btn btn-success waves-effect" type="button">+Tambah data</a>
+                            <a href="{{url('#')}}" class="btn btn-success waves-effect" type="button">Import data</a>
+                            <a href="{{url('#')}}" class="btn btn-success waves-effect" type="button">Eksport data</a>
                         </h2>
                     </div>
                     <div class="body">
