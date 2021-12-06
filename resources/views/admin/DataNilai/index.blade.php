@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <div class="block-header">
             <h2>
-                DATA SISWA
+                DATA NILAI
                 
             </h2>
         </div>
@@ -14,9 +14,8 @@
                 <div class="card">
                     <div class="header">
                         <h2>
-                             <a href="{{url('admin/siswa/create_page')}}" class="btn btn-success waves-effect" type="button">+ Tambah data</a>
-                             <a href="{{url('#')}}" class="btn btn-success waves-effect" type="button">Import data</a>
                              <a href="{{url('#')}}" class="btn btn-success waves-effect" type="button">Eksport data</a>
+                             <a href="{{url('#')}}" class="btn btn-success waves-effect" type="button">Select siswa</a>
                         </h2>
                     </div>
 
@@ -29,8 +28,8 @@
                                             <th>No</th>
                                             <th>Nis</th>
                                             <th>Nama</th>
-                                            <th>Wali</th>
-                                            <th>Kode Unik</th>
+                                            <th>Mata Pelajaran</th>
+                                            <th>Nilai</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -40,8 +39,8 @@
                                             <td>{{$key+1}}</td>
                                             <td>{{$d->nis}}</td>
                                             <td>{{$d->nama_siswa}}</td>
-                                            <td>{{$d->name}}</td>
-                                            <td>{{$d->kode_unik}}</td>
+                                            <td>{{$d->mapel}}</td>
+                                            <td>{{$d->nilai}}</td>
                                             <td>
                                                  <a href="{{url('admin/siswa/edit/'.$d->id_siswa)}}"><i class="material-icons">create</i> </a>
                                                 &nbsp;

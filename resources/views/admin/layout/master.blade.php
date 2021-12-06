@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Sistem Monitoring | SMK Negeri 1 Pasuruan</title>
+    <title>Sistem Monitoring | MIS NU SABILUN NAJAH 26</title>
     <!-- Favicon-->
     <link rel="icon" href="{{url('favicon.ico')}}" type="image/x-icon">
 
@@ -69,7 +69,7 @@
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
                 <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" href="index.html">SMK NEGERI 1 PASURUAN</a>
+                <a class="navbar-brand" href="index.html">MIS NU SABILUN NAJAH 26</a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
@@ -109,7 +109,7 @@
                     <li class="active">
                         <a href="{{url('home')}}">
                             <i class="material-icons">home</i>
-                            <span>Branda</span>
+                            <span>Beranda</span>
                         </a>
                     </li>
                     <li>
@@ -129,6 +129,18 @@
                             </li>
                             <li>
                                 <a href="{{url('admin/tagihan')}}">Tagihan</a>
+                            </li>
+                            <li>
+                                <a href="{{url('admin/guru')}}">Guru</a>
+                            </li>
+                            <li>
+                                <a href="{{url('admin/kelas')}}">Kelas</a>
+                            </li>
+                            <li>
+                                <a href="{{url('admin/nilai')}}">Nilai</a>
+                            </li>
+                            <li>
+                                <a href="{{url('admin/mata_pelajaran')}}">Mata Pelajaran</a>
                             </li>
                         </ul>
                     </li>

@@ -80,6 +80,11 @@ Route::post('/admin/kehadiran/create', [KehadiranController::class, 'create']);
 Route::post('/admin/kehadiran/update/{id}', [KehadiranController::class, 'update']);
 Route::get('/admin/kehadiran/delete/{id}', [KehadiranController::class, 'delete']);
 
+//admin guru
+Route::get('/coba', function () {
+    return view('admin.DataPeriode.edit');
+});
+
 //user wali
 Route::post('login_wali',[LoginController::class,'customLoginWali']);
 Route::post('login_user',[LoginController::class,'customLoginUser']);
