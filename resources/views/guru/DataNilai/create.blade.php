@@ -3,7 +3,7 @@
 <section class="content">
     <div class="container-fluid">
         <div class="block-header">
-            <h2>DATA GURU</h2>
+            <h2>DATA NILAI</h2>
         </div>
 
         <!-- Vertical Layout -->
@@ -12,44 +12,50 @@
                 <div class="card">
                     <div class="header">
                         <h2>
-                            Tambah Data Guru
+                            Tambah Data Nilai
                         </h2>
                         
                     </div>
                     <div class="body">
-                         <form enctype="multipart/form-data" method="POST" action="{{url('admin/guru/create')}}">
+                         <form enctype="multipart/form-data" method="POST" action="{{url('admin/nilai/create')}}">
                             @csrf
                             
-                            <label for="nip">NIP</label>
+                            <label for="nis">NIS</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" name="nip" class="form-control" placeholder="NIP">
+                                    <input type="text" name="nis" class="form-control" placeholder="NIS">
                                 </div>
                             </div>
-                            <label for="nama_guru">NAMA GURU</label>
+                            <label for="nama_siswa">NAMA SISWA</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" name="nama_guru" class="form-control" placeholder="Nama Guru">
+                                    <input type="text" name="nama_siswa" class="form-control" placeholder="Nama Siswa">
                                 </div>
                             </div>
-                            <label for="no_telepon">NO TELP.</label>
+                            <label for="mapel">MATA PELAJARAN</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" name="no_telepon" class="form-control" placeholder="No Telepon Wali">
+                                    <input type="text" name="mapel" class="form-control" placeholder="Mata Pelajaran">
                                 </div>
                             </div>
-                            <label for="email">EMAIL</label>
+                            <label for="mapel">TUGAS</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" name="email" class="form-control" placeholder="Email">
+                                    <input type="text" name="mapel" class="form-control" placeholder="Mata Pelajaran">
                                 </div>
                             </div>
-                   <!--          <label for="kode_unik">KODE UNIK</label>
+                            <label for="mapel">TANGGAL</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" id="kode_unik" class="form-control" placeholder="Kode Unik">
+                                    <input type="text" name="mapel" class="form-control" placeholder="Mata Pelajaran">
                                 </div>
-                            </div> -->
+                            </div>
+                            <label for="nilai">NILAI</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" name="nilai" class="form-control" placeholder="Nilai">
+                                </div>
+                            </div>
                             <div>
                             <button type="submit" class="btn btn-primary center-block" >SUBMIT</button>
                             </div>
