@@ -104,3 +104,9 @@ Route::get('info/tagihan',[HomeController::class, 'indexTagihan']);
 Route::get('/cobapenilaian', function () {
     return view('user.page.DataPenilaian');
 });
+Route::get('/nilai', function () {
+    return view('guru.DataNilai.nilai');
+});
+Route::get('/homeguru', function () {
+    return view('guru.home');
+});
