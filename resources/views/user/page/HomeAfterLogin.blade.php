@@ -44,7 +44,7 @@
       <div class="col-lg-12">
         <div class="features-content">
           <div class="row">
-            <div class="col-lg">
+            <div class="col-lg-2">
               <a href="{{url('info/kehadiran')}}">
               <div class="features-item first-feature wow fadeInUp" data-wow-duration="1s" data-wow-delay="0s">
                 <div class="first-number number">
@@ -61,7 +61,7 @@
               </div>
             </a>
             </div>
-            <div class="col-lg">
+            <div class="col-lg-2">
               <a href="{{url('info/pelanggaran')}}">
               <div class="features-item second-feature wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
                 <div class="second-number number">
@@ -77,7 +77,7 @@
               </div>
             </a>
             </div>
-            <div class="col-lg">
+            <div class="col-lg-2">
               <a href="{{url('info/tagihan')}}">
               <div class="features-item first-feature wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.4s">
                 <div class="third-number number">
@@ -93,11 +93,25 @@
               </div>
             </a>
             </div>
-            <div class="col-lg">
+            <div class="col-lg-2">
+              <a href="cobapenilaian">
+              <div class="features-item first-feature wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.4s">
+                <div class="first-number number">
+                  <h6>04</h6>
+                </div>
+                <div class="icon"></div>
+                <h4>Data Penilaian</h4>
+                <div class="line-dec"></div>
+                <p>Data Penilaian merupakan 
+                  data yang berisi nilai nilai dari siswa mulai tugas harian hingga ujian akhir.</p>
+              </div>
+            </a>
+            </div>
+            <div class="col-lg-2">
               <a href="{{url('info/kegiatan')}}">
               <div class="features-item second-feature last-features-item wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s">
-                <div class="fourth-number number">
-                  <h6>04</h6>
+                <div class="second-number number">
+                  <h6>05</h6>
                 </div>
                 <div class="icon"></div>
                 <h4>Data Kegiatan</h4>
@@ -110,11 +124,11 @@
               </div>
             </a>
             </div>
-            <div class="col-lg">
+            <div class="col-lg-2">
               <a href="{{url('info/kebijakan')}}">
               <div class="features-item first-feature wow fadeInUp" data-wow-duration="1s" data-wow-delay="0s">
-                <div class="first-number number">
-                  <h6>05</h6>
+                <div class="third-number number">
+                  <h6>06</h6>
                 </div>
                 <div class="icon"></div>
                 <h4>Data Kebijakan</h4>
