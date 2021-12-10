@@ -100,3 +100,13 @@ Route::get('info/kehadiran',[HomeController::class, 'indexKehadiran']);
 Route::get('info/pelanggaran',[HomeController::class, 'indexPelanggaran']);
 Route::get('info/tagihan',[HomeController::class, 'indexTagihan']);
 
+//coba
+Route::get('/cobapenilaian', function () {
+    return view('user.page.DataPenilaian');
+});
+Route::get('/nilai', function () {
+    return view('guru.DataNilai.nilai');
+});
+Route::get('/homeguru', function () {
+    return view('guru.home');
+});
