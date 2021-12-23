@@ -21,22 +21,19 @@ class KelasController extends Controller
     public function index()
     {
         $data = DB::table('md_kelas as mk')
-                ->rightjoin('md_guru as mg','mg.id_guru','=','mk.id_guru')
                 ->get();
         return view('admin.DataKelas.index',compact('data'));
     }
 
     public function create()
     {
-        $guru = DB::table('md_guru')->get();
-        return view('admin.DataKelas.create',compact('guru'));
+        return view('admin.DataKelas.create');
     }
 
     public function insert(Request $request)
     {
 
         DB::table('md_kelas')->insert([
-            'id_guru'=>$request->id_guru,
             'nama_kelas'=>$request->nama_kelas,
             'created_at'=>Carbon::now()->toDateTimeString(),
         ]);
@@ -46,15 +43,13 @@ class KelasController extends Controller
     public function edit($id)
     {
         $data = DB::table('md_kelas')->where('id_kelas',$id)->first();
-        $guru = DB::table('md_guru')->get();
-        return view('admin.DataKelas.edit',compact('data','guru'));
+        return view('admin.DataKelas.edit',compact('data'));
     }
 
     public function update(Request $request,$id)
     {
         DB::table('md_kelas')->where('id_kelas',$id)->update(
             [
-                 'id_guru'=>$request->id_guru,
                  'nama_kelas'=>$request->nama_kelas,
                  'created_at'=>Carbon::now()->toDateTimeString(),
             ]);
@@ -66,3 +61,4 @@ class KelasController extends Controller
         DB::table('md_kelas')->where('id_kelas',$id)->delete();
         return redirect()->back();
     }
+}

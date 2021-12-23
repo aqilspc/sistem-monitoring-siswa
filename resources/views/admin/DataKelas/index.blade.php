@@ -14,7 +14,7 @@
                 <div class="card">
                     <div class="header">
                         <h2>
-                             <a href="#" class="btn btn-success waves-effect" type="button">+ Tambah data</a>
+                             <a href="{{url('admin/kelas/create')}}" class="btn btn-success waves-effect" type="button">+ Tambah data</a>
                              <a href="{{url('#')}}" class="btn btn-success waves-effect" type="button">Import data</a>
                              <a href="{{url('#')}}" class="btn btn-success waves-effect" type="button">Eksport data</a>
                         </h2>
@@ -35,13 +35,13 @@
                                          @foreach($data as $key => $d)
                                         <tr>
                                             <td>{{$key+1}}</td>
-                                            <td>{{$d->kelas}}</td>
+                                            <td>{{$d->nama_kelas}}</td>
                                             <td>
-                                                 <a href="{{url('admin/siswa/edit/'.$d->id_kelas)}}"><i class="material-icons">create</i> </a>
+                                                 <a href="{{url('admin/kelas/edit/'.$d->id_kelas)}}"><i class="material-icons">create</i> </a>
                                                 &nbsp;
                                                  <a
                                                  onclick="return confirm('Apakah anda yakin untuk menghapus data?')"
-                                                 href="{{url('admin/siswa/delete/'.$d->id_kelas)}}"><i class="material-icons">delete</i> </a>
+                                                 href="{{url('admin/kelas/delete/'.$d->id_kelas)}}"><i class="material-icons">delete</i> </a>
                                             </td>
                                         </tr>
                                         @endforeach

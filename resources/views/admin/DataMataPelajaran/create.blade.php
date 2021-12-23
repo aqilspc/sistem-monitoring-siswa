@@ -12,34 +12,28 @@
                 <div class="card">
                     <div class="header">
                         <h2>
-                            Tambah Data Mata Pelajaran
+                            Tambah Mata Pelajaran
                         </h2>
                         
                     </div>
                     <div class="body">
-                         <form enctype="multipart/form-data" method="POST" action="{{url('admin/guru/create')}}">
+                         <form enctype="multipart/form-data" method="POST" action="{{url('admin/matapelajaran/insert')}}">
                             @csrf
-                            
-                            <label for="mapel">NAMA MATA PELAJARAN</label>
+                            <label for="nama_kebijakan">NAMA MATA PELAJARAN</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" name="mapel" class="form-control" placeholder="MAPEL">
+                                    <input type="text" id="nama_kegiatan" class="form-control" placeholder="nama mapel" name="nama_matapelajaran">
                                 </div>
                             </div>
-                            <label for="kelas">KELAS</label>
+                            <label for="nama_kebijakan">KKM MATA PELAJARAN</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" name="kelas" class="form-control" placeholder="Kelas">
+                                    <input type="text" id="nama_kegiatan" class="form-control" placeholder="kkm mapel" name="kkm">
                                 </div>
                             </div>
-                            <label for="guru">GURU</label>
-                            <div class="form-group">
-                                <div class="form-line">
-                                    <input type="text" name="guru" class="form-control" placeholder="Guru">
-                                </div>
-                            </div>
-                            <div>
-                            <button type="submit" class="btn btn-primary center-block" >SUBMIT</button>
+                            <div class="center-block">
+                                <button type="reset" class="btn btn-default mr-2">Reset</button>
+                                <input type="submit" id="submit" name="submit" class="btn btn-primary" value="Submit">
                             </div>
                         </form>
                     </div>

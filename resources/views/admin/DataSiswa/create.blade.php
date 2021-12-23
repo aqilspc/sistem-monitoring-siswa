@@ -44,12 +44,36 @@
                                     <input type="text" name="nama_wali" class="form-control" placeholder="Nama Wali">
                                 </div>
                             </div>
-                   <!--          <label for="kode_unik">KODE UNIK</label>
+                            <label for="email">KELAS</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" id="kode_unik" class="form-control" placeholder="Kode Unik">
+                                   <select class="form-control show-tick" name="id_kelas">
+                                                <option value="0">
+                                                       Pilih Kelas
+                                                </option>
+                                                @foreach($kelas as $t)
+                                                    <option value="{{$t->id_kelas}}">
+                                                        {{$t->nama_kelas}}</option>
+                                                @endforeach
+                                        </select>
                                 </div>
-                            </div> -->
+                            </div>
+                            <label for="email">TAHUN AJARAN</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <select class="form-control show-tick" name="id_tahun">
+                                                <option value="0">
+                                                       Pilih Tahun
+                                                </option>
+                                                @foreach($tahun as $t)
+                                                    <option value="{{$t->id_tahun}}" 
+                                                        {{$id_tahun == $t->id_tahun?'selected':''}}>
+                                                        {{$t->priode_tahun}}
+                                                    </option>
+                                                @endforeach
+                                        </select>
+                                </div>
+                            </div>
                             <div>
                             <button type="submit" class="btn btn-primary center-block" >SUBMIT</button>
                             </div>

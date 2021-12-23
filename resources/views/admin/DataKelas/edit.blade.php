@@ -17,26 +17,17 @@
                     <div class="body">
                         <form enctype="multipart/form-data" method="POST" action="{{url('admin/kelas/update/'.$data->id_kelas)}}">
                             @csrf
-                        <div class="demo-masked-input">
-                            <div class="row clearfix">
-                                <div class="col-md-4">
-                                    <b>KELAS</b>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="material-icons">account_box</i>
-                                        </span>
-                                        <div class="form-line">
-                                            <div><input class="panel-body" type="text" name="kelas" class="form-control time24" value="{{$data->kelas}}">
-                                            </div>
-                                            
-                                        </div>
-                                    </div>
-                                </div>  
+                       
+                             <label for="nama_kebijakan">NAMA KELAS</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" id="nama_kegiatan" class="form-control" placeholder="nama kelas" name="nama_kelas" value="{{$data->nama_kelas}}">
+                                </div>
                             </div>
                             <div>
                                 <button type="submit" class="btn btn-primary .p-r-30 .margin-15 center-block" style="width: 100px"  >UPDATE</button>
                             </div>
-                        </div>
+                        
                         </form>
                     </div>
                 </div>

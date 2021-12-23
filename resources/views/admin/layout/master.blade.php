@@ -120,6 +120,10 @@
                             <span>Data</span>
                         </a>
                         <ul class="ml-menu">
+                            @if(Auth::user()->role=='admin')
+                            <li>
+                                <a href="{{url('admin/tahun')}}">Tahun Ajaran</a>
+                            </li>
                             <li>
                                 <a href="{{url('admin/siswa')}}">Siswa</a>
                             </li>
@@ -133,22 +137,26 @@
                                 <a href="{{url('admin/tagihan')}}">Tagihan</a>
                             </li>
                             <li>
-                                <a href="{{url('admin/guru')}}">Guru</a>
-                            </li>
-                            <li>
-                                <a href="{{url('admin/guru/mengajar')}}">Guru Mengajar</a>
-                            </li>
-                            <li>
                                 <a href="{{url('admin/kelas')}}">Kelas</a>
+                            </li>
+
+                            <li>
+                                <a href="{{url('admin/matapelajaran')}}">Mata Pelajaran</a>
+                            </li>
+                            <li>
+                                <a href="{{url('admin/guru')}}">Guru</a>
                             </li>
                             <li>
                                 <a href="{{url('guru/kelas')}}">Nilai</a>
                             </li>
+                            @else
                             <li>
-                                <a href="{{url('admin/mata_pelajaran')}}">Mata Pelajaran</a>
+                                <a href="{{url('guru/kelas')}}">Nilai</a>
                             </li>
+                            @endif
                         </ul>
                     </li>
+                    @if(Auth::user()->role=='admin')
                     <li>
                         <a href="{{url('admin/kegiatan')}}">
                             <i class="material-icons">assignment</i>
@@ -160,14 +168,15 @@
                             <i class="material-icons">gavel</i>
                             <span>Kebijakan</span>
                         </a>
-                    </li>                  
+                    </li>  
+                    @endif                
                 </ul>
             </div>
             <!-- #Menu -->
             <!-- Footer -->
             <div class="legal">
                 <div class="copyright">
-                    &copy; 2021 <a href="javascript:void(0);">Admin - Sistem Monitoring KBM Siswa</a>.
+                    &copy; {{date('Y')}} <a href="javascript:void(0);">Admin - Sistem Monitoring KBM Siswa</a>.
                 </div>
                 <div class="version">
                     <b>Version: </b> 1.0.0

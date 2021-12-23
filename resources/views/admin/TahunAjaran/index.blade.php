@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <div class="block-header">
             <h2>
-                DATA MATA PELAJARAN
+                DATA TAHUN AJARAN
                 
             </h2>
         </div>
@@ -14,9 +14,7 @@
                 <div class="card">
                     <div class="header">
                         <h2>
-                             <a href="{{url('admin/matapelajaran/create')}}" class="btn btn-success waves-effect" type="button">+ Tambah data</a>
-                             <a href="{{url('#')}}" class="btn btn-success waves-effect" type="button">Import data</a>
-                             <a href="{{url('#')}}" class="btn btn-success waves-effect" type="button">Eksport data</a>
+                             <a href="{{url('admin/tahun/create_page')}}" class="btn btn-success waves-effect" type="button">+ Tambah data</a>
                         </h2>
                     </div>
 
@@ -27,8 +25,7 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama Mata Pelajaran</th>
-                                            <th>KKM</th>
+                                            <th>Tahun Ajaran</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -36,14 +33,10 @@
                                          @foreach($data as $key => $d)
                                         <tr>
                                             <td>{{$key+1}}</td>
-                                            <td>{{$d->nama_matapelajaran}}</td>
-                                            <td>{{$d->kkm}}</td>
+                                            <td>{{$d->priode_tahun}}</td>
                                             <td>
-                                                 <a href="{{url('admin/matapelajaran/edit/'.$d->id_matapelajaran)}}"><i class="material-icons">create</i> </a>
+                                                 <a href="{{url('admin/tahun/edit/'.$d->id_tahun)}}"><i class="material-icons">create</i> </a>
                                                 &nbsp;
-                                                 <a
-                                                 onclick="return confirm('Apakah anda yakin untuk menghapus data?')"
-                                                 href="{{url('admin/kelas/matapelajaran/'.$d->id_matapelajaran)}}"><i class="material-icons">delete</i> </a>
                                             </td>
                                         </tr>
                                         @endforeach

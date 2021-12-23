@@ -13,6 +13,7 @@ use App\Http\Controllers\GuruController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\MataPelajaranController;
 use App\Http\Controllers\NilaiController;
+use App\Http\Controllers\TahunAjaranController;
 use App\Http\Controllers\Auth\LoginController;
 /*
 |--------------------------------------------------------------------------
@@ -34,13 +35,21 @@ Route::get('/admin', function () {
     return redirect('login');
 });
 
+//admin tahun
+Route::get('/admin/tahun', [TahunAjaranController::class, 'index']);
+Route::get('/admin/tahun/create_page', [TahunAjaranController::class, 'createPage']);
+Route::get('/admin/tahun/edit/{id}', [TahunAjaranController::class, 'editPage']);
+Route::post('/admin/tahun/create', [TahunAjaranController::class, 'create']);
+Route::post('/admin/tahun/update/{id}', [TahunAjaranController::class, 'update']);
+
 //admin area
 Route::get('/home', [HomeController::class, 'index']);
 Route::post('/admin/update/profile', [HomeController::class, 'changePhoto']);
 //admin siswa
 Route::get('/admin/siswa', [SiswaController::class, 'index']);
-Route::get('/admin/siswa/create_page', [SiswaController::class, 'createPage']);
-Route::get('/admin/siswa/edit/{id}', [SiswaController::class, 'editPage']);
+Route::get('/admin/siswa/{t}', [SiswaController::class, 'index']);
+Route::get('/admin/siswa/create_page/{t}', [SiswaController::class, 'createPage']);
+Route::get('/admin/siswa/edit/{id}/{t}', [SiswaController::class, 'editPage']);
 Route::post('/admin/siswa/create', [SiswaController::class, 'create']);
 Route::post('/admin/siswa/update/{id}', [SiswaController::class, 'update']);
 Route::get('/admin/siswa/delete/{id}', [SiswaController::class, 'delete']);
@@ -92,10 +101,11 @@ Route::post('/admin/guru/insert',[GuruController::class,'insert']);
 Route::get('/admin/guru/edit/{id}',[GuruController::class,'edit']);
 Route::post('/admin/guru/update/{id}',[GuruController::class,'update']);
 Route::get('/admin/guru/delete/{id}',[GuruController::class,'delete']);
-Route::get('/admin/guru/mengajar',[GuruController::class,'indexMengajar']);
+Route::get('/admin/guru/mengajar/{id}',[GuruController::class,'indexMengajar']);
 Route::get('/admin/guru/mengajar/create/{id}',[GuruController::class,'createMengajar']);
 Route::get('/admin/guru/mengajar/edit/{id}',[GuruController::class,'editMengajar']);
-Route::post('/admin/guru/mengajar/storeUpdate',[GuruController::class,'storeOrUpdateMengajar']);
+Route::post('/admin/guru/mengajar/storeMengajar',[GuruController::class,'storeMengajar']);
+Route::post('/admin/guru/mengajar/UpdateMengajar',[GuruController::class,'UpdateMengajar']);
 
 //admin/kelas
 Route::get('/admin/kelas',[KelasController::class,'index']);

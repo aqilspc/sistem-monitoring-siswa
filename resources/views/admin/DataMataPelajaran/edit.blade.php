@@ -5,63 +5,44 @@
         <div class="block-header">
             <h2>DATA MATA PELAJARAN</h2>
         </div>
-        <!-- Masked Input -->
+
+        <!-- Vertical Layout -->
         <div class="row clearfix">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
                     <div class="header">
                         <h2>
-                            Edit Data Mata Pelajaran
+                            Edit Mata Pelajaran
                         </h2>
+                        
                     </div>
                     <div class="body">
-                        <form enctype="multipart/form-data" method="POST" action="#">
+                         <form enctype="multipart/form-data" method="POST" action="{{url('admin/matapelajaran/update/'.$data->id_matapelajaran)}}">
                             @csrf
-                        <div class="demo-masked-input">
-                            <div class="row clearfix">
-                                <div class="col-md-4">
-                                    <b>NAMA</b>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="material-icons">book</i>
-                                        </span>
-                                        <div class="form-line">
-                                            <input type="text" name="mapel" class="form-control time24" value="#">
-                                        </div>
-                                    </div>
+                            <label for="nama_kebijakan">NAMA MATA PELAJARAN</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" id="nama_kegiatan" class="form-control" placeholder="nama mapel" name="nama_matapelajaran" 
+                                    value="{{$data->nama_matapelajaran}}">
                                 </div>
-                                <div class="col-md-4">
-                                    <b>Kelas</b>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="material-icons">account_box</i>
-                                        </span>
-                                        <div class="form-line">
-                                            <input type="text" class="form-control time12" value="#" name="kelas">
-                                        </div>
-                                    </div>
+                            </div>
+                            <label for="nama_kebijakan">KKM MATA PELAJARAN</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" id="nama_kegiatan" class="form-control" placeholder="kkm mapel" name="kkm" value="{{$data->kkm}}">
                                 </div>
-                                <div class="col-md-4">
-                                    <b>Guru</b>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="material-icons">person</i>
-                                        </span>
-                                        <div class="form-line">
-                                            <input type="text" class="form-control datetime" value="#" name="guru">
-                                        </div>
-                                    </div>
-                                </div> 
                             </div>
-                            <div>
-                                <button type="submit" class="btn btn-primary .p-r-30 .margin-15 center-block" style="width: 100px"  >UPDATE</button>
+                            <div class="center-block">
+                                <button type="reset" class="btn btn-default mr-2">Reset</button>
+                                <input type="submit" id="submit" name="submit" class="btn btn-primary" value="Submit">
                             </div>
-                        </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- #END# Vertical Layout -->
+        
     </div>
 </section>
 @endsection

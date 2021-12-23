@@ -20,7 +20,9 @@ class GuruController extends Controller
 
     public function index()
     {
-        $data = DB::table('md_guru')->get();
+        $data = DB::table('md_guru as mg')
+        ->join('users as us','us.id','=','mg.id_user')
+        ->get();
         return view('admin.DataGuru.index',compact('data'));
     }
 
@@ -41,8 +43,8 @@ class GuruController extends Controller
             ]);
         DB::table('md_guru')->insert([
             'id_user'=>$userid,
-            'no_hp'=>$request->no_hp,
-            'nama_guru'$request->nama_guru,
+            'no_hp'=>$request->no_telepon,
+            'nama_guru'=>$request->nama_guru,
             'created_at'=>Carbon::now()->toDateTimeString(),
         ]);
         return redirect('admin/guru');
@@ -50,17 +52,17 @@ class GuruController extends Controller
 
     public function edit($id)
     {
-        $guru = DB::table('md_guru')->where('id_guru',$id)->first();
-        $user = DB::table('users')->where('id',$guru->id_user)->first();
-        return view('admin.DataGuru.edit',compact('guru','user'));
+        $data = DB::table('md_guru')->where('id_guru',$id)->first();
+        $user = DB::table('users')->where('id',$data->id_user)->first();
+        return view('admin.DataGuru.edit',compact('data','user'));
     }
 
     public function update(Request $request,$id)
     {
         DB::table('md_guru')->where('id_guru',$id)->update(
             [
-                 'no_hp'=>$request->no_hp,
-                 'nama_guru'$request->nama_guru,
+                 'no_hp'=>$request->no_telepon,
+                 'nama_guru'=>$request->nama_guru,
                  'created_at'=>Carbon::now()->toDateTimeString(),
             ]);
         $guru = DB::table('md_guru')->where('id_guru',$id)->first();
@@ -74,15 +76,19 @@ class GuruController extends Controller
         return redirect()->back();
     }
 
-    public function indexMengajar()
+    public function indexMengajar($id_guru)
     {
-        $data = DB::table('bd_guru_mengajar as bgm')
+
+             $data = DB::table('bd_guru_mengajar as bgm')
                 ->join('md_kelas as mk','mk.id_kelas','=','bgm.id_kelas')
                 ->join('md_guru as mg','mg.id_guru','=','bgm.id_guru')
                 ->join('md_matapelajaran as mp','mp.id_matapelajaran','=','bgm.id_matapelajaran')
                 ->join('md_tahun_ajaran as mtj','mtj.id_tahun','=','bgm.id_tahun')
+                //->where('bgm.id_tahun',$id_tahun)
+                ->where('bgm.id_guru',$id_guru)
                 ->get();
-        return view('admin.DataGuru.mengajar',compact('data'));
+        $guru = DB::table('md_guru')->where('id_guru',$id_guru)->first();
+        return view('admin.DataGuru.mengajar',compact('guru','data'));
     }
 
     public function createMengajar($id)
@@ -99,34 +105,46 @@ class GuruController extends Controller
         $kelas = DB::table('md_kelas')->get();
         $mapel = DB::table('md_matapelajaran')->get();
         $tahun = DB::table('md_tahun_ajaran')->get();
-        $guru = DB::table('bd_guru_mengajar as bgm')
+        $data = DB::table('bd_guru_mengajar as bgm')
                 ->join('md_kelas as mk','mk.id_kelas','=','bgm.id_kelas')
                 ->join('md_guru as mg','mg.id_guru','=','bgm.id_guru')
                 ->join('md_matapelajaran as mp','mp.id_matapelajaran','=','bgm.id_matapelajaran')
                 ->join('md_tahun_ajaran as mtj','mtj.id_tahun','=','bgm.id_tahun')
-                ->where('mg.id_guru',$id)
-                ->get();
-        return view('admin.DataGuru.mengajar_edit',compact('guru','kelas','mapel','tahun'));
+                ->where('bgm.id_mengajar',$id)
+                ->first();
+        $guru = DB::table('md_guru')->where('id_guru',$data->id_guru)->first();
+        return view('admin.DataGuru.mengajar_edit',compact('data','kelas','mapel','tahun','guru'));
     }
 
-    public function storeOrUpdateMengajar(Request $request)
+    public function storeMengajar(Request $request)
     {
-
         $guru = $request->id_guru;
         $kelas = $request->id_kelas;
         $mapel = $request->id_matapelajaran;
         $tahun = $request->id_tahun;
-        DB::table('bd_guru_mengajar')->where('id_guru',$guru)->delete();
-        foreach($mapel as $key => $m)
-        {
-            DB::table('bd_guru_mengajar')->insert([
-                'id_tahun'=>$tahun,
-                'id_guru'=>$guru,
-                'id_kelas'=>$kelas[$key],
-                'id_matapelajaran'=>$mapel[$key]
-            ]);
-        }
+            
+                DB::table('bd_guru_mengajar')->insert([
+                    'id_tahun'=>$tahun,
+                    'id_guru'=>$guru,
+                    'id_kelas'=>$kelas,
+                    'id_matapelajaran'=>$mapel
+                ]);
+        return redirect('admin/guru/mengajar/'.$guru);
+    }
 
-        return redirect('admin/guru/mengajar');
+    public function UpdateMengajar(Request $request)
+    {
+        $guru = $request->id_guru;
+        $kelas = $request->id_kelas;
+        $mapel = $request->id_matapelajaran;
+        $tahun = $request->id_tahun;
+            
+                DB::table('bd_guru_mengajar')->where('id_mengajar',$request->id_mengajar)->update([
+                    'id_tahun'=>$tahun,
+                    'id_guru'=>$guru,
+                    'id_kelas'=>$kelas,
+                    'id_matapelajaran'=>$mapel
+                ]);
+        return redirect('admin/guru/mengajar/'.$guru);
     }
 }

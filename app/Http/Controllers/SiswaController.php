@@ -23,27 +23,43 @@ class SiswaController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index($id_tahun=NULL)
     {
-        $data = DB::table('bd_siswa as bs')
-        ->join('users as us','us.id','=','bs.id_user_wali')
-        ->get();
-        return view('admin.DataSiswa.index',compact('data'));
+        $data = [];
+        if($id_tahun != NULL)
+        {
+            $data = DB::table('bd_siswa as bs')
+            ->join('users as us','us.id','=','bs.id_user_wali')
+            ->join('md_kelas_siswa as mks','mks.id_siswa','=','bs.id_siswa')
+            ->join('md_kelas as mk','mk.id_kelas','=','mks.id_kelas')
+            ->where('mks.id_tahun',$id_tahun)
+            ->get();
+        }
+        $tahun = DB::table('md_tahun_ajaran')->get();
+        return view('admin.DataSiswa.index',compact('data','tahun','id_tahun'));
     }
 
-    public function createPage()
+    public function createPage($id_tahun)
     {
-        
-        return view('admin.DataSiswa.create');
+        $kelas = DB::table('md_kelas')->get();
+        $tahun = DB::table('md_tahun_ajaran')->where('id_tahun',$id_tahun)->first();
+        return view('admin.DataSiswa.create',compact('kelas','tahun','id_tahun'));
     }
 
-    public function editPage($id)
+    public function editPage($id,$id_tahun)
     {
         $data = DB::table('bd_siswa as bs')
         ->join('users as us','us.id','=','bs.id_user_wali')
         ->where('bs.id_siswa',$id)
         ->first();
-        return view('admin.DataSiswa.edit',compact('data'));
+        $kelas_now = DB::table('md_kelas_siswa')
+        ->where('id_siswa',$data->id_siswa)
+        ->where('id_tahun',$id_tahun)
+        ->select('id_kelas')
+        ->first();
+        $kelas = DB::table('md_kelas')->get();
+        $tahun = DB::table('md_tahun_ajaran')->get();
+        return view('admin.DataSiswa.edit',compact('data','kelas_now','kelas','tahun','id_tahun'));
     }
 
     public function create(Request $request)
@@ -59,13 +75,19 @@ class SiswaController extends Controller
                 'password'=>bcrypt($str),
                 'created_at'=>Carbon::now()->toDateTimeString()
             ]);
-        DB::table('bd_siswa')->insert(
+        $siswa =DB::table('bd_siswa')->insertGetId(
             [
                 'nis'=>$request->nis,
                 'nama_siswa'=>$request->nama_siswa,
                 'no_telepon'=>$request->no_telepon,
                 'id_user_wali'=>$wali,
                 'kode_unik'=>$str,
+                'created_at'=>Carbon::now()->toDateTimeString()
+            ]);
+        DB::table('md_kelas_siswa')->insert(
+            [
+                'id_tahun'=>$request->id_tahun,
+                'id_kelas'=>$request->id_kelas,
                 'created_at'=>Carbon::now()->toDateTimeString()
             ]);
         return redirect('admin/siswa');
@@ -88,6 +110,12 @@ class SiswaController extends Controller
                 'nis'=>$request->nis,
                 'nama_siswa'=>$request->nama_siswa,
                 'no_telepon'=>$request->no_telepon,
+                'created_at'=>Carbon::now()->toDateTimeString()
+            ]);
+        DB::table('md_kelas_siswa')->where('id_siswa',$id)->where('id_tahun',$request->id_tahun)->update(
+            [
+                'id_tahun'=>$request->id_tahun,
+                'id_kelas'=>$request->id_kelas,
                 'created_at'=>Carbon::now()->toDateTimeString()
             ]);
         return redirect('admin/siswa');

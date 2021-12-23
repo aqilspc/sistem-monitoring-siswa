@@ -17,15 +17,8 @@
                         
                     </div>
                     <div class="body">
-                         <form enctype="multipart/form-data" method="POST" action="{{url('admin/guru/create')}}">
+                         <form enctype="multipart/form-data" method="POST" action="{{url('admin/guru/insert')}}">
                             @csrf
-                            
-                            <label for="nip">NIP</label>
-                            <div class="form-group">
-                                <div class="form-line">
-                                    <input type="text" name="nip" class="form-control" placeholder="NIP">
-                                </div>
-                            </div>
                             <label for="nama_guru">NAMA GURU</label>
                             <div class="form-group">
                                 <div class="form-line">
@@ -44,12 +37,13 @@
                                     <input type="text" name="email" class="form-control" placeholder="Email">
                                 </div>
                             </div>
-                   <!--          <label for="kode_unik">KODE UNIK</label>
+                            <label for="email">PASSWORD</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" id="kode_unik" class="form-control" placeholder="Kode Unik">
+                                    <input type="password"  required name="password" class="form-control" placeholder="Password">
                                 </div>
-                            </div> -->
+                            </div>
+
                             <div>
                             <button type="submit" class="btn btn-primary center-block" >SUBMIT</button>
                             </div>

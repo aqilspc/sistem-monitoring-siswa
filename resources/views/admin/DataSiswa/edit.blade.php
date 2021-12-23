@@ -17,6 +17,7 @@
                     <div class="body">
                         <form enctype="multipart/form-data" method="POST" action="{{url('admin/siswa/update/'.$data->id_siswa)}}">
                             @csrf
+                        
                         <div class="demo-masked-input">
                             <div class="row clearfix">
                                 <div class="col-md-4">
@@ -63,7 +64,47 @@
                                         </div>
                                     </div>
                                 </div>
-
+                                <div class="col-md-4">
+                                    <b>Kelas</b>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="material-icons">lock</i>
+                                        </span>
+                                        <div class="form-line">
+                                             <select class="form-control show-tick" name="id_kelas">
+                                                <option value="0">
+                                                       Pilih Kelas
+                                                </option>
+                                                @foreach($kelas as $t)
+                                                    <option value="{{$t->id_kelas}}" 
+                                                     {{$kelas_now->id_kelas == $t->id_kelas?'selected':''}}>
+                                                        {{$t->nama_kelas}}</option>
+                                                @endforeach
+                                        </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <b>Tahun</b>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="material-icons">lock</i>
+                                        </span>
+                                        <div class="form-line">
+                                            <select class="form-control show-tick" name="id_tahun">
+                                                <option value="0">
+                                                       Pilih Tahun
+                                                </option>
+                                                @foreach($tahun as $t)
+                                                    <option value="{{$t->id_tahun}}" 
+                                                        {{$id_tahun == $t->id_tahun?'selected':''}}>
+                                                        {{$t->priode_tahun}}
+                                                    </option>
+                                                @endforeach
+                                        </select>
+                                        </div>
+                                    </div>
+                                </div>
                                 
                             </div>
                             <div>

@@ -20,17 +20,6 @@
                         <div class="demo-masked-input">
                             <div class="row clearfix">
                                 <div class="col-md-4">
-                                    <b>NIP</b>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="material-icons">account_box</i>
-                                        </span>
-                                        <div class="form-line">
-                                            <input type="text" name="nip" class="form-control time24" value="{{$data->nip}}">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
                                     <b>Nama</b>
                                     <div class="input-group">
                                         <span class="input-group-addon">
@@ -48,7 +37,7 @@
                                             <i class="material-icons">phone</i>
                                         </span>
                                         <div class="form-line">
-                                            <input type="text" class="form-control datetime" value="{{$data->no_telepon}}" name="no_telepon">
+                                            <input type="text" class="form-control datetime" value="{{$data->no_hp}}" name="no_telepon">
                                         </div>
                                     </div>
                                 </div>
@@ -59,11 +48,22 @@
                                             <i class="material-icons">email</i>
                                         </span>
                                         <div class="form-line">
-                                            <input type="text" class="fas fa-envelope" value="{{$data->email}}" name="email">
+                                            <input type="text" class="fas fa-envelope" value="{{$user->email}}" name="email">
                                         </div>
                                     </div>
                                 </div>
-
+                                <div class="col-md-4">
+                                    <b>Password</b>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="material-icons">lock</i>
+                                        </span>
+                                        <div class="form-line">
+                                            <input type="text" class="fas fa-lock" required name="password">
+                                        </div>
+                                    </div>
+                                </div>
+                                
                                 
                             </div>
                             <div>

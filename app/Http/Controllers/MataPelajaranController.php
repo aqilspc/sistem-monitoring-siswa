@@ -26,7 +26,7 @@ class MataPelajaranController extends Controller
 
     public function create()
     {
-        return view('admin.DataMataPelajaran.create',compact('guru'));
+        return view('admin.DataMataPelajaran.create');
     }
 
     public function insert(Request $request)
@@ -37,7 +37,7 @@ class MataPelajaranController extends Controller
             'kkm'=>$request->kkm,
             'created_at'=>Carbon::now()->toDateTimeString(),
         ]);
-        return redirect('admin/kelas');
+        return redirect('admin/matapelajaran');
     }
 
     public function edit($id)
@@ -54,7 +54,7 @@ class MataPelajaranController extends Controller
                  'kkm'=>$request->kkm,
                  'created_at'=>Carbon::now()->toDateTimeString(),
             ]);
-        return redirect('admin/kelas');
+        return redirect('admin/matapelajaran');
     }
 
     public function delete($id)
@@ -62,3 +62,4 @@ class MataPelajaranController extends Controller
         DB::table('md_matapelajaran')->where('id_matapelajaran',$id)->delete();
         return redirect()->back();
     }
+}

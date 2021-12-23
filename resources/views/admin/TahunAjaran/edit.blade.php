@@ -3,7 +3,7 @@
 <section class="content">
     <div class="container-fluid">
         <div class="block-header">
-            <h2>DATA KELAS</h2>
+            <h2>DATA TAHUN AJARAN</h2>
         </div>
 
         <!-- Vertical Layout -->
@@ -12,17 +12,17 @@
                 <div class="card">
                     <div class="header">
                         <h2>
-                            Tambah Data Kelas
+                            Edi Data Tahun Ajaran
                         </h2>
                         
                     </div>
                     <div class="body">
-                         <form enctype="multipart/form-data" method="POST" action="{{url('admin/kelas/insert')}}">
+                         <form enctype="multipart/form-data" method="POST" action="{{url('admin/tahun/update/'.$data->id_tahun)}}">
                             @csrf
-                            <label for="nama_kebijakan">NAMA KELAS</label>
+                            <label for="nama_kebijakan">PRIODE TAHUN</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" id="nama_kegiatan" class="form-control" placeholder="nama kelas" name="nama_kelas">
+                                    <input type="text" id="nama_kegiatan" class="form-control" placeholder="priode tahun" name="priode_tahun" value="{{$data->priode_tahun}}">
                                 </div>
                             </div>
                             <div class="center-block">
