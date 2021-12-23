@@ -127,10 +127,11 @@ Route::get('/admin/matapelajaran/delete/{id}',[MataPelajaranController::class,'d
 Route::get('/guru/kelas',[NilaiController::class,'indexPilihKelas']);
 Route::get('/guru/kelas/{tahun}',[NilaiController::class,'indexPilihKelas']);
 Route::get('/guru/nilai/{kelas}/{tahun}',[NilaiController::class,'indexPenilaian']);
-Route::get('/guru/nilai/create/{s}/{k}/{t}',[NilaiController::class,'indexPenilaianCreate']);
+Route::get('/guru/nilai/create/{k}/{t}',[NilaiController::class,'indexPenilaianCreate']);
 Route::post('/guru/nilai/insert',[NilaiController::class,'createNilai']);
-Route::get('/guru/nilai/edit/{id}/{s}/{k}/{t}',[NilaiController::class,'indexPenilaianEdit']);
-Route::post('/guru/nilai/updateNilai/{id}',[NilaiController::class,'update']);
+Route::get('/guru/nilai/edit/{id}/{k}/{t}',[NilaiController::class,'indexPenilaianEdit']);
+Route::post('/guru/nilai/updateNilai/{id}',[NilaiController::class,'updateNilai']);
+Route::get('/guru_nilai_hapus/{id}',[NilaiController::class,'deleteNilai']);
 Route::get('/guru/nilai/rerata/siswa/{s}/{k}/{t}',[NilaiController::class,'indexRangkumanNilai']);
 Route::get('/guru/nilai/mapel/siswa/{s}/{k}/{m}/{t}',[NilaiController::class,'PerSiswaMapel']);
 Route::get('/guru/nilai/siswa/{s}/{k}/{t}',[NilaiController::class,'indexPerSiswa']);

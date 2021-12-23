@@ -30,7 +30,7 @@
                                             <th>No</th>
                                             <th>Mata Pelajaran</th>
                                             <th>Nilai</th>
-                                            <th>Action</th>
+                                            <th>Keterangan</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -40,7 +40,7 @@
                                             <td>{{$d->nama_matapelajaran}}</td>
                                             <td>{{$d->nilai}}</td>
                                             <td>
-                                                
+                                                {{$d->nama_nilai}}
                                             </td>
                                         </tr>
                                         @endforeach

@@ -1,4 +1,4 @@
-@extends('guru.layout.master')
+@extends('admin.layout.master')
 @section('content')
 <section class="content">
     <div class="container-fluid">

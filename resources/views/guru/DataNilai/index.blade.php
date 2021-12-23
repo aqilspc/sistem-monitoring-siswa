@@ -15,7 +15,7 @@
                     <div class="header">
                         <h2>
                              <a href="{{url('#')}}" class="btn btn-success waves-effect" type="button">Eksport data penilaian kelas {{strtoupper($kelas->nama_kelas)}} - Tahun Ajaran : {{strtoupper($tahun->priode_tahun)}}</a>
-                             <a href="{{url('#')}}" class="btn btn-success waves-effect" type="button">Tambah data penilaian kelas {{strtoupper($kelas->nama_kelas)}} - Tahun Ajaran : {{strtoupper($tahun->priode_tahun)}}</a>
+                             <a href="{{url('guru/nilai/create/'.$kelas->id_kelas.'/'.$tahun->id_tahun)}}" class="btn btn-success waves-effect" type="button">Tambah data penilaian kelas {{strtoupper($kelas->nama_kelas)}} - Tahun Ajaran : {{strtoupper($tahun->priode_tahun)}}</a>
                         </h2>
                         <br>
                         <select class="form-control show-tick" name="id_tahun" onchange="siswaidtahun(this.value)">
@@ -55,7 +55,9 @@
                                             <td>{{$d->nama_nilai}}</td>
                                             <td>{{$d->nilai}}</td>
                                             <td>
-                                                
+                                                 <a href="{{url('guru/nilai/edit/'.$d->id_nilai.'/'.$kelas->id_kelas.'/'.$tahun->id_tahun)}}" class="btn btn-success waves-effect" type="button">Edit </a>
+                                                 &nbsp;
+                                                  <a href="{{url('guru_nilai_hapus/'.$d->id_nilai)}}" class="btn btn-danger waves-effect" type="button" onclick="return confirm('hapus nilai?')">Hapus </a>
                                             </td>
                                         </tr>
                                         @endforeach

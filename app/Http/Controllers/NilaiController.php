@@ -163,23 +163,33 @@ class NilaiController extends Controller
         return view('guru.DataNilai.index',compact('data','kelas','tahun','pilih'));
     }
 
-    public function indexPenilaianCreate($id_siswa,$id_kelas,$id_tahun)
+    public function indexPenilaianCreate($id_kelas,$id_tahun)
     {
-        $data = DB::table('bd_siswa as bs')
-                ->where('bs.id_siswa',$id_siswa)
-                ->first();
+        $siswa = DB::table('bd_siswa as bs')
+                ->join('md_kelas_siswa as mks','mks.id_siswa','=','bs.id_siswa')
+                ->where('mks.id_kelas',$id_kelas)
+                ->where('mks.id_tahun',$id_tahun)
+                ->orderby('bs.nama_siswa','ASC')
+                ->get();
         $mapel = DB::table('md_matapelajaran')->get();
-        return view('guru.DataNilai.create',compact('data','id_kelas','id_tahun','mapel'));
+        $kelas = DB::table('md_kelas')->where('id_kelas',$id_kelas)->first();
+        $tahun = DB::table('md_tahun_ajaran')->where('id_tahun',$id_tahun)->first();
+        return view('guru.DataNilai.create',compact('siswa','kelas','tahun','mapel'));
     }
 
-    public function indexPenilaianEdit($id,$id_siswa,$id_kelas,$id_tahun)
+    public function indexPenilaianEdit($id,$id_kelas,$id_tahun)
     {
-        $data = DB::table('bd_siswa as bs')
-                ->where('bs.id_siswa',$id_siswa)
-                ->first();
+        $siswa =  DB::table('bd_siswa as bs')
+                ->join('md_kelas_siswa as mks','mks.id_siswa','=','bs.id_siswa')
+                ->where('mks.id_kelas',$id_kelas)
+                ->where('mks.id_tahun',$id_tahun)
+                ->orderby('bs.nama_siswa','ASC')
+                ->get();
         $mapel = DB::table('md_matapelajaran')->get();
+        $kelas = DB::table('md_kelas')->where('id_kelas',$id_kelas)->first();
+        $tahun = DB::table('md_tahun_ajaran')->where('id_tahun',$id_tahun)->first();
         $nilai = DB::table('bd_nilai_siswa')->where('id_nilai',$id)->first();
-        return view('guru.DataNilai.edit',compact('data','id_kelas','id_tahun','mapel','nilai'));
+        return view('guru.DataNilai.edit',compact('siswa','kelas','tahun','mapel','nilai'));
     }
 
     public function createNilai(Request $request)
@@ -193,7 +203,7 @@ class NilaiController extends Controller
                 'nilai'=>$request->nilai,
                 'nama_nilai'=>$request->nama_nilai
             ]);
-        return redirect('guru/kelas/nilai/kelas'.$request->id_kelas.'/'.$request->id_tahun);
+        return redirect('guru/nilai/'.$request->id_kelas.'/'.$request->id_tahun);
     }
 
     public function updateNilai(Request $request,$id)
@@ -208,6 +218,13 @@ class NilaiController extends Controller
                 'nama_nilai'=>$request->nama_nilai
             ]);
         return redirect('guru/nilai/'.$request->id_kelas.'/'.$request->id_tahun);
+    }
+
+    public function deleteNilai($id)
+    {
+         DB::table('bd_nilai_siswa')->where('id_nilai',$id)->delete();
+         return redirect()->back();
+        //return 'test';
     }
 
 }

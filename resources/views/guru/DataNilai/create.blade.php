@@ -12,42 +12,49 @@
                 <div class="card">
                     <div class="header">
                         <h2>
-                            Tambah Data Nilai
+                            Tambah Data Nilai {{strtoupper($kelas->nama_kelas)}} - Tahun Ajaran : {{strtoupper($tahun->priode_tahun)}}
                         </h2>
                         
                     </div>
                     <div class="body">
-                         <form enctype="multipart/form-data" method="POST" action="{{url('admin/nilai/create')}}">
+                         <form enctype="multipart/form-data" method="POST" action="{{url('guru/nilai/insert')}}">
                             @csrf
-                            
-                            <label for="nis">NIS</label>
+                            <input type="hidden" name="id_tahun" value="{{$tahun->id_tahun}}">
+                            <input type="hidden" name="id_kelas" value="{{$kelas->id_kelas}}">
+                            <label for="nama_siswa">SISWA</label>
+
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" name="nis" class="form-control" placeholder="NIS">
-                                </div>
-                            </div>
-                            <label for="nama_siswa">NAMA SISWA</label>
-                            <div class="form-group">
-                                <div class="form-line">
-                                    <input type="text" name="nama_siswa" class="form-control" placeholder="Nama Siswa">
+                                    <select class="form-control show-tick" name="id_siswa">
+                                                <option value="0">
+                                                       Pilih Siswa
+                                                </option>
+                                                @foreach($siswa as $t)
+                                                    <option value="{{$t->id_siswa}}">
+                                                        {{$t->nis}} - {{$t->nama_siswa}}
+                                                    </option>
+                                                @endforeach
+                                        </select>
                                 </div>
                             </div>
                             <label for="mapel">MATA PELAJARAN</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" name="mapel" class="form-control" placeholder="Mata Pelajaran">
+                                     <select class="form-control show-tick" name="id_matapelajaran">
+                                                <option value="0">
+                                                       Pilih Mapel
+                                                </option>
+                                                @foreach($mapel as $t)
+                                                    <option value="{{$t->id_matapelajaran}}">
+                                                        {{$t->nama_matapelajaran}}</option>
+                                                @endforeach
+                                        </select>
                                 </div>
                             </div>
                             <label for="mapel">TUGAS</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" name="mapel" class="form-control" placeholder="Mata Pelajaran">
-                                </div>
-                            </div>
-                            <label for="mapel">TANGGAL</label>
-                            <div class="form-group">
-                                <div class="form-line">
-                                    <input type="text" name="mapel" class="form-control" placeholder="Mata Pelajaran">
+                                    <input type="text" name="nama_nilai" class="form-control" placeholder="Mata Pelajaran">
                                 </div>
                             </div>
                             <label for="nilai">NILAI</label>
