@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <div class="block-header">
             <h2>
-                Nama Siswa
+                DATA NILAI {{strtoupper($siswa->nama_siswa)}}  {{strtoupper($kelas->nama_kelas)}} - Tahun Ajaran : {{strtoupper($tahun->priode_tahun)}}
                 
             </h2>
         </div>
@@ -14,8 +14,11 @@
                 <div class="card">
                     <div class="header">
                         <h2>
-                             <a href="{{url('#')}}" class="btn btn-success waves-effect" type="button">Select mapel</a>
+                             <a href="{{url('#')}}" class="btn btn-success waves-effect" type="button">Eksport data nilai {{strtoupper($siswa->nama_siswa)}} kelas {{strtoupper($kelas->nama_kelas)}} - Tahun Ajaran : {{strtoupper($tahun->priode_tahun)}}</a>
+                             <a href="{{url('guru/nilai/rerata/siswa/'.$siswa->id_siswa.'/'.$kelas->id_kelas.'/'.$tahun->id_tahun)}}" class="btn btn-success waves-effect" type="button">Klik disini untuk melihat nilai rata rata {{strtoupper($siswa->nama_siswa)}}</a>
                         </h2>
+                        <br>
+                        
                     </div>
 
                     <div class="body">
@@ -25,18 +28,20 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Tugas</th>
                                             <th>Mata Pelajaran</th>
                                             <th>Nilai</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                          @foreach($data as $key => $d)
                                         <tr>
                                             <td>{{$key+1}}</td>
-                                            <td>{{$d->nama_siswa}}</td>
-                                            <td>{{$d->mapel}}</td>
+                                            <td>{{$d->nama_matapelajaran}}</td>
                                             <td>{{$d->nilai}}</td>
+                                            <td>
+                                                
+                                            </td>
                                         </tr>
                                         @endforeach
                                     </tbody>

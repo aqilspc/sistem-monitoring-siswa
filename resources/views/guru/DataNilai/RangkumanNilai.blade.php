@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <div class="block-header">
             <h2>
-                Rangkuman Nilai
+                Rangkuman Nilai {{strtoupper($siswa->nama_siswa)}}  {{strtoupper($kelas->nama_kelas)}} - Tahun Ajaran : {{strtoupper($tahun->priode_tahun)}}
                 
             </h2>
         </div>
@@ -14,7 +14,9 @@
                 <div class="card">
                     <div class="header">
                         <h2>
-                             <a href="{{url('#')}}" class="btn btn-success waves-effect" type="button">Kalkulasi nilai</a>
+                             <a href="{{url('#')}}" class="btn btn-success waves-effect" type="button">
+                               Download Pdf
+                             </a>
                         </h2>
                     </div>
 
@@ -27,14 +29,16 @@
                                             <th>No</th>
                                             <th>Mata Pelajaran</th>
                                             <th>Nilai Rata-rata</th>
+                                            <th>Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                         @foreach($data as $key => $d)
+                                         @foreach($arr as $key => $d)
                                         <tr>
                                             <td>{{$key+1}}</td>
-                                            <td>{{$d->nama_siswa}}</td>
-                                            <td>{{$d->nilai}}</td>
+                                            <td>{{$d['nama_matapelajaran']}}</td>
+                                            <td>{{$d['rata_rata']}}</td>
+                                            <td>{{$d['status']}}</td>
                                         </tr>
                                         @endforeach
                                     </tbody>

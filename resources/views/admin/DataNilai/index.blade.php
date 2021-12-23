@@ -29,6 +29,7 @@
                                             <th>Nis</th>
                                             <th>Nama</th>
                                             <th>Mata Pelajaran</th>
+                                            <th>Jenis</th>
                                             <th>Nilai</th>
                                             <th>Action</th>
                                         </tr>
@@ -39,14 +40,11 @@
                                             <td>{{$key+1}}</td>
                                             <td>{{$d->nis}}</td>
                                             <td>{{$d->nama_siswa}}</td>
-                                            <td>{{$d->mapel}}</td>
+                                            <td>{{$d->nama_matapelajaran}}</td>
+                                            <td>{{$d->nama_nilai}}</td>
                                             <td>{{$d->nilai}}</td>
                                             <td>
-                                                 <a href="{{url('admin/siswa/edit/'.$d->id_siswa)}}"><i class="material-icons">create</i> </a>
-                                                &nbsp;
-                                                 <a
-                                                 onclick="return confirm('Apakah anda yakin untuk menghapus data?')"
-                                                 href="{{url('admin/siswa/delete/'.$d->id_siswa)}}"><i class="material-icons">delete</i> </a>
+                                                
                                             </td>
                                         </tr>
                                         @endforeach

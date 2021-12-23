@@ -4,7 +4,8 @@
     <div class="container-fluid">
         <div class="block-header">
             <h2>
-                DATA NILAI               
+                DATA NILAI KELAS {{strtoupper($kelas->nama_kelas)}} - Tahun Ajaran : {{strtoupper($tahun->priode_tahun)}}
+                
             </h2>
         </div>
         <!-- Basic Examples -->
@@ -13,9 +14,20 @@
                 <div class="card">
                     <div class="header">
                         <h2>
-                             <a href="{{url('#')}}" class="btn btn-success waves-effect" type="button">Eksport data</a>
-                             <a href="{{url('#')}}" class="btn btn-success waves-effect" type="button">Select siswa</a>
+                             <a href="{{url('#')}}" class="btn btn-success waves-effect" type="button">Eksport data penilaian kelas {{strtoupper($kelas->nama_kelas)}} - Tahun Ajaran : {{strtoupper($tahun->priode_tahun)}}</a>
+                             <a href="{{url('#')}}" class="btn btn-success waves-effect" type="button">Tambah data penilaian kelas {{strtoupper($kelas->nama_kelas)}} - Tahun Ajaran : {{strtoupper($tahun->priode_tahun)}}</a>
                         </h2>
+                        <br>
+                        <select class="form-control show-tick" name="id_tahun" onchange="siswaidtahun(this.value)">
+                                    <option value="0">
+                                           Pilih siswa untuk melihat nilai per siswa kelas {{strtoupper($kelas->nama_kelas)}} - Tahun Ajaran : {{strtoupper($tahun->priode_tahun)}}
+                                    </option>
+                                    @foreach($pilih as $t)
+                                        <option value="{{$t->id_siswa}}">
+                                            {{$t->nis}} - {{$t->nama_siswa}}
+                                        </option>
+                                    @endforeach
+                            </select>
                     </div>
 
                     <div class="body">
@@ -28,6 +40,7 @@
                                             <th>Nis</th>
                                             <th>Nama</th>
                                             <th>Mata Pelajaran</th>
+                                            <th>Jenis</th>
                                             <th>Nilai</th>
                                             <th>Action</th>
                                         </tr>
@@ -38,14 +51,11 @@
                                             <td>{{$key+1}}</td>
                                             <td>{{$d->nis}}</td>
                                             <td>{{$d->nama_siswa}}</td>
-                                            <td>{{$d->mapel}}</td>
+                                            <td>{{$d->nama_matapelajaran}}</td>
+                                            <td>{{$d->nama_nilai}}</td>
                                             <td>{{$d->nilai}}</td>
                                             <td>
-                                                 <a href="{{url('admin/siswa/edit/'.$d->id_siswa)}}"><i class="material-icons">create</i> </a>
-                                                &nbsp;
-                                                 <a
-                                                 onclick="return confirm('Apakah anda yakin untuk menghapus data?')"
-                                                 href="{{url('admin/siswa/delete/'.$d->id_siswa)}}"><i class="material-icons">delete</i> </a>
+                                                
                                             </td>
                                         </tr>
                                         @endforeach
@@ -60,5 +70,11 @@
         </div>
         <!-- #END# Basic Examples -->
 </section>
+<script type="text/javascript">
+    function siswaidtahun(value){
+
+        location.href = "{{url('guru/nilai/siswa/')}}"+"/"+value+"/"+"{{$kelas->id_kelas}}"+"/"+"{{$tahun->id_tahun}}";
+    }
+</script>
 @endsection
 
