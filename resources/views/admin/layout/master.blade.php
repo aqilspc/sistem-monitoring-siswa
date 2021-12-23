@@ -136,10 +136,13 @@
                                 <a href="{{url('admin/guru')}}">Guru</a>
                             </li>
                             <li>
+                                <a href="{{url('admin/guru/mengajar')}}">Guru Mengajar</a>
+                            </li>
+                            <li>
                                 <a href="{{url('admin/kelas')}}">Kelas</a>
                             </li>
                             <li>
-                                <a href="{{url('admin/nilai')}}">Nilai</a>
+                                <a href="{{url('guru/kelas')}}">Nilai</a>
                             </li>
                             <li>
                                 <a href="{{url('admin/mata_pelajaran')}}">Mata Pelajaran</a>

@@ -5,7 +5,6 @@
         <div class="block-header">
             <h2>
                 DATA GURU
-                
             </h2>
         </div>
         <!-- Basic Examples -->
@@ -35,14 +34,13 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                         {{-- @foreach($data as $key => $d) --}}
+                                         @foreach($data as $key => $d) 
                                         <tr>
-                                            {{-- <td>{{$key+1}}</td>
+                                            <td>{{$key+1}}</td>
                                             <td>{{$d->nip}}</td>
                                             <td>{{$d->nama_guru}}</td>
                                             <td>{{$d->name}}</td>
-                                            <td>{{$d->email}}</td> --}}
-                                            <td>
+                                            <td>{{$d->email}}</td>                                             <td>
                                                  <a href="{{url('admin/siswa/edit/'.$d->id_guru)}}"><i class="material-icons">create</i> </a>
                                                 &nbsp;
                                                  <a
@@ -50,7 +48,7 @@
                                                  href="{{url('admin/siswa/delete/'.$d->id_guru)}}"><i class="material-icons">delete</i> </a>
                                             </td>
                                         </tr>
-                                        {{-- @endforeach --}}
+                                     @endforeach 
                                     </tbody>
                                 </table>
                             </div>
