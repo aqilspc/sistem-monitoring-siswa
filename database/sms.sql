@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 08, 2021 at 10:35 AM
+-- Generation Time: Dec 24, 2021 at 07:06 AM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 7.4.20
 
@@ -20,6 +20,28 @@ SET time_zone = "+00:00";
 --
 -- Database: `sms`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bd_guru_mengajar`
+--
+
+CREATE TABLE `bd_guru_mengajar` (
+  `id_mengajar` bigint(20) NOT NULL,
+  `id_matapelajaran` bigint(20) NOT NULL,
+  `id_guru` bigint(20) NOT NULL,
+  `id_kelas` bigint(20) NOT NULL,
+  `id_tahun` bigint(20) NOT NULL,
+  `created_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `bd_guru_mengajar`
+--
+
+INSERT INTO `bd_guru_mengajar` (`id_mengajar`, `id_matapelajaran`, `id_guru`, `id_kelas`, `id_tahun`, `created_at`) VALUES
+(1, 3, 2, 1, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -42,6 +64,33 @@ CREATE TABLE `bd_kehadiran_siswa` (
 
 INSERT INTO `bd_kehadiran_siswa` (`id_kehadiran`, `id_siswa`, `tanggal`, `status`, `jam`, `created_at`) VALUES
 (1, 1, '2021-10-08', 'Izin', '13:08', '2021-10-08 07:39:51');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bd_nilai_siswa`
+--
+
+CREATE TABLE `bd_nilai_siswa` (
+  `id_nilai` bigint(20) NOT NULL,
+  `id_siswa` bigint(20) NOT NULL,
+  `id_kelas` bigint(20) NOT NULL,
+  `id_matapelajaran` bigint(20) NOT NULL,
+  `id_tahun` bigint(20) NOT NULL,
+  `nama_nilai` varchar(255) DEFAULT NULL,
+  `nilai` int(11) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `bd_nilai_siswa`
+--
+
+INSERT INTO `bd_nilai_siswa` (`id_nilai`, `id_siswa`, `id_kelas`, `id_matapelajaran`, `id_tahun`, `nama_nilai`, `nilai`, `created_at`) VALUES
+(1, 1, 4, 3, 1, 'UTS', 65, '2021-12-23 21:22:25'),
+(2, 1, 4, 3, 1, 'UAS', 80, '2021-12-23 21:22:25'),
+(3, 1, 4, 3, 1, 'TUGAS', 70, '2021-12-23 21:22:25'),
+(5, 1, 4, 1, 1, 'TH MATERI 1', 100, NULL);
 
 -- --------------------------------------------------------
 
@@ -86,7 +135,7 @@ CREATE TABLE `bd_siswa` (
 --
 
 INSERT INTO `bd_siswa` (`id_siswa`, `id_user_wali`, `nis`, `nama_siswa`, `no_telepon`, `kode_unik`, `created_at`) VALUES
-(1, 2, '111112345', 'aqil', '0099876', '901F3', '2021-10-08 06:47:52');
+(1, 2, '111112345', 'aqil', '0099876', '901F3', '2021-12-23 21:01:22');
 
 -- --------------------------------------------------------
 
@@ -100,6 +149,7 @@ CREATE TABLE `bd_tagihan_siswa` (
   `jenis` varchar(200) NOT NULL,
   `jumlah` bigint(20) NOT NULL,
   `status` varchar(20) NOT NULL,
+  `id_tahun` bigint(20) NOT NULL,
   `created_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -107,8 +157,8 @@ CREATE TABLE `bd_tagihan_siswa` (
 -- Dumping data for table `bd_tagihan_siswa`
 --
 
-INSERT INTO `bd_tagihan_siswa` (`id_tagihan`, `id_siswa`, `jenis`, `jumlah`, `status`, `created_at`) VALUES
-(1, 1, 'SPP OKTOBER 2021', 220000, 'Belum_Lunas', '2021-10-08 08:28:51');
+INSERT INTO `bd_tagihan_siswa` (`id_tagihan`, `id_siswa`, `jenis`, `jumlah`, `status`, `id_tahun`, `created_at`) VALUES
+(1, 1, 'SPP OKTOBER 2021', 220000, 'Belum_Lunas', 0, '2021-10-08 08:28:51');
 
 -- --------------------------------------------------------
 
@@ -125,6 +175,27 @@ CREATE TABLE `failed_jobs` (
   `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `md_guru`
+--
+
+CREATE TABLE `md_guru` (
+  `id_guru` bigint(20) NOT NULL,
+  `no_hp` varchar(20) NOT NULL,
+  `nama_guru` varchar(255) NOT NULL,
+  `id_user` bigint(20) NOT NULL,
+  `created_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `md_guru`
+--
+
+INSERT INTO `md_guru` (`id_guru`, `no_hp`, `nama_guru`, `id_user`, `created_at`) VALUES
+(2, '39483948', 'AQILSPC', 6, '2021-12-23 19:35:15');
 
 -- --------------------------------------------------------
 
@@ -171,6 +242,71 @@ INSERT INTO `md_kegiatan` (`id_kegiatan`, `nama_kegiatan`, `tanggal`, `gambar`, 
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `md_kelas`
+--
+
+CREATE TABLE `md_kelas` (
+  `id_kelas` bigint(20) NOT NULL,
+  `nama_kelas` varchar(100) NOT NULL,
+  `created_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `md_kelas`
+--
+
+INSERT INTO `md_kelas` (`id_kelas`, `nama_kelas`, `created_at`) VALUES
+(1, '1A', '2021-12-23 19:05:04'),
+(2, '2A', '2021-12-23 19:05:12'),
+(3, '3A', '2021-12-23 19:05:18'),
+(4, '4Ab', '2021-12-23 19:05:32');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `md_kelas_siswa`
+--
+
+CREATE TABLE `md_kelas_siswa` (
+  `id_kelas_siswa` bigint(20) NOT NULL,
+  `id_siswa` bigint(20) NOT NULL,
+  `id_kelas` bigint(20) NOT NULL,
+  `id_tahun` bigint(20) NOT NULL,
+  `created_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `md_kelas_siswa`
+--
+
+INSERT INTO `md_kelas_siswa` (`id_kelas_siswa`, `id_siswa`, `id_kelas`, `id_tahun`, `created_at`) VALUES
+(1, 1, 4, 1, '2021-12-23 21:01:22');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `md_matapelajaran`
+--
+
+CREATE TABLE `md_matapelajaran` (
+  `id_matapelajaran` bigint(20) NOT NULL,
+  `nama_matapelajaran` varchar(255) NOT NULL,
+  `kkm` bigint(20) NOT NULL,
+  `created_at` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `md_matapelajaran`
+--
+
+INSERT INTO `md_matapelajaran` (`id_matapelajaran`, `nama_matapelajaran`, `kkm`, `created_at`) VALUES
+(1, 'PAI', 75, '2021-12-23'),
+(2, 'IPA', 75, '2021-12-23'),
+(3, 'IPS', 75, '2021-12-23');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `md_sistem`
 --
 
@@ -187,6 +323,27 @@ CREATE TABLE `md_sistem` (
 
 INSERT INTO `md_sistem` (`id_sistem`, `visi`, `misi`, `created_at`) VALUES
 (1, 'Visi SMK Negeri 1 Pasuruan<br>\r\nTerwujudnya insan yang berakhlak mulia, kreatif, inovatif, mandiri, dan peduli lingkungan.<br><br>', ' Misi SMK Negeri 1 Pasuruan <br>\r\n1. Meningkatkan Nilai Keimanan dan Ketaqwaan kepada Tuhan Yang Maha Esa<br>\r\n2. Menumbuhkembangkan Jiwa Nasionalisme<br>\r\n3. Meningkatkan Prestasi dalam Ilmu Pengetahuan, Teknologi, Seni Budaya dan Olahraga<br>\r\n4. Menumbuhkembangkan Kreatifitas, Inovatif dan Produktifitas dalam Peningkatan Mutu Pendidikan<br>\r\n5. Menumbuhkembangkan Kemandirian<br>\r\n6. Menanamkan sikap pelestarian Lingkungan, Pencegahan Terjadinya  Pencemaran dan  Kerusakan Lingkungan', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `md_tahun_ajaran`
+--
+
+CREATE TABLE `md_tahun_ajaran` (
+  `id_tahun` bigint(20) NOT NULL,
+  `priode_tahun` varchar(100) NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `md_tahun_ajaran`
+--
+
+INSERT INTO `md_tahun_ajaran` (`id_tahun`, `priode_tahun`, `created_at`, `updated_at`) VALUES
+(1, '2021-2022', '2021-12-23 18:45:17', NULL),
+(2, '2022-2023', '2021-12-23 18:49:58', NULL);
 
 -- --------------------------------------------------------
 
@@ -263,18 +420,32 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `role`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'admin', 'admin@sms.com', NULL, '$2y$10$oDJ8Rpk1VkGOFpKDkIyx5OkKkMxNbwbxgZKlZPYJSo9S7.BQ.vbZ2', NULL, NULL, NULL),
-(2, 'wali', 'abd muchdyidin', 'abd_muchdyidin@smss.my.id', NULL, '$2y$10$hSd9AKLXX2e9thRrD4KNRO/BaKx3wsgYZurO6rlqz7Ci/dXQTr0ui', NULL, '2021-10-07 23:43:14', NULL);
+(1, 'admin', 'admin', 'admin@sms.com', NULL, '$2y$10$oDJ8Rpk1VkGOFpKDkIyx5OkKkMxNbwbxgZKlZPYJSo9S7.BQ.vbZ2', 'jPFRxMSSogY5xSNH3hD6HhpFNdkaQqLzocMnUaAdTsaboYv90AAPdSHyvuBI', NULL, NULL),
+(2, 'wali', 'abd muchdyidin', 'abd_muchdyidin@smss.my.id', NULL, '$2y$10$hSd9AKLXX2e9thRrD4KNRO/BaKx3wsgYZurO6rlqz7Ci/dXQTr0ui', NULL, '2021-10-07 23:43:14', NULL),
+(5, 'guru', 'AQILSPC', 'aqil@gg.com', NULL, '$2y$10$V6SatAsiQjKqp/JLTT3uzOZ.5gOe/cHMwMNJSKdU7Ev4DiaiMxYxe', NULL, '2021-12-23 12:25:11', NULL),
+(6, 'guru', 'AQILSPC', 'abu@gmail.com', NULL, '$2y$10$.dFMPZFYHV2yEGJP9yditutz8jEA/VCI1OqvEBMgoHRvIiuCOoXGO', NULL, '2021-12-23 12:34:35', NULL);
 
 --
 -- Indexes for dumped tables
 --
 
 --
+-- Indexes for table `bd_guru_mengajar`
+--
+ALTER TABLE `bd_guru_mengajar`
+  ADD PRIMARY KEY (`id_mengajar`);
+
+--
 -- Indexes for table `bd_kehadiran_siswa`
 --
 ALTER TABLE `bd_kehadiran_siswa`
   ADD PRIMARY KEY (`id_kehadiran`);
+
+--
+-- Indexes for table `bd_nilai_siswa`
+--
+ALTER TABLE `bd_nilai_siswa`
+  ADD PRIMARY KEY (`id_nilai`);
 
 --
 -- Indexes for table `bd_pelanggaran_siswa`
@@ -302,6 +473,12 @@ ALTER TABLE `failed_jobs`
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
 
 --
+-- Indexes for table `md_guru`
+--
+ALTER TABLE `md_guru`
+  ADD PRIMARY KEY (`id_guru`);
+
+--
 -- Indexes for table `md_kebijakan`
 --
 ALTER TABLE `md_kebijakan`
@@ -314,10 +491,34 @@ ALTER TABLE `md_kegiatan`
   ADD PRIMARY KEY (`id_kegiatan`);
 
 --
+-- Indexes for table `md_kelas`
+--
+ALTER TABLE `md_kelas`
+  ADD PRIMARY KEY (`id_kelas`);
+
+--
+-- Indexes for table `md_kelas_siswa`
+--
+ALTER TABLE `md_kelas_siswa`
+  ADD PRIMARY KEY (`id_kelas_siswa`);
+
+--
+-- Indexes for table `md_matapelajaran`
+--
+ALTER TABLE `md_matapelajaran`
+  ADD PRIMARY KEY (`id_matapelajaran`);
+
+--
 -- Indexes for table `md_sistem`
 --
 ALTER TABLE `md_sistem`
   ADD PRIMARY KEY (`id_sistem`);
+
+--
+-- Indexes for table `md_tahun_ajaran`
+--
+ALTER TABLE `md_tahun_ajaran`
+  ADD PRIMARY KEY (`id_tahun`);
 
 --
 -- Indexes for table `migrations`
@@ -351,10 +552,22 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `bd_guru_mengajar`
+--
+ALTER TABLE `bd_guru_mengajar`
+  MODIFY `id_mengajar` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `bd_kehadiran_siswa`
 --
 ALTER TABLE `bd_kehadiran_siswa`
   MODIFY `id_kehadiran` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `bd_nilai_siswa`
+--
+ALTER TABLE `bd_nilai_siswa`
+  MODIFY `id_nilai` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `bd_pelanggaran_siswa`
@@ -381,6 +594,12 @@ ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `md_guru`
+--
+ALTER TABLE `md_guru`
+  MODIFY `id_guru` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `md_kebijakan`
 --
 ALTER TABLE `md_kebijakan`
@@ -393,10 +612,34 @@ ALTER TABLE `md_kegiatan`
   MODIFY `id_kegiatan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `md_kelas`
+--
+ALTER TABLE `md_kelas`
+  MODIFY `id_kelas` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `md_kelas_siswa`
+--
+ALTER TABLE `md_kelas_siswa`
+  MODIFY `id_kelas_siswa` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `md_matapelajaran`
+--
+ALTER TABLE `md_matapelajaran`
+  MODIFY `id_matapelajaran` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `md_sistem`
 --
 ALTER TABLE `md_sistem`
   MODIFY `id_sistem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `md_tahun_ajaran`
+--
+ALTER TABLE `md_tahun_ajaran`
+  MODIFY `id_tahun` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -414,7 +657,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
