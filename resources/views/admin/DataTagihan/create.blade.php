@@ -24,7 +24,7 @@
 
                             <div class="form-group">
                                <select class="form-control show-tick" data-live-search="true" multiple 
-                                   name="id_siswa[]" >
+                                   name="id_siswa[]" required>
 
                                     @foreach($siswa as $sw)
                                         <option value="{{$sw->id_siswa}}">
@@ -39,20 +39,20 @@
                             <label for="nis">JENIS TAGIHAN</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" name="jenis" class="form-control" placeholder="Jenis Tagihan">
+                                    <input type="text" name="jenis" class="form-control" placeholder="Jenis Tagihan" required>
                                 </div>
                             </div>
                             <label for="nis">JUMLAH TAGIHAN</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="double" name="jumlah" class="form-control" placeholder="Jumlah Tagihan">
+                                    <input type="double" name="jumlah" class="form-control" placeholder="Jumlah Tagihan" required>
                                 </div>
                             </div>
                             <label for="status">STATUS</label>
                             <div class="form-group">
 
                                 <select class="form-control show-tick"
-                               name="status">
+                               name="status" required>
 
                                 <option value="Lunas" >
                                        Lunas

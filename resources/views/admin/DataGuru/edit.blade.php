@@ -59,7 +59,7 @@
                                             <i class="material-icons">lock</i>
                                         </span>
                                         <div class="form-line">
-                                            <input type="text" class="fas fa-lock" required name="password">
+                                            <input type="password" class="fas fa-lock" required name="password">
                                         </div>
                                     </div>
                                 </div>

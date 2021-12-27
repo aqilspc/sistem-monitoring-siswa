@@ -23,25 +23,25 @@
                             <label for="nis">NIS</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" name="nis" class="form-control" placeholder="NIS">
+                                    <input type="text" name="nis" class="form-control" placeholder="NIS" required>
                                 </div>
                             </div>
                             <label for="nama_siswa">NAMA SISWA</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" name="nama_siswa" class="form-control" placeholder="Nama Siswa">
+                                    <input type="text" name="nama_siswa" class="form-control" placeholder="Nama Siswa" required>
                                 </div>
                             </div>
                             <label for="mapel">MATA PELAJARAN</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" name="mapel" class="form-control" placeholder="Mata Pelajaran">
+                                    <input type="text" name="mapel" class="form-control" placeholder="Mata Pelajaran" required>
                                 </div>
                             </div>
                             <label for="nilai">NILAI</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" name="nilai" class="form-control" placeholder="Nilai">
+                                    <input type="text" name="nilai" class="form-control" placeholder="Nilai" required>
                                 </div>
                             </div>
                             <div>

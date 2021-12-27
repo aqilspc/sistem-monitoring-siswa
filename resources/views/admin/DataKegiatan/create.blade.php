@@ -23,26 +23,26 @@
                             <label for="nama_kegiatan">NAMA KEGIATAN</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" name="nama_kegiatan" class="form-control" placeholder="nama kegiatan">
+                                    <input type="text" name="nama_kegiatan" class="form-control" placeholder="nama kegiatan" required>
                                 </div>
                             </div>
                             <label for="gambar">GAMBAR</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="file" name="gambar" class="form-control" placeholder="gambar">
+                                    <input type="file" name="gambar" class="form-control" placeholder="gambar" required>
                                 </div>
                             </div>
                             <label for="keterangan">ISI</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <textarea id="alamat" class="form-control summernote" name="keterangan" >
+                                    <textarea id="alamat" class="form-control summernote" name="keterangan" required>
                                    </textarea>
                                 </div>
                             </div>
                             <label for="tanggal">TANGGAL</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="date" name="tanggal"  class="form-control" placeholder="tanggal">
+                                    <input type="date" name="tanggal"  class="form-control" placeholder="tanggal" required>
                                 </div>
                             </div>
                             <div>

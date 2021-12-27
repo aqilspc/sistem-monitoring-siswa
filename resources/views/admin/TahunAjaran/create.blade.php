@@ -22,7 +22,7 @@
                            <label for="nama_kebijakan">PRIODE TAHUN</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" id="nama_kegiatan" class="form-control" placeholder="priode tahun" name="priode_tahun">
+                                    <input type="text" id="nama_kegiatan" class="form-control" placeholder="priode tahun" name="priode_tahun" required>
                                 </div>
                             </div>
                             <div class="center-block">

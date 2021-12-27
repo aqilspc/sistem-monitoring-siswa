@@ -27,7 +27,7 @@
                                             <i class="material-icons">person</i>
                                         </span>
                                         <div class="form-line">
-                                           <select class="form-control show-tick" name="id_tahun">
+                                           <select class="form-control show-tick" name="id_tahun" required>
                                                 <option value="0">
                                                        Pilih Tahun
                                                 </option>
@@ -45,7 +45,7 @@
                                             <i class="material-icons">person</i>
                                         </span>
                                         <div class="form-line">
-                                           <select class="form-control show-tick" name="id_kelas">
+                                           <select class="form-control show-tick" name="id_kelas" required>
                                                 <option value="0">
                                                        Pilih Kelas
                                                 </option>
@@ -63,7 +63,7 @@
                                             <i class="material-icons">person</i>
                                         </span>
                                         <div class="form-line">
-                                           <select class="form-control show-tick" name="id_matapelajaran">
+                                           <select class="form-control show-tick" name="id_matapelajaran" required>
                                                 <option value="0">
                                                        Pilih Mapel
                                                 </option>

@@ -22,7 +22,7 @@
                             <label for="nama_kebijakan">NAMA KELAS</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" id="nama_kegiatan" class="form-control" placeholder="nama kelas" name="nama_kelas">
+                                    <input type="text" id="nama_kegiatan" class="form-control" placeholder="nama kelas" name="nama_kelas" required>
                                 </div>
                             </div>
                             <div class="center-block">

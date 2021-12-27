@@ -22,13 +22,13 @@
                             <label for="nama_kebijakan">NAMA MATA PELAJARAN</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" id="nama_kegiatan" class="form-control" placeholder="nama mapel" name="nama_matapelajaran">
+                                    <input type="text" id="nama_kegiatan" class="form-control" placeholder="nama mapel" name="nama_matapelajaran" required>
                                 </div>
                             </div>
                             <label for="nama_kebijakan">KKM MATA PELAJARAN</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" id="nama_kegiatan" class="form-control" placeholder="kkm mapel" name="kkm">
+                                    <input type="text" id="nama_kegiatan" class="form-control" placeholder="kkm mapel" name="kkm" required>
                                 </div>
                             </div>
                             <div class="center-block">

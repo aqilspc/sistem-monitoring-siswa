@@ -21,7 +21,7 @@
                             <label for="nis">Siswa</label>
                             <div class="form-group">
                             <div class="form-line">
-                                    <input type="text" disabled value="{{$data->nama_siswa}}" class="form-control" placeholder="tanggal">
+                                    <input type="text" disabled value="{{$data->nama_siswa}}" class="form-control" placeholder="tanggal" required>
                                     <input type="hidden" name="id_siswa" value="{{$data->id_siswa}}" class="form-control" placeholder="tanggal">
                                 </div>
                             </div>
@@ -29,7 +29,7 @@
                             <div class="form-group">
                                 <div class="form-line">
                                     <input type="date" name="tanggal" class="form-control" placeholder="tanggal"
-                                    value="{{$data->tanggal}}">
+                                    value="{{$data->tanggal}}" required>
                                 </div>
                             </div>
                             
@@ -37,7 +37,7 @@
                             <div class="form-group">
 
                                <select class="form-control show-tick"
-                               name="status">
+                               name="status" required>
                                 <option value="Hadir" {{$data->status=='Hadir'?'selected':''}}>
                                        Hadir
                                 </option>
@@ -56,7 +56,7 @@
                             <div class="form-group">
                                 <div class="form-line">
                                     <input type="time" name="jam" class="form-control" placeholder="Jam"
-                                    value="{{$data->jam}}"
+                                    value="{{$data->jam}}" required
                                     >
                                 </div>
                             </div>

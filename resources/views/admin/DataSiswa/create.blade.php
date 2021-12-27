@@ -23,31 +23,31 @@
                             <label for="nis">NIS</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" name="nis" class="form-control" placeholder="NIS">
+                                    <input type="text" name="nis" class="form-control" placeholder="NIS" required>
                                 </div>
                             </div>
                             <label for="nama_siswa">NAMA SISWA</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" name="nama_siswa" class="form-control" placeholder="Nama Siswa">
+                                    <input type="text" name="nama_siswa" class="form-control" placeholder="Nama Siswa" required>
                                 </div>
                             </div>
                             <label for="no_telepon">NO TELP.</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" name="no_telepon" class="form-control" placeholder="No Telepon Wali">
+                                    <input type="text" name="no_telepon" class="form-control" placeholder="No Telepon Wali" required>
                                 </div>
                             </div>
                             <label for="nama_wali">NAMA WALI</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" name="nama_wali" class="form-control" placeholder="Nama Wali">
+                                    <input type="text" name="nama_wali" class="form-control" placeholder="Nama Wali" required>
                                 </div>
                             </div>
                             <label for="email">KELAS</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                   <select class="form-control show-tick" name="id_kelas">
+                                   <select class="form-control show-tick" name="id_kelas" required>
                                                 <option value="0">
                                                        Pilih Kelas
                                                 </option>
@@ -61,7 +61,7 @@
                             <label for="email">TAHUN AJARAN</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <select class="form-control show-tick" name="id_tahun">
+                                    <select class="form-control show-tick" name="id_tahun" required>
                                                 <option value="0">
                                                        Pilih Tahun
                                                 </option>

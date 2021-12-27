@@ -24,7 +24,7 @@
 
                            <div class="form-group">
                                <select class="form-control show-tick" data-live-search="true" multiple 
-                               name="id_siswa[]" >
+                               name="id_siswa[]" required>
                                 @foreach($siswa as $sw)
                                     <option value="{{$sw->id_siswa}}">
                                         Nis : {{$sw->nis}} - Nama : {{$sw->nama_siswa}}
@@ -36,13 +36,13 @@
                             <label for="tanggal">TANGGAL</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="date" name="tanggal" class="form-control" placeholder="tanggal">
+                                    <input type="date" name="tanggal" class="form-control" placeholder="tanggal" required>
                                 </div>
                             </div>
                             <label for="status">STATUS</label>
                             <div class="form-group">
                                <select class="form-control show-tick"
-                               name="status">
+                               name="status" required>
                                 <option value="Berat">
                                        Berat
                                 </option>
@@ -54,7 +54,7 @@
                             <label for="nama_wali">PELANGGARAN</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                     <textarea id="alamat" class="form-control summernote" name="pelanggaran" >
+                                     <textarea id="alamat" class="form-control summernote" name="pelanggaran" required>
                                     </textarea>
                                 </div>
                             </div>

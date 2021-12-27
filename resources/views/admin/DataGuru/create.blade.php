@@ -22,25 +22,25 @@
                             <label for="nama_guru">NAMA GURU</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" name="nama_guru" class="form-control" placeholder="Nama Guru">
+                                    <input type="text" name="nama_guru" class="form-control" placeholder="Nama Guru" required>
                                 </div>
                             </div>
                             <label for="no_telepon">NO TELP.</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" name="no_telepon" class="form-control" placeholder="No Telepon Wali">
+                                    <input type="text" name="no_telepon" class="form-control" placeholder="No Telepon Wali" required>
                                 </div>
                             </div>
                             <label for="email">EMAIL</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" name="email" class="form-control" placeholder="Email">
+                                    <input type="text" name="email" class="form-control" placeholder="Email" required>
                                 </div>
                             </div>
                             <label for="email">PASSWORD</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="password"  required name="password" class="form-control" placeholder="Password">
+                                    <input type="password"  required name="password" class="form-control" placeholder="Password" required>
                                 </div>
                             </div>
 

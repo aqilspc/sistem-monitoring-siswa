@@ -23,7 +23,7 @@
                             <label for="nis">Pilih Ssiswa</label>
                             <div class="form-group">
                                <select class="form-control show-tick" data-live-search="true" multiple 
-                               name="id_siswa[]" >
+                               name="id_siswa[]" required>
                                 @foreach($siswa as $sw)
                                     <option value="{{$sw->id_siswa}}">
                                         Nis : {{$sw->nis}} - Nama : {{$sw->nama_siswa}}
@@ -34,14 +34,14 @@
                             <label for="nama_siswa">TANGGAL</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="date" name="tanggal" class="form-control" placeholder="tanggal">
+                                    <input type="date" name="tanggal" class="form-control" placeholder="tanggal" required>
                                 </div>
                             </div>
                             
                             <label for="status">STATUS</label>
                             <div class="form-group">
                             <select class="form-control show-tick"
-                               name="status">
+                               name="status" required>
                                 <option value="Hadir">
                                        Hadir
                                 </option>
@@ -59,7 +59,7 @@
                             <label for="nama_wali">JAM</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="time" name="jam" class="form-control" placeholder="Jam">
+                                    <input type="time" name="jam" class="form-control" placeholder="Jam" required>
                                 </div>
                             </div>
                             

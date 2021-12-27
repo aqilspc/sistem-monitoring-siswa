@@ -104,6 +104,7 @@
                                         </select>
                                         </div>
                                     </div>
+                                    <input type="hidden" name="old_tahun" value="{{$id_tahun}}">
                                 </div>
                                 
                             </div>
