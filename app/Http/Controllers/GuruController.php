@@ -66,7 +66,12 @@ class GuruController extends Controller
                  'created_at'=>Carbon::now()->toDateTimeString(),
             ]);
         $guru = DB::table('md_guru')->where('id_guru',$id)->first();
-        DB::table('users')->where('id',$guru->id_user)->update(['name'=>$guru->nama_guru]);
+        DB::table('users')->where('id',$guru->id_user)->update(
+            [
+                'name'=>$guru->nama_guru,
+                'email'=>$request->email,
+                'password'=>bcrypt($request->password)
+            ]);
         return redirect('admin/guru');
     }
 

@@ -14,7 +14,7 @@
                 <div class="card">
                     <div class="header">
                         <h2>
-                             <a href="{{url('#')}}" class="btn btn-success waves-effect" type="button">
+                             <a href="{{url('guru/pdf/nilai/'.$siswa->id_siswa.'/'.$kelas->id_kelas.'/'.$tahun->id_tahun)}}" class="btn btn-success waves-effect" target="_blank">
                                Download Pdf
                              </a>
                         </h2>

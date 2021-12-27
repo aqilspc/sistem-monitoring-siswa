@@ -136,6 +136,7 @@ Route::get('/guru/nilai/rerata/siswa/{s}/{k}/{t}',[NilaiController::class,'index
 Route::get('/guru/nilai/mapel/siswa/{s}/{k}/{m}/{t}',[NilaiController::class,'PerSiswaMapel']);
 Route::get('/guru/nilai/siswa/{s}/{k}/{t}',[NilaiController::class,'indexPerSiswa']);
 
+Route::get('/guru/pdf/nilai/{s}/{k}/{t}',[NilaiController::class,'testBlade']);
 //user wali
 Route::post('login_wali',[LoginController::class,'customLoginWali']);
 Route::post('login_user',[LoginController::class,'customLoginUser']);

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use Carbon\Carbon;
 use Auth;
+use PDF;
 class NilaiController extends Controller
 {
     /**
@@ -225,6 +226,65 @@ class NilaiController extends Controller
          DB::table('bd_nilai_siswa')->where('id_nilai',$id)->delete();
          return redirect()->back();
         //return 'test';
+    }
+
+    public function testBlade($id_siswa,$id_kelas,$id_tahun)
+    {
+        $siswa = DB::table('bd_siswa')->where('id_siswa',$id_siswa)->first();
+        $grup = DB::table('bd_nilai_siswa as bns')
+        ->join('md_matapelajaran as mp','mp.id_matapelajaran','=','bns.id_matapelajaran')
+        ->join('md_kelas as mk','mk.id_kelas','=','bns.id_kelas')
+        ->where('bns.id_siswa',$id_siswa)
+        ->where('bns.id_kelas',$id_kelas)
+        ->where('bns.id_tahun',$id_tahun)
+        ->groupBy('bns.id_matapelajaran') 
+        ->get();
+        $arr = [];
+        $total = 0;
+        $banyakoy = 0;
+        $totalSemua = 0;
+
+        foreach($grup as $key => $it)
+        {
+            $banyak = DB::table('bd_nilai_siswa as bns')
+                ->join('md_matapelajaran as mp','mp.id_matapelajaran','=','bns.id_matapelajaran')
+                ->join('md_kelas as mk','mk.id_kelas','=','bns.id_kelas')
+                ->where('bns.id_siswa',$id_siswa)
+                ->where('bns.id_kelas',$id_kelas)
+                ->where('bns.id_matapelajaran',$it->id_matapelajaran) 
+                ->count();
+            $jumlah = DB::table('bd_nilai_siswa as bns')
+                ->join('md_matapelajaran as mp','mp.id_matapelajaran','=','bns.id_matapelajaran')
+                ->join('md_kelas as mk','mk.id_kelas','=','bns.id_kelas')
+                ->where('bns.id_siswa',$id_siswa)
+                ->where('bns.id_kelas',$id_kelas)
+                ->where('bns.id_matapelajaran',$it->id_matapelajaran) 
+                ->sum('nilai');
+            $nilai = $jumlah / $banyak;
+            $hasil = round($nilai,0);
+            $arr[$key]['nama_matapelajaran'] = $it->nama_matapelajaran;
+            if($hasil <= 75){
+                $arr[$key]['status'] = 'Cukup';
+            }elseif($hasil < 75){
+                $arr[$key]['status'] = 'Tidak Cukup';
+            }elseif($hasil > 85){
+                $arr[$key]['status'] = 'Baik';
+            }elseif($hasil < 90){
+                $arr[$key]['status'] = 'Sangat Baik';
+            }
+            
+            $arr[$key]['rata_rata'] = $hasil;
+            $arr[$key]['kkm'] = $it->kkm;
+            $banyakoy++;
+            $total += $hasil;
+        }
+        $totalSemua = $total / $banyakoy;
+        $kelas = DB::table('md_kelas')->where('id_kelas',$id_kelas)->first();
+        $tahun = DB::table('md_tahun_ajaran')->where('id_tahun',$id_tahun)->first();
+        $siswa = DB::table('bd_siswa')->where('id_siswa',$id_siswa)->first();
+        $p = PDF::loadview('guru.DataNilai.pdfnilai',compact('arr','siswa','kelas','tahun','totalSemua'));
+        return $p->download('LAPORAN_PENILAIN_HASIL_BELAJAR_'.$siswa->nama_siswa.'_'.$siswa->nis.'.pdf');
+        //return view('guru.DataNilai.pdfnilai',compact('arr','siswa','kelas','tahun','totalSemua'));
     }
 
 }
