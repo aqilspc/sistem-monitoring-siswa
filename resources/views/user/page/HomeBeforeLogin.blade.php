@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-    <title>SMK NEGERI 1 PASURUAN - Sistem Monitoring</title>
+    <title>MIS NU SABILUN NAJAH 26 - Sistem Monitoring</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -90,7 +90,7 @@ https://templatemo.com/tm-563-seo-dream
                     </div>
                   </div>
                   <div class="col-lg-12">
-                    <h2>SMK NEGERI 1 PASURUAN</h2>
+                    <h2>MIS NU SABILUN NAJAH 26</h2>
                   </div>
                   
                 </div>

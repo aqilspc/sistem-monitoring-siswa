@@ -21,7 +21,7 @@
                   </div>
                 </div>
                 <div class="col-lg-12">
-                  <h2>SMK NEGERI 1 PASURUAN</h2>
+                  <h2>MIS NU SABILUN NAJAH 26</h2>
                 </div>
                 
               </div>
