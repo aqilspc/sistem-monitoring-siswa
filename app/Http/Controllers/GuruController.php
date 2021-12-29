@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use PDF;
 use Illuminate\Http\Request;
 use DB;
 use Carbon\Carbon;
@@ -83,13 +83,11 @@ class GuruController extends Controller
 
     public function indexMengajar($id_guru)
     {
-
-             $data = DB::table('bd_guru_mengajar as bgm')
+        $data = DB::table('bd_guru_mengajar as bgm')
                 ->join('md_kelas as mk','mk.id_kelas','=','bgm.id_kelas')
                 ->join('md_guru as mg','mg.id_guru','=','bgm.id_guru')
                 ->join('md_matapelajaran as mp','mp.id_matapelajaran','=','bgm.id_matapelajaran')
                 ->join('md_tahun_ajaran as mtj','mtj.id_tahun','=','bgm.id_tahun')
-                //->where('bgm.id_tahun',$id_tahun)
                 ->where('bgm.id_guru',$id_guru)
                 ->get();
         $guru = DB::table('md_guru')->where('id_guru',$id_guru)->first();
@@ -151,5 +149,14 @@ class GuruController extends Controller
                     'id_matapelajaran'=>$mapel
                 ]);
         return redirect('admin/guru/mengajar/'.$guru);
+    }
+
+    public function exportPdf(){
+        $data = DB::table('md_guru as mg')
+        ->join('users as us','us.id','=','mg.id_user')
+        ->get();
+        $date = date('Y-m-d'); 
+        $p = PDF::loadview('admin.Export.guru',compact('data'));
+        return $p->download('data_guru_export_pada_'.$date.'.pdf');
     }
 }

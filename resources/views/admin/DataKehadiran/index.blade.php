@@ -16,7 +16,7 @@
                         <h2>
                            <a href="{{url('admin/kehadiran/create_page')}}" class="btn btn-success waves-effect" type="button">+Tambah data</a>
                            <a href="{{url('#')}}" class="btn btn-success waves-effect" type="button">Import data</a>
-                            <a href="{{url('#')}}" class="btn btn-success waves-effect" type="button">Eksport data</a>
+                            <a href="{{url('admin/kehadiran_pdf_export')}}" class="btn btn-success waves-effect" type="button">Eksport data</a>
                         </h2>
                     </div>
                     <div class="body">  
@@ -39,8 +39,8 @@
                                             <td>{{$key+1}}</td>
                                             <td>{{$d->nama_siswa}}</td>
                                             <td>{{$d->tanggal}}</td>
-                                             <td>{{$d->status}}</td>
-                                             <td>{{$d->jam}}</td>
+                                            <td>{{$d->status}}</td>
+                                            <td>{{$d->jam}}</td>
                                             <td>
                                                  <a href="{{url('admin/kehadiran/edit/'.$d->id_kehadiran)}}"><i class="material-icons">create</i> </a>
                                                 &nbsp;

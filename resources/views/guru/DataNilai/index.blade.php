@@ -14,7 +14,7 @@
                 <div class="card">
                     <div class="header">
                         <h2>
-                             <a href="{{url('#')}}" class="btn btn-success waves-effect" type="button">Eksport data penilaian kelas {{strtoupper($kelas->nama_kelas)}} - Tahun Ajaran : {{strtoupper($tahun->priode_tahun)}}</a>
+                             <a href="{{url('guru/nilai_pdf_kelas/'.$kelas->id_kelas.'/'.$tahun->id_tahun)}}" class="btn btn-success waves-effect" type="button">Eksport data penilaian kelas {{strtoupper($kelas->nama_kelas)}} - Tahun Ajaran : {{strtoupper($tahun->priode_tahun)}}</a>
                              <a href="{{url('guru/nilai/create/'.$kelas->id_kelas.'/'.$tahun->id_tahun)}}" class="btn btn-success waves-effect" type="button">Tambah data penilaian kelas {{strtoupper($kelas->nama_kelas)}} - Tahun Ajaran : {{strtoupper($tahun->priode_tahun)}}</a>
                         </h2>
                         <br>

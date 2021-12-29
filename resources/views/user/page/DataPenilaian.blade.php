@@ -9,32 +9,31 @@
             <div class="col-lg-6 offset-lg-3" style="padding-top: 100px">
               <div class="section-heading">
                 <h4><b>DATA PENILAIAN</b></h4>
-                {{-- <h2><em>{{$siswa->nama_siswa}}</em></h2> --}}
+                DATA NILAI {{strtoupper($siswa->nama_siswa)}}  {{strtoupper($kelas->nama_kelas)}} - Tahun Ajaran : {{strtoupper($tahun->priode_tahun)}}
               </div>
             </div>
            <div class="col-lg-12 offset-lg-12">
-
               <table class="table table-striped" id="tableokrole">
-                
                   <thead>
-                    
-                    <button style="padding-block-end: 10">export</button>
+                    <a href="{{url('wali_nilai_pdf_siswa/'.$siswa->id_siswa.'/'.$kelas->id_kelas.'/'.$tahun->id_tahun)}}" target="_blank" class="btn btn-success">export</a>
                     <tr>
+                      <th>No</th>
                       <th>Mata Pelajaran</th>
-                      <th>Tugas</th>
-                      <th>Tanggal</th>
                       <th>Nilai</th>
+                      <th>Keterangan</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {{-- @foreach($data as $d) --}}
+                     @foreach($data as $key => $d)
                     <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td>{{$key+1}}</td>
+                      <td>{{$d->nama_matapelajaran}}</td>
+                      <td>{{$d->nilai}}</td>
+                      <td>
+                        {{$d->nama_nilai}}
+                      </td>
                     </tr>
-                    {{-- @endforeach --}}
+                    @endforeach
                   </tbody>
                 </table>
 

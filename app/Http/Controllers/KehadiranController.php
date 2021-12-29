@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use PDF;
 use Illuminate\Http\Request;
 use DB;
 use Carbon\Carbon;
@@ -82,5 +82,14 @@ class KehadiranController extends Controller
     {
         DB::table('bd_kehadiran_siswa')->where('id_kehadiran',$id)->delete();
         return redirect('admin/kehadiran');
+    }
+
+    public function exportPdf(){
+        $data = DB::table('bd_kehadiran_siswa as bps')
+        ->join('bd_siswa as bs','bs.id_siswa','=','bps.id_siswa')
+        ->get();
+        $date = date('Y-m-d'); 
+        $p = PDF::loadview('admin.Export.kehadiran',compact('data'));
+        return $p->download('data_kehadiran_export_pada_'.$date.'.pdf');
     }
 }

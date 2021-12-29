@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
+use PDF;
 class SiswaController extends Controller
 {
     /**
@@ -130,5 +131,18 @@ class SiswaController extends Controller
         DB::table('users')->where('id',$id_user_wali)->delete();
         DB::table('bd_siswa')->where('id_siswa',$id)->delete();
         return redirect('admin/siswa');
+    }
+
+    public function exportPdf($id_tahun){
+        $data = DB::table('bd_siswa as bs')
+               ->join('users as us','us.id','=','bs.id_user_wali')
+               ->join('md_kelas_siswa as mks','mks.id_siswa','=','bs.id_siswa')
+               ->join('md_kelas as mk','mk.id_kelas','=','mks.id_kelas')
+               ->where('mks.id_tahun',$id_tahun)
+               ->get();
+        $tahun = DB::table('md_tahun_ajaran')->where('id_tahun',$id_tahun)
+        ->select('priode_tahun')->first();
+        $p = PDF::loadview('admin.Export.siswa',compact('data','tahun'));
+        return $p->download('data_siswa_'.$tahun->priode_tahun.'.pdf');
     }
 }

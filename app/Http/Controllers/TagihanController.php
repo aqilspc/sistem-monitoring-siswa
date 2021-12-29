@@ -82,4 +82,13 @@ class TagihanController extends Controller
         DB::table('bd_tagihan_siswa')->where('id_tagihan',$id)->delete();
         return redirect('admin/tagihan');
     }
+
+    public function exportPdf(){
+        $data = DB::table('bd_tagihan_siswa as bts')
+        ->join('bd_siswa as bs','bs.id_siswa','=','bts.id_siswa')
+        ->get();
+        $date = date('Y-m-d'); 
+        $p = PDF::loadview('admin.Export.tagihan',compact('data'));
+        return $p->download('data_tagihan_export_pada_'.$date.'.pdf');
+    }
 }

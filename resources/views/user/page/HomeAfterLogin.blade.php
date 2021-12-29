@@ -94,7 +94,7 @@
             </a>
             </div>
             <div class="col-lg-2">
-              <a href="cobapenilaian">
+              <a href="{{url('indexpenilaian')}}/{{$addons->id_siswa}}/{{$addons->id_kelas}}/{{$addons->id_tahun}}">
               <div class="features-item first-feature wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.4s">
                 <div class="first-number number">
                   <h6>04</h6>

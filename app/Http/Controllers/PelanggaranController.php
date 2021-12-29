@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use PDF;
 use Illuminate\Http\Request;
 use DB;
 use Carbon\Carbon;
@@ -80,5 +80,14 @@ class PelanggaranController extends Controller
     {
         DB::table('bd_pelanggaran_siswa')->where('id_pelanggaran',$id)->delete();
         return redirect('admin/pelanggaran');
+    }
+
+     public function exportPdf(){
+        $data = DB::table('bd_pelanggaran_siswa as bps')
+        ->join('bd_siswa as bs','bs.id_siswa','=','bps.id_siswa')
+        ->get();
+        $date = date('Y-m-d'); 
+        $p = PDF::loadview('admin.Export.pelanggaran',compact('data'));
+        return $p->download('data_pelanggaran_export_pada_'.$date.'.pdf');
     }
 }

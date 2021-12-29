@@ -228,7 +228,7 @@ class NilaiController extends Controller
         //return 'test';
     }
 
-    public function testBlade($id_siswa,$id_kelas,$id_tahun)
+    public function exportPdfRataRataSiswa($id_siswa,$id_kelas,$id_tahun)
     {
         $siswa = DB::table('bd_siswa')->where('id_siswa',$id_siswa)->first();
         $grup = DB::table('bd_nilai_siswa as bns')
@@ -285,6 +285,41 @@ class NilaiController extends Controller
         $p = PDF::loadview('guru.DataNilai.pdfnilai',compact('arr','siswa','kelas','tahun','totalSemua'));
         return $p->download('LAPORAN_PENILAIN_HASIL_BELAJAR_'.$siswa->nama_siswa.'_'.$siswa->nis.'.pdf');
         //return view('guru.DataNilai.pdfnilai',compact('arr','siswa','kelas','tahun','totalSemua'));
+    }
+
+    public function exportPdfKelas($id_kelas,$id_tahun){
+       $data = DB::table('bd_siswa as bs')
+                ->join('md_kelas_siswa as mks','mks.id_siswa','=','bs.id_siswa')
+                ->join('md_kelas as mk','mk.id_kelas','=','mks.id_kelas')
+                ->rightjoin('bd_nilai_siswa as bns','bns.id_siswa','=','bs.id_siswa')
+                ->join('md_matapelajaran as mp','mp.id_matapelajaran','=','bns.id_matapelajaran')
+                ->where('mks.id_kelas',$id_kelas)
+                ->where('mks.id_tahun',$id_tahun)
+                ->where('bns.id_kelas',$id_kelas)
+                ->where('bns.id_tahun',$id_tahun)
+                ->orderby('bs.nama_siswa','ASC')
+                ->get();
+        $kelas = DB::table('md_kelas')->where('id_kelas',$id_kelas)->first();
+        $tahun = DB::table('md_tahun_ajaran')->where('id_tahun',$id_tahun)->first();
+        $date = date('Y-m-d'); 
+        $p = PDF::loadview('admin.Export.nilaiKelas',compact('data','kelas','tahun'));
+        return $p->download('data_nilai_kelas_'.$kelas->nama_kelas.'_TA_'.$tahun->priode_tahun.'_export_pada_'.$date.'.pdf');
+    }
+
+    public function exportPdfSiswa($id_siswa,$id_kelas,$id_tahun){
+        $siswa = DB::table('bd_siswa')->where('id_siswa',$id_siswa)->first();
+        $data = DB::table('bd_nilai_siswa as bns')
+        ->join('md_matapelajaran as mp','mp.id_matapelajaran','=','bns.id_matapelajaran')
+        ->join('md_kelas as mk','mk.id_kelas','=','bns.id_kelas')
+        ->where('bns.id_siswa',$id_siswa)
+        ->where('bns.id_kelas',$id_kelas)
+        ->where('bns.id_tahun',$id_tahun)
+        ->get();
+        $tahun = DB::table('md_tahun_ajaran')->where('id_tahun',$id_tahun)->first();
+        $kelas = DB::table('md_kelas')->where('id_kelas',$id_kelas)->first();
+        $date = date('Y-m-d'); 
+        $p = PDF::loadview('admin.Export.nilaiSiswa',compact('data','tahun','kelas','siswa'));
+        return $p->download('data_nilai_'.$siswa->nama_siswa.'_Nis_'.$siswa->nis.'_TA_'.$tahun->priode_tahun.'_export_pada_'.$date.'.pdf');
     }
 
 }

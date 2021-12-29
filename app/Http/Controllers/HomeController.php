@@ -55,7 +55,12 @@ class HomeController extends Controller
     public function indexWali()
     {
         $siswa = DB::table('bd_siswa')->where('id_user_wali',Auth::user()->id)->first();
-        return view('user.page.HomeAfterLogin',compact('siswa'));
+        $addons = DB::table('md_kelas_siswa as mks')
+                ->join('md_tahun_ajaran as mta','mta.id_tahun','=','mks.id_tahun')
+                 ->where('mks.id_siswa',$siswa->id_siswa)
+                 ->orderby('mta.priode_tahun','DESC')
+                 ->first();
+        return view('user.page.HomeAfterLogin',compact('siswa','addons'));
     }
 
     public function indexKebijakan()
@@ -135,5 +140,19 @@ class HomeController extends Controller
             ]
         );
         return redirect()->back();
+    }
+
+    public function indexPenilaian($id_siswa,$id_kelas,$id_tahun){
+        $siswa = DB::table('bd_siswa')->where('id_siswa',$id_siswa)->first();
+        $data = DB::table('bd_nilai_siswa as bns')
+        ->join('md_matapelajaran as mp','mp.id_matapelajaran','=','bns.id_matapelajaran')
+        ->join('md_kelas as mk','mk.id_kelas','=','bns.id_kelas')
+        ->where('bns.id_siswa',$id_siswa)
+        ->where('bns.id_kelas',$id_kelas)
+        ->where('bns.id_tahun',$id_tahun)
+        ->get();
+        $kelas = DB::table('md_kelas')->where('id_kelas',$id_kelas)->first();
+        $tahun = DB::table('md_tahun_ajaran')->where('id_tahun',$id_tahun)->first();
+        return view('user.page.DataPenilaian',compact('data','siswa','kelas','tahun'));
     }
 }

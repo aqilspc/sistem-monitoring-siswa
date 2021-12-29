@@ -53,6 +53,7 @@ Route::get('/admin/siswa/edit/{id}/{t}', [SiswaController::class, 'editPage']);
 Route::post('/admin/siswa/create', [SiswaController::class, 'create']);
 Route::post('/admin/siswa/update/{id}', [SiswaController::class, 'update']);
 Route::get('/admin/siswa/delete/{id}', [SiswaController::class, 'delete']);
+Route::get('/admin/siswa_pdf_export/{t}', [SiswaController::class, 'exportPdf']);
 
 //admin tagihan
 Route::get('/admin/tagihan', [TagihanController::class, 'index']);
@@ -61,22 +62,7 @@ Route::get('/admin/tagihan/edit/{id}', [TagihanController::class, 'editPage']);
 Route::post('/admin/tagihan/create', [TagihanController::class, 'create']);
 Route::post('/admin/tagihan/update/{id}', [TagihanController::class, 'update']);
 Route::get('/admin/tagihan/delete/{id}', [TagihanController::class, 'delete']);
-
-//admin kebijakan
-Route::get('/admin/kebijakan', [KebijakanController::class, 'index']);
-Route::get('/admin/kebijakan/create_page', [KebijakanController::class, 'createPage']);
-Route::get('/admin/kebijakan/edit/{id}', [KebijakanController::class, 'editPage']);
-Route::post('/admin/kebijakan/create', [KebijakanController::class, 'create']);
-Route::post('/admin/kebijakan/update/{id}', [KebijakanController::class, 'update']);
-Route::get('/admin/kebijakan/delete/{id}', [KebijakanController::class, 'delete']);
-
-//admin kegiatan
-Route::get('/admin/kegiatan', [KegiatanController::class, 'index']);
-Route::get('/admin/kegiatan/create_page', [KegiatanController::class, 'createPage']);
-Route::get('/admin/kegiatan/edit/{id}', [KegiatanController::class, 'editPage']);
-Route::post('/admin/kegiatan/create', [KegiatanController::class, 'create']);
-Route::post('/admin/kegiatan/update/{id}', [KegiatanController::class, 'update']);
-Route::get('/admin/kegiatan/delete/{id}', [KegiatanController::class, 'delete']);
+Route::get('/admin/tagihan_pdf_export',[TagihanController::class,'exportPdf']);
 
 //admin pelanggaran
 Route::get('/admin/pelanggaran', [PelanggaranController::class, 'index']);
@@ -85,6 +71,7 @@ Route::get('/admin/pelanggaran/edit/{id}', [PelanggaranController::class, 'editP
 Route::post('/admin/pelanggaran/create', [PelanggaranController::class, 'create']);
 Route::post('/admin/pelanggaran/update/{id}', [PelanggaranController::class, 'update']);
 Route::get('/admin/pelanggaran/delete/{id}', [PelanggaranController::class, 'delete']);
+Route::get('/admin/pelanggaran_pdf_export', [PelanggaranController::class, 'exportPdf']);
 
 //admin kehadiran
 Route::get('/admin/kehadiran', [KehadiranController::class, 'index']);
@@ -93,6 +80,7 @@ Route::get('/admin/kehadiran/edit/{id}', [KehadiranController::class, 'editPage'
 Route::post('/admin/kehadiran/create', [KehadiranController::class, 'create']);
 Route::post('/admin/kehadiran/update/{id}', [KehadiranController::class, 'update']);
 Route::get('/admin/kehadiran/delete/{id}', [KehadiranController::class, 'delete']);
+Route::get('/admin/kehadiran_pdf_export',[KehadiranController::class,'exportPdf']);
 
 //admin guru
 Route::get('/admin/guru',[GuruController::class,'index']);
@@ -106,6 +94,7 @@ Route::get('/admin/guru/mengajar/create/{id}',[GuruController::class,'createMeng
 Route::get('/admin/guru/mengajar/edit/{id}',[GuruController::class,'editMengajar']);
 Route::post('/admin/guru/mengajar/storeMengajar',[GuruController::class,'storeMengajar']);
 Route::post('/admin/guru/mengajar/UpdateMengajar',[GuruController::class,'UpdateMengajar']);
+Route::get('/admin/guru_pdf_export',[GuruController::class,'exportPdf']);
 
 //admin/kelas
 Route::get('/admin/kelas',[KelasController::class,'index']);
@@ -123,6 +112,22 @@ Route::get('/admin/matapelajaran/edit/{id}',[MataPelajaranController::class,'edi
 Route::post('/admin/matapelajaran/update/{id}',[MataPelajaranController::class,'update']);
 Route::get('/admin/matapelajaran/delete/{id}',[MataPelajaranController::class,'delete']);
 
+//admin kebijakan
+Route::get('/admin/kebijakan', [KebijakanController::class, 'index']);
+Route::get('/admin/kebijakan/create_page', [KebijakanController::class, 'createPage']);
+Route::get('/admin/kebijakan/edit/{id}', [KebijakanController::class, 'editPage']);
+Route::post('/admin/kebijakan/create', [KebijakanController::class, 'create']);
+Route::post('/admin/kebijakan/update/{id}', [KebijakanController::class, 'update']);
+Route::get('/admin/kebijakan/delete/{id}', [KebijakanController::class, 'delete']);
+
+//admin kegiatan
+Route::get('/admin/kegiatan', [KegiatanController::class, 'index']);
+Route::get('/admin/kegiatan/create_page', [KegiatanController::class, 'createPage']);
+Route::get('/admin/kegiatan/edit/{id}', [KegiatanController::class, 'editPage']);
+Route::post('/admin/kegiatan/create', [KegiatanController::class, 'create']);
+Route::post('/admin/kegiatan/update/{id}', [KegiatanController::class, 'update']);
+Route::get('/admin/kegiatan/delete/{id}', [KegiatanController::class, 'delete']);
+
 //guru/nilai
 Route::get('/guru/kelas',[NilaiController::class,'indexPilihKelas']);
 Route::get('/guru/kelas/{tahun}',[NilaiController::class,'indexPilihKelas']);
@@ -135,8 +140,11 @@ Route::get('/guru_nilai_hapus/{id}',[NilaiController::class,'deleteNilai']);
 Route::get('/guru/nilai/rerata/siswa/{s}/{k}/{t}',[NilaiController::class,'indexRangkumanNilai']);
 Route::get('/guru/nilai/mapel/siswa/{s}/{k}/{m}/{t}',[NilaiController::class,'PerSiswaMapel']);
 Route::get('/guru/nilai/siswa/{s}/{k}/{t}',[NilaiController::class,'indexPerSiswa']);
+Route::get('/guru/pdf/nilai/{s}/{k}/{t}',[NilaiController::class,'exportPdfRataRataSiswa']);
+Route::get('/guru/nilai_pdf_kelas/{k}/{t}',[NilaiController::class,'exportPdfKelas']);
+Route::get('/guru/nilai_pdf_siswa/{s}/{k}/{t}',[NilaiController::class,'exportPdfSiswa']);
+Route::get('/wali_nilai_pdf_siswa/{s}/{k}/{t}',[NilaiController::class,'exportPdfRataRataSiswa']);
 
-Route::get('/guru/pdf/nilai/{s}/{k}/{t}',[NilaiController::class,'testBlade']);
 //user wali
 Route::post('login_wali',[LoginController::class,'customLoginWali']);
 Route::post('login_user',[LoginController::class,'customLoginUser']);
@@ -152,9 +160,7 @@ Route::get('info/pelanggaran',[HomeController::class, 'indexPelanggaran']);
 Route::get('info/tagihan',[HomeController::class, 'indexTagihan']);
 
 //coba
-Route::get('/cobapenilaian', function () {
-    return view('user.page.DataPenilaian');
-});
+Route::get('/indexpenilaian/{s}/{k}/{t}', [HomeController::class, 'indexPenilaian']);
 Route::get('/nilai', function () {
     return view('guru.DataNilai.nilai');
 });
