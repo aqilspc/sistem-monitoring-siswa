@@ -150,7 +150,7 @@ class NilaiController extends Controller
                 ->join('md_kelas_siswa as mks','mks.id_siswa','=','bs.id_siswa')
                 ->join('md_kelas as mk','mk.id_kelas','=','mks.id_kelas')
                 //->rightjoin('bd_nilai_siswa as bns','bns.id_siswa','=','bs.id_siswa')
-                ->join('md_matapelajaran as mp','mp.id_matapelajaran','=','bns.id_matapelajaran')
+                //->join('md_matapelajaran as mp','mp.id_matapelajaran','=','bns.id_matapelajaran')
                 ->where('mks.id_kelas',$id_kelas)
                 ->where('mks.id_tahun',$id_tahun)
                 //->where('bns.id_kelas',$id_kelas)
