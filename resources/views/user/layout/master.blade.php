@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-    <title>SMK NEGERI 1 PASURUAN - Sistem Monitoring</title>
+    <title>MI NU SABILUN NAJAH 26 - Sistem Monitoring</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{{url('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -64,7 +64,7 @@ https://templatemo.com/tm-563-seo-dream
               <li class="scroll-to-section"><a href="{{url('homewali')}}" class="active">Home</a></li>
               <li class="scroll-to-section"><a href="{{url('homewali')}}#features">Layanan</a></li>
               <li class="scroll-to-section"><a onclick="event.preventDefault();document.getElementById('logout-form').submit();" style="cursor: pointer;">Halo, 
-                {{-- {{Auth::user()->name}}  --}}
+                {{Auth::user()->name}}  
                 , Logout</a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf </form>
               </li> 
@@ -85,7 +85,7 @@ https://templatemo.com/tm-563-seo-dream
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <p>Sistem Monitoring © 2021 SMK Negeri 1 Pasuruan. All Rights Reserved. 
+          <p>Sistem Monitoring © {{date('Y')}} MI NU SABILUN NAJAH 26. All Rights Reserved. 
           
           <br>Web Deployed by <a rel="nofollow" href="#" title="free CSS templates">Berjibaku Team</a></p>
         </div>

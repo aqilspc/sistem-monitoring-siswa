@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>ADMIN | SMK Negeri 1 Pasuruan</title>
+    <title>ADMIN | MI NU SABILUN NAJAH 26</title>
     <!-- Favicon-->
     <link rel="icon" href="{{url('favicon.ico')}}" type="image/x-icon">
 
@@ -31,7 +31,7 @@
             <a href="javascript:void(0);"><b>SMS-S</b></a>
             <small>Sistem Informasi Monitoring Siswa</small>
             <br>
-            <small>SMK NEGERI 1 PASURUAN</small>
+            <small>MI NU SABILUN NAJAH 26</small>
         </div>
         <div class="card">
             <div class="body">
