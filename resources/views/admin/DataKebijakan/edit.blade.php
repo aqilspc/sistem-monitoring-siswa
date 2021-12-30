@@ -37,7 +37,7 @@
                                             <i class="material-icons">dvr</i>
                                         </span>
                                         <div class="form-line">
-                                            <input type="file" class="form-control time12" >
+                                            <input type="file" class="form-control time12" name="file_kebijakan">
                                              <input type="hidden" class="form-control time12" name="old_file_kebijakan" value="{{$data->file_kebijakan}}">
                                             
                                         </div>
