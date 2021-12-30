@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use PDF;
 use Carbon\Carbon;
 class TagihanController extends Controller
 {
