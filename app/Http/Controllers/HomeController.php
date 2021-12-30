@@ -48,8 +48,8 @@ class HomeController extends Controller
     {
         $kegiatan = DB::table('md_kegiatan')->count();
         $tagihan = DB::table('bd_tagihan_siswa')->where('status','Belum_Lunas')->sum('jumlah');
-        $kehadiran = DB::table('bd_kehadiran_siswa')->count();
-        return view('admin.home',compact('kegiatan','tagihan','kehadiran'));
+        $siswa = DB::table('bd_siswa')->count();
+        return view('admin.home',compact('kegiatan','tagihan','siswa'));
     }
 
     public function indexWali()

@@ -35,14 +35,14 @@
             </a>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                <a href="{{url('admin/kehadiran')}}">
+                <a href="{{url('admin/siswa')}}">
                 <div class="info-box bg-light-green hover-expand-effect">
                     <div class="icon">
-                        <i class="material-icons">library_books</i>
+                        <i class="material-icons">users</i>
                     </div>
                     <div class="content">
-                        <div class="text">DATA KEHADIRAN</div>
-                        <div class="number count-to" data-from="0" data-to="{{$kehadiran}}" data-speed="1000" data-fresh-interval="20"></div>
+                        <div class="text">TOTAL SISWA</div>
+                        <div class="number count-to" data-from="0" data-to="{{$siswa}}" data-speed="1000" data-fresh-interval="20"></div>
                     </div>
                 </div>
             </a>
