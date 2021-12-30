@@ -25,7 +25,7 @@
 
                             <div class="form-group">
                                 <div class="form-line">
-                                    <select class="form-control show-tick" name="id_siswa">
+                                    <select class="form-control show-tick" name="id_siswa" required>
                                                 <option value="0">
                                                        Pilih Siswa
                                                 </option>
@@ -40,7 +40,7 @@
                             <label for="mapel">MATA PELAJARAN</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                     <select class="form-control show-tick" name="id_matapelajaran">
+                                     <select class="form-control show-tick" name="id_matapelajaran" required>
                                                 <option value="0">
                                                        Pilih Mapel
                                                 </option>
@@ -54,13 +54,13 @@
                             <label for="mapel">TUGAS</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" name="nama_nilai" class="form-control" placeholder="Mata Pelajaran">
+                                    <input type="text" required name="nama_nilai" class="form-control" placeholder="Mata Pelajaran">
                                 </div>
                             </div>
                             <label for="nilai">NILAI</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" name="nilai" class="form-control" placeholder="Nilai">
+                                    <input type="text" required name="nilai" class="form-control" placeholder="Nilai">
                                 </div>
                             </div>
                             <div>
