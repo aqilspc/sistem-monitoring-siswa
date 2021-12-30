@@ -74,8 +74,11 @@
 </section>
 <script type="text/javascript">
     function siswaidtahun(value){
-
-        location.href = "{{url('guru/nilai/siswa/')}}"+"/"+value+"/"+"{{$kelas->id_kelas}}"+"/"+"{{$tahun->id_tahun}}";
+        if(value==0 || value=="0"){
+            return false;
+        }else{  
+            location.href = "{{url('guru/nilai/siswa/')}}"+"/"+value+"/"+"{{$kelas->id_kelas}}"+"/"+"{{$tahun->id_tahun}}";
+        }
     }
 </script>
 @endsection
