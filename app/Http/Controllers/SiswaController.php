@@ -7,6 +7,7 @@ use DB;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 use PDF;
+use SimpleXLSX;
 class SiswaController extends Controller
 {
     /**
@@ -144,5 +145,39 @@ class SiswaController extends Controller
         ->select('priode_tahun')->first();
         $p = PDF::loadview('admin.Export.siswa',compact('data','tahun'));
         return $p->download('data_siswa_'.$tahun->priode_tahun.'.pdf');
+    }
+
+    public function import(Request $request){
+        $result ='';
+        $file = $request->file('file');
+        $name = $file->getClientOriginalName();
+            // $tmp_name = $file['tmp_name'];
+
+        $extension = explode('.',$name);
+        $extension = strtolower(end($extension));
+
+        $key = rand().'_'.time();
+        $tmp_file_name = "{$key}.{$extension}";
+        $tmp_file_path = "admin/siswa/";
+        $file->move($tmp_file_path,$tmp_file_name);
+        $result = $tmp_file_name;
+        $xlsx =SimpleXLSX::parse(public_path('admin/siswa/'.$result));
+        $now = Carbon::now()->toDateTimeString();
+        $header_values_siswa = $rows_siswa = []; // siswa
+            //loop siswa
+            foreach ( $xlsx->rows() as $k => $r )
+            {
+                if ( $k === 0 ) {
+                    $header_values_siswa = $r;
+                    continue;
+                }
+                $rows_siswa[] = array_combine( $header_values_siswa, $r );
+            }
+            $siswa = $rows_siswa;
+
+            for ($i=0; $i < count($siswa); $i++) 
+            { 
+                
+            }
     }
 }

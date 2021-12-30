@@ -32,7 +32,7 @@
                         <h2>
                             @if($id_tahun != NULL)
                              <a href="{{url('admin/siswa/create_page/'.$id_tahun)}}" class="btn btn-success waves-effect" type="button">+ Tambah data</a>
-                             <a href="{{url('#')}}" class="btn btn-success waves-effect" type="button">Import data</a>
+                             <!-- <a href="{{url('#')}}" class="btn btn-success waves-effect" type="button">Import data</a> -->
                              <a href="{{url('admin/siswa_pdf_export/'.$id_tahun)}}" class="btn btn-success waves-effect" target="_blank">Eksport data</a>
                            @endif
                         </h2>
