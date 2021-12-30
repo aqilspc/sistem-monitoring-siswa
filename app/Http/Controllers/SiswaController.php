@@ -127,9 +127,10 @@ class SiswaController extends Controller
     }
 
 
-    public function delete($id_user_wali,$id)
+    public function delete($id)
     {
-        DB::table('users')->where('id',$id_user_wali)->delete();
+        $data = DB::table('bd_siswa')->where('id_siswa',$id)->first();
+        DB::table('users')->where('id',$data->id_user_wali)->delete();
         DB::table('bd_siswa')->where('id_siswa',$id)->delete();
         return redirect('admin/siswa');
     }
