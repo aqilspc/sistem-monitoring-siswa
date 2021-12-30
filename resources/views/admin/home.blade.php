@@ -38,7 +38,7 @@
                 <a href="{{url('admin/siswa')}}">
                 <div class="info-box bg-light-green hover-expand-effect">
                     <div class="icon">
-                        <i class="material-icons">users</i>
+                        <i class="material-icons">people</i>
                     </div>
                     <div class="content">
                         <div class="text">TOTAL SISWA</div>
