@@ -76,24 +76,17 @@ class LoginController extends Controller
         $email = DB::table('users')->where('email',$request->email)->first();
         if(!$email)
         {
-            return response()->json([
-                'status'=>'error',
-                'result'=>'Email Tidak Ditemukan!'
-            ],200);
+           return redirect('login')->with('success','Email tidak ditemukan!');
         }else
         {
                     if(!Hash::check($request->password, $email->password))
                     {
-                       return response()->json([
-                            'status'=>'error',
-                            'result'=>'Password salah!'
-                        ],200);
+                       return redirect('login')->with('success','password anda salah!');
                     }else
                     {
-                        return response()->json([
-                            'status'=>'success',
-                            'result'=>$email
-                        ],200);
+                        $user = User::find($email->id);
+                        Auth::login($user);
+                        return redirect('home');
                     }
         }
     }

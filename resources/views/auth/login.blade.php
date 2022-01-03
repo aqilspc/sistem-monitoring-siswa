@@ -35,7 +35,7 @@
         </div>
         <div class="card">
             <div class="body">
-                <form id="sign_in" action="{{route('login')}}" method="POST">
+                <form id="sign_in" action="{{url('login_user')}}" method="POST">
                     @csrf
                     <div class="msg">Masuk dengan email dan password</div>
                     <div class="input-group">
