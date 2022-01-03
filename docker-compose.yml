@@ -1,0 +1,38 @@
+version: '3'
+services:
+
+  #Laravel App
+  sms:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: aqilspc/sistemmonitoringsiswa:latest
+    container_name: sms
+    restart: unless-stopped
+    tty: true
+    environment:
+      SERVICE_NAME: sms
+      SERVICE_TAGS: sms
+    working_dir: /var/www/html
+    volumes:
+      - ./:/var/www/html
+    networks:
+      - laravel-sms
+  #Nginx Service
+  nginx-sms:
+    image: nginx:alpine
+    container_name: nginx-sms
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "8095:8095"
+    volumes:
+      - ./:/var/www/html
+      - ./nginx/conf.d/:/etc/nginx/conf.d/
+    networks:
+      - laravel-sms
+
+#Docker Networks
+networks:
+  laravel-sms:
+    driver: bridge
