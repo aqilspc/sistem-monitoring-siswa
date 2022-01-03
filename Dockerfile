@@ -39,6 +39,9 @@ RUN docker-php-ext-enable pdo_mysql
 #RUN docker-php-ext-configure gd --with-freetype --with-jpeg
 #RUN docker-php-ext-install gd
 RUN docker-php-ext-install xml
+RUN apk add --no-cache pcre-dev $PHPIZE_DEPS \
+        && pecl install redis \
+        && docker-php-ext-enable redis.so
 # Install PHP Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
